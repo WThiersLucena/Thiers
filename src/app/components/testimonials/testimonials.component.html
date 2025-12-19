@@ -1,0 +1,16 @@
+<section class="testimonials section" id="depoimentos">
+  <div class="container">
+    <h2 class="section-title">Depoimentos</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <div class="testimonial-content">
+          <p class="testimonial-text">"{{ testimonial.text }}"</p>
+        </div>
+        <div class="testimonial-author">
+          <strong>{{ testimonial.name }}</strong>
+          <span>{{ testimonial.company }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<div 
+  class="modal-overlay" 
+  *ngIf="isOpen"
+  (click)="onOverlayClick($event)"
+>
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closeModal()" aria-label="Fechar modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    
+    <div class="modal-body" *ngIf="selectedSolution">
+      <div class="modal-header">
+        <span class="modal-icon">{{ selectedSolution.icon }}</span>
+        <h2>{{ selectedSolution.title }}</h2>
+      </div>
+      
+      <div class="modal-text" [innerHTML]="selectedSolution.content"></div>
+      
+      <!-- Cards SaaS -->
+      <div class="saas-cards-container" *ngIf="selectedSolution.saasCards && selectedSolution.saasCards.length > 0">
+        <div class="saas-cards-grid">
+          <div 
+            class="saas-card" 
+            *ngFor="let card of selectedSolution.saasCards"
+            [class.clickable]="card.link"
+            (click)="card.link && openLink(card.link)"
+          >
+            <div class="saas-card-icon">{{ card.icon }}</div>
+            <h3 class="saas-card-title">{{ card.title }}</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="closeModal()">Fechar</button>
+        <a class="btn btn-secondary" (click)="openWhatsApp()">Fale Conosco</a>
+      </div>
+    </div>
+  </div>
+</div>

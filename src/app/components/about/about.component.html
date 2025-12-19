@@ -1,0 +1,29 @@
+<section class="about section" id="sobre">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Conheça a Thiers: nossa história e nosso compromisso com a excelência</h2>
+        <p>
+          A Thiers foi criada com a missão de levar a <strong>transformação digital a empresas</strong>, 
+          e mudar a maneira como elas lidam com a tecnologia, oferecendo <strong>soluções customizadas com foco em eficiência</strong>, 
+          sempre com agilidade, no prazo combinado, e ainda mais importante, com toda a atenção e cuidado na entrega e manutenção dos sistemas.
+        </p>
+        <p>
+          <strong>Com a Thiers, sua empresa terá um parceiro tecnológico sempre atualizado e pronto para enfrentar os maiores desafios, 
+          pois o nosso core é resolver as dores dos nossos clientes de forma ágil, sempre com excelência.</strong>
+        </p>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card" *ngFor="let stat of stats">
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-mission">
+      <h3>Criamos soluções digitais ideais para seu negócio</h3>
+    </div>
+  </div>
+</section>

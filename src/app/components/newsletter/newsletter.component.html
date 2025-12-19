@@ -1,0 +1,31 @@
+<section class="newsletter section">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>Assine nossa newsletter</h2>
+      <p>Fique por dentro de todas as novidades da Thiers e do mercado de TI!</p>
+      
+      <form class="newsletter-form" (ngSubmit)="onSubmit()">
+        <input 
+          type="email" 
+          placeholder="Seu melhor e-mail"
+          [(ngModel)]="email"
+          name="email"
+          required
+          class="newsletter-input"
+        />
+        <button type="submit" class="btn btn-primary">Assinar</button>
+      </form>
+      
+      <div class="newsletter-checkbox">
+        <label>
+          <input type="checkbox" checked />
+          <span>Eu autorizo a Thiers a usar meus dados para envio de conteúdos personalizados para mim.</span>
+        </label>
+      </div>
+      
+      <div class="newsletter-success" *ngIf="submitted">
+        <p>✓ Obrigado! Você foi cadastrado com sucesso.</p>
+      </div>
+    </div>
+  </div>
+</section>

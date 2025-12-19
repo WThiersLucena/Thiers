@@ -1,0 +1,21 @@
+<section class="solutions section" id="solucoes">
+  <div class="container">
+    <div class="solutions-header">
+      <h2>Nossas soluções</h2>
+      <p>Soluções Thiers: Estratégias e tecnologias para levar sua empresa ao próximo nível</p>
+    </div>
+    
+    <div class="solutions-grid">
+      <div 
+        class="solution-card" 
+        *ngFor="let solution of solutions"
+        (click)="openSolution(solution)"
+      >
+        <div class="solution-icon">{{ solution.icon }}</div>
+        <h3>{{ solution.title }}</h3>
+        <p>{{ solution.description }}</p>
+        <span class="solution-link">Saiba mais →</span>
+      </div>
+    </div>
+  </div>
+</section>
