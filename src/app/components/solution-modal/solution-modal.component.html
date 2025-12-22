@@ -18,18 +18,49 @@
       
       <div class="modal-text" [innerHTML]="selectedSolution.content"></div>
       
-      <!-- Cards SaaS -->
-      <div class="saas-cards-container" *ngIf="selectedSolution.saasCards && selectedSolution.saasCards.length > 0">
-        <div class="saas-cards-grid">
-          <div 
-            class="saas-card" 
-            *ngFor="let card of selectedSolution.saasCards"
-            [class.clickable]="card.link"
-            (click)="card.link && openLink(card.link)"
-          >
-            <div class="saas-card-icon">{{ card.icon }}</div>
-            <h3 class="saas-card-title">{{ card.title }}</h3>
+      <!-- Carrossel SaaS -->
+      <div class="saas-carousel-container" *ngIf="selectedSolution.saasCards && selectedSolution.saasCards.length > 0">
+        <div class="saas-carousel-wrapper">
+          <button class="carousel-btn carousel-btn-prev" (click)="prevSlide()" aria-label="Slide anterior">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="saas-carousel">
+            <div 
+              class="saas-carousel-item" 
+              *ngFor="let card of selectedSolution.saasCards; let i = index"
+              [class.active]="i === currentCarouselIndex"
+              [class.clickable]="card.link"
+              (click)="card.link && openLink(card.link)"
+            >
+              <div class="saas-carousel-image" *ngIf="card.image">
+                <img [src]="card.image" [alt]="card.title" />
+              </div>
+              <div class="saas-carousel-icon" *ngIf="card.icon && !card.image">
+                {{ card.icon }}
+              </div>
+              <h3 class="saas-carousel-title">{{ card.title }}</h3>
+            </div>
           </div>
+          
+          <button class="carousel-btn carousel-btn-next" (click)="nextSlide()" aria-label="Próximo slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Indicadores do carrossel -->
+        <div class="carousel-indicators" *ngIf="selectedSolution.saasCards.length > 1">
+          <button 
+            *ngFor="let card of selectedSolution.saasCards; let i = index"
+            class="carousel-indicator"
+            [class.active]="i === currentCarouselIndex"
+            (click)="goToSlide(i)"
+            [attr.aria-label]="'Ir para slide ' + (i + 1)"
+          ></button>
         </div>
       </div>
       

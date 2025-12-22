@@ -3,7 +3,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface SaasCard {
   title: string;
-  icon: string;
+  icon?: string;
+  image?: string;
   link?: string;
 }
 
@@ -64,16 +65,17 @@ export class SolutionsService {
       saasCards: [
         {
           title: 'Ecommerce',
-          icon: '🛒',
+          image: 'assets/Ecomerce.jpg',
           link: 'https://x1-neon.vercel.app/home',
         },
         {
-          title: 'Empresarial',
-          icon: '🏭',
+          title: 'Barbearia',
+          image: 'assets/Barbearia.jpg',
+          link: 'https://thiers-barbearia.vercel.app/',
         },
         {
-          title: 'Dedicados',
-          icon: '📈',
+          title: 'Empresarial',
+          image: 'assets/Empresarial.png',
         },
       ],
     },

@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class SolutionModalComponent implements OnInit, OnDestroy {
   isOpen = false;
   selectedSolution: Solution | null = null;
+  currentCarouselIndex = 0;
   private subscriptions = new Subscription();
 
   constructor(
@@ -22,7 +23,10 @@ export class SolutionModalComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const solutionSub = this.solutionsService.getSelectedSolution().subscribe(
-      solution => this.selectedSolution = solution
+      solution => {
+        this.selectedSolution = solution;
+        this.currentCarouselIndex = 0; // Reset carousel quando muda a solução
+      }
     );
     
     const modalSub = this.solutionsService.getIsModalOpen().subscribe(
@@ -54,5 +58,23 @@ export class SolutionModalComponent implements OnInit, OnDestroy {
   openWhatsApp(): void {
     this.whatsappService.openWhatsApp();
     this.closeModal();
+  }
+
+  nextSlide(): void {
+    if (this.selectedSolution?.saasCards) {
+      this.currentCarouselIndex = (this.currentCarouselIndex + 1) % this.selectedSolution.saasCards.length;
+    }
+  }
+
+  prevSlide(): void {
+    if (this.selectedSolution?.saasCards) {
+      this.currentCarouselIndex = this.currentCarouselIndex === 0 
+        ? (this.selectedSolution.saasCards.length - 1)
+        : (this.currentCarouselIndex - 1);
+    }
+  }
+
+  goToSlide(index: number): void {
+    this.currentCarouselIndex = index;
   }
 }

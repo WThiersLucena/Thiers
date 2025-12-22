@@ -116,64 +116,146 @@
   margin-bottom: var(--spacing-md);
 }
 
-.saas-cards-container {
+.saas-carousel-container {
   margin: var(--spacing-xl) 0;
   padding-top: var(--spacing-lg);
   border-top: 2px solid var(--bg-light);
 }
 
-.saas-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
+.saas-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
-.saas-card {
+.carousel-btn {
   background-color: var(--bg-light);
-  padding: var(--spacing-lg);
-  border-radius: 8px;
-  text-align: center;
-  transition: all var(--transition-normal);
-  border: 2px solid transparent;
-  cursor: default;
-}
-
-.saas-card.clickable {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-primary);
+  flex-shrink: 0;
+  z-index: 2;
 }
 
-.saas-card.clickable:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-color);
-  background-color: var(--bg-white);
-}
-
-.dark-theme .saas-card {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.dark-theme .saas-card.clickable:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.saas-card-icon {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-sm);
-  display: block;
-  transition: transform var(--transition-normal);
-}
-
-.saas-card.clickable:hover .saas-card-icon {
+.carousel-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
   transform: scale(1.1);
 }
 
-.saas-card-title {
+.dark-theme .carousel-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--bg-white);
+}
+
+.dark-theme .carousel-btn:hover {
+  background-color: var(--primary-color);
+}
+
+.saas-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.saas-carousel-item {
+  display: none;
+  text-align: center;
+  cursor: default;
+  transition: all var(--transition-normal);
+}
+
+.saas-carousel-item.active {
+  display: block;
+  animation: fadeIn var(--transition-normal);
+}
+
+.saas-carousel-item.clickable {
+  cursor: pointer;
+}
+
+.saas-carousel-item.clickable:hover {
+  opacity: 0.9;
+}
+
+.saas-carousel-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: var(--spacing-md);
+  background-color: var(--bg-light);
+}
+
+.saas-carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.saas-carousel-item.clickable:hover .saas-carousel-image img {
+  transform: scale(1.05);
+}
+
+.saas-carousel-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.saas-carousel-title {
   color: var(--text-primary);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
+  padding: var(--spacing-sm) 0;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--bg-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.carousel-indicator:hover {
+  background-color: var(--primary-light);
+  transform: scale(1.2);
+}
+
+.carousel-indicator.active {
+  background-color: var(--primary-color);
+  width: 30px;
+  border-radius: 5px;
+}
+
+.dark-theme .carousel-indicator {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-theme .carousel-indicator.active {
+  background-color: var(--primary-color);
 }
 
 .modal-footer {
@@ -227,9 +309,27 @@
     width: 100%;
   }
 
-  .saas-cards-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
+  .saas-carousel-wrapper {
+    flex-direction: column;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+
+  .carousel-btn-prev {
+    left: var(--spacing-xs);
+  }
+
+  .carousel-btn-next {
+    right: var(--spacing-xs);
+  }
+
+  .saas-carousel-image {
+    height: 250px;
   }
 }
 
