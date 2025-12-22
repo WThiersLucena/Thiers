@@ -1,6 +1,6 @@
 # Thiers - Site Institucional
 
-Site institucional da Thiers desenvolvido em Angular, baseado no modelo da OPAH IT.
+Site institucional da Thiers desenvolvido em Angular.
 
 ## 🚀 Funcionalidades
 
