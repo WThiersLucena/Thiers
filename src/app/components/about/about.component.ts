@@ -5,14 +5,14 @@ import { CommonModule } from '@angular/common';
   selector: 'app-about',
   imports: [CommonModule],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrl: './about.component.css',
 })
 export class AboutComponent {
   stats = [
-    { value: '+500', label: 'Colaboradores' },
-    { value: '+50', label: 'Clientes Ativos' },
-    { value: '+600', label: 'Projetos' },
-    { value: '+10', label: 'Anos no Mercado' },
-    { value: '+72420', label: 'Horas Trabalhadas' }
+    { value: '+100', label: 'Colaboradores' },
+    { value: '+20', label: 'Clientes Ativos' },
+    { value: '+75', label: 'Projetos' },
+    { value: '+5', label: 'Anos no Mercado' },
+    { value: '+12420', label: 'Horas Trabalhadas' },
   ];
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ThemeService, Theme } from '../../services/theme.service';
 import { WhatsAppService } from '../../services/whatsapp.service';
 
 @Component({
@@ -9,20 +8,45 @@ import { WhatsAppService } from '../../services/whatsapp.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
-  currentTheme: Theme = 'light';
+  isScrolled = false;
+  lastScrollTop = 0;
+  isHeaderVisible = true;
 
   constructor(
-    private themeService: ThemeService,
     private whatsappService: WhatsAppService
   ) {}
 
   ngOnInit(): void {
-    this.currentTheme = this.themeService.getCurrentTheme();
-    this.themeService.theme$.subscribe(theme => {
-      this.currentTheme = theme;
-    });
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(): void {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Define um threshold mínimo antes de começar a esconder
+    if (scrollTop < 50) {
+      this.isHeaderVisible = true;
+      this.isScrolled = false;
+    } else {
+      this.isScrolled = true;
+      
+      // Esconde o header quando scrolla para baixo, mostra quando scrolla para cima
+      if (scrollTop > this.lastScrollTop && scrollTop > 100) {
+        // Scrolling down
+        this.isHeaderVisible = false;
+      } else {
+        // Scrolling up
+        this.isHeaderVisible = true;
+      }
+    }
+    
+    this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }
+
+  ngOnDestroy(): void {
+    // Cleanup se necessário
   }
 
   toggleMenu(): void {
@@ -31,10 +55,6 @@ export class HeaderComponent implements OnInit {
 
   closeMenu(): void {
     this.isMenuOpen = false;
-  }
-
-  toggleTheme(): void {
-    this.themeService.toggleTheme();
   }
 
   openWhatsApp(): void {

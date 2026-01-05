@@ -16,9 +16,10 @@
 .modal-content {
   background-color: var(--bg-white);
   border-radius: 12px;
-  max-width: 900px;
-  width: 100%;
-  max-height: 90vh;
+  width: 85vw;
+  height: 85vh;
+  max-width: none;
+  max-height: none;
   overflow-y: auto;
   position: relative;
   animation: slideUp var(--transition-normal);
@@ -48,16 +49,6 @@
 .modal-close:hover {
   color: var(--text-primary);
   background-color: #e0e0e0;
-}
-
-.dark-theme .modal-close {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-secondary);
-}
-
-.dark-theme .modal-close:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
 }
 
 .modal-body {
@@ -117,16 +108,17 @@
 }
 
 .saas-carousel-container {
-  margin: var(--spacing-xl) 0;
-  padding-top: var(--spacing-lg);
-  border-top: 2px solid var(--bg-light);
+  margin: var(--spacing-lg) 0 var(--spacing-xl) 0;
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--bg-light);
 }
 
-.saas-carousel-wrapper {
-  position: relative;
+.carousel-controls {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
 }
 
 .carousel-btn {
@@ -149,15 +141,6 @@
   background-color: var(--primary-color);
   color: var(--bg-white);
   transform: scale(1.1);
-}
-
-.dark-theme .carousel-btn {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--bg-white);
-}
-
-.dark-theme .carousel-btn:hover {
-  background-color: var(--primary-color);
 }
 
 .saas-carousel {
@@ -225,7 +208,7 @@
   display: flex;
   justify-content: center;
   gap: var(--spacing-xs);
-  margin-top: var(--spacing-md);
+  margin: 0;
 }
 
 .carousel-indicator {
@@ -248,14 +231,6 @@
   background-color: var(--primary-color);
   width: 30px;
   border-radius: 5px;
-}
-
-.dark-theme .carousel-indicator {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.dark-theme .carousel-indicator.active {
-  background-color: var(--primary-color);
 }
 
 .modal-footer {
@@ -288,7 +263,10 @@
 
 @media (max-width: 768px) {
   .modal-content {
-    max-height: 95vh;
+    width: 85vw;
+    height: 85vh;
+    max-width: none;
+    max-height: none;
     margin: var(--spacing-sm);
   }
 
@@ -309,23 +287,9 @@
     width: 100%;
   }
 
-  .saas-carousel-wrapper {
-    flex-direction: column;
-  }
-
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-  }
-
-  .carousel-btn-prev {
-    left: var(--spacing-xs);
-  }
-
-  .carousel-btn-next {
-    right: var(--spacing-xs);
+  .carousel-controls {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
   }
 
   .saas-carousel-image {

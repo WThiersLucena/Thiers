@@ -164,9 +164,10 @@ button {
 .modal-content {
   background-color: var(--bg-white);
   border-radius: 8px;
-  max-width: 800px;
-  width: 90%;
-  max-height: 90vh;
+  width: 85vw;
+  height: 85vh;
+  max-width: none;
+  max-height: none;
   overflow-y: auto;
   position: relative;
   animation: slideUp var(--transition-normal);
@@ -193,59 +194,6 @@ button {
   }
 }
 
-/* Modo Escuro */
-.dark-theme {
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-light: #808080;
-  --bg-white: #1a1a1a;
-  --bg-light: #2a2a2a;
-  --bg-dark: #0f0f0f;
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-.dark-theme body {
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-}
-
-.dark-theme h1,
-.dark-theme h2,
-.dark-theme h3,
-.dark-theme h4,
-.dark-theme h5,
-.dark-theme h6 {
-  color: var(--text-primary);
-}
-
-.dark-theme p {
-  color: var(--text-secondary);
-}
-
-.dark-theme a:hover {
-  color: var(--primary-light);
-}
-
-.dark-theme .btn-secondary {
-  color: var(--primary-light);
-  border-color: var(--primary-light);
-}
-
-.dark-theme .btn-secondary:hover {
-  background-color: var(--primary-light);
-  color: var(--bg-dark);
-}
-
-.dark-theme .modal-overlay {
-  background-color: rgba(0, 0, 0, 0.85);
-}
-
-.dark-theme .modal-content {
-  background-color: var(--bg-white);
-  color: var(--text-primary);
-}
 
 /* Responsividade */
 @media (max-width: 768px) {

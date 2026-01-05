@@ -33,6 +33,7 @@
 
 .footer-logo-text {
   font-family: var(--font-heading);
+  color: var(--bg-white);
 }
 
 .footer-description {
@@ -60,10 +61,16 @@
 .footer-contact {
   list-style: none;
   color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--spacing-sm);
 }
 
 .footer-contact li {
   margin-bottom: var(--spacing-xs);
+}
+
+.footer-contact-btn {
+  margin-top: var(--spacing-sm);
+  display: inline-block;
 }
 
 .footer-social {

@@ -45,10 +45,6 @@
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.dark-theme .stat-card {
-  background-color: var(--bg-light);
-}
-
 .stat-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
