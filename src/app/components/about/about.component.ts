@@ -13,6 +13,6 @@ export class AboutComponent {
     { value: '+20', label: 'Clientes Ativos' },
     { value: '+75', label: 'Projetos' },
     { value: '+5', label: 'Anos no Mercado' },
-    { value: '+12420', label: 'Horas Trabalhadas' },
+    { value: '+10620', label: 'Horas Trabalhadas' },
   ];
 }

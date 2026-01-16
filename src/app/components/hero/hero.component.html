@@ -1,33 +1,25 @@
-<section class="hero" id="home" [class.hero-with-image]="shouldShowImage">
-  <video
-    *ngIf="shouldLoadVideo"
-    #heroVideo
-    class="hero-video"
-    autoplay
-    muted
-    playsinline
-    [attr.muted]="true"
-    [attr.volume]="0"
-  >
-    <source src="assets/Logo-Thiers-mov.mp4" type="video/mp4" />
-  </video>
+<section class="hero" id="home">
   <div
     class="hero-background-image"
-    *ngIf="shouldShowImage"
-    [style.background-image]="'url(assets/Z1.jpg)'"
+    [style.background-image]="'url(assets/banner-1.jpeg)'"
   ></div>
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
-      <h1 class="hero-title">
-        Inovação e tecnologia para acelerar a transformação digital
+      <h1 class="hero-title" [class.fade-in]="showContent">
+        "{{ heroTitle }}"
       </h1>
-      <p class="hero-description">
+      <p class="hero-description" [class.fade-in-delayed]="showContent">
         Especialista no desenvolvimento de soluções digitais, a Thiers é uma
-        empresa focada em levar a transformação digital a empresas, mudando a
-        maneira como elas lidam com a tecnologia.
+        empresa focada em ajudar sua empresa a vender mais e se organizar usando
+        tecnologia simples e acessível.
       </p>
-      <a class="btn btn-primary" (click)="openWhatsApp()">Fale conosco</a>
+      <a
+        class="btn btn-primary"
+        [class.fade-in-delayed]="showContent"
+        (click)="openWhatsApp()"
+        >Fale conosco</a
+      >
     </div>
   </div>
 </section>

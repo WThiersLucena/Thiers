@@ -1,19 +1,38 @@
 <section class="about section" id="sobre">
+  <div
+    class="about-background-image"
+    [style.background-image]="'url(assets/banner-2.jpeg)'"
+  ></div>
+  <div class="about-overlay"></div>
   <div class="container">
     <div class="about-content">
       <div class="about-text">
-        <h2>Conheça a Thiers: nossa história e nosso compromisso com a excelência</h2>
+        <h2>
+          Conheça a Thiers: nossa história e nosso compromisso com a excelência.
+        </h2>
         <p>
-          A Thiers foi criada com a missão de levar a <strong>transformação digital a empresas</strong>, 
-          e mudar a maneira como elas lidam com a tecnologia, oferecendo <strong>soluções customizadas com foco em eficiência</strong>, 
-          sempre com agilidade, no prazo combinado, e ainda mais importante, com toda a atenção e cuidado na entrega e manutenção dos sistemas.
+          A Thiers nasceu da experiência de seus fundadores em grandes empresas
+          de tecnologia bancária, logística e inovação. Aplicamos o rigor, a
+          eficiência e os padrões de excelência desses setores para atender às
+          necessidades reais de pequenas e médias empresas. Nossa missão é levar
+          a transformação digital de forma acessível e personalizada, com
+          soluções que resolvem problemas técnicos e simplificam o dia a dia do
+          seu negócio. Trabalhamos com foco em eficiência, agilidade e prazo
+          combinado, garantindo entregas cuidadosas e suporte contínuo. Com a
+          Thiers, sua empresa ganha um parceiro tecnológico atualizado e
+          dedicado, pronto para enfrentar desafios e transformar a forma como
+          você utiliza a tecnologia.
         </p>
         <p>
-          <strong>Com a Thiers, sua empresa terá um parceiro tecnológico sempre atualizado e pronto para enfrentar os maiores desafios, 
-          pois o nosso core é resolver as dores dos nossos clientes de forma ágil, sempre com excelência.</strong>
+          <strong
+            >Com a Thiers, sua empresa terá um parceiro tecnológico sempre
+            atualizado e pronto para enfrentar os maiores desafios, pois o nosso
+            core é resolver as dores dos nossos clientes de forma ágil, sempre
+            com excelência.</strong
+          >
         </p>
       </div>
-      
+
       <div class="stats-grid">
         <div class="stat-card" *ngFor="let stat of stats">
           <div class="stat-value">{{ stat.value }}</div>
@@ -21,7 +40,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="about-mission">
       <h3>Criamos soluções digitais ideais para seu negócio</h3>
     </div>

@@ -1,20 +1,137 @@
 <section class="solutions section" id="solucoes">
+  <div class="solutions-quote">
+    <p class="quote-text">
+      O sucesso é a soma de pequenos esforços repetidos dia após dia
+    </p>
+  </div>
+  <div
+    class="solutions-background-image"
+    [style.background-image]="'url(assets/Seo.jpeg)'"
+  ></div>
   <div class="container">
     <div class="solutions-header">
-      <h2>Nossas soluções</h2>
-      <p>Soluções Thiers: Estratégias e tecnologias para levar sua empresa ao próximo nível</p>
+      <h2>Conheça Nossas soluções</h2>
+      <p>Veja abaixo o que podemos fazer por sua empresa</p>
     </div>
-    
-    <div class="solutions-grid">
-      <div 
-        class="solution-card" 
-        *ngFor="let solution of solutions"
-        (click)="openSolution(solution)"
-      >
-        <div class="solution-icon">{{ solution.icon }}</div>
-        <h3>{{ solution.title }}</h3>
-        <p>{{ solution.description }}</p>
-        <span class="solution-link">Saiba mais →</span>
+
+    <div class="solutions-carousels">
+      <div class="solution-category" *ngFor="let category of categories">
+        <h3 class="category-title">{{ category.title }}:</h3>
+
+        <div class="carousel-wrapper">
+          <button
+            class="carousel-btn carousel-btn-prev"
+            (click)="prevSlide(category)"
+            *ngIf="category.solutions.length > 1"
+            aria-label="Anterior"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <div class="carousel-container">
+            <div
+              class="carousel-track"
+              [style.transform]="
+                'translateX(-' + category.currentIndex * 100 + '%)'
+              "
+            >
+              <div
+                class="solution-card-carousel"
+                *ngFor="let solution of category.solutions"
+              >
+                <div
+                  class="solution-card-content"
+                  [class.image-card]="solution.isImageCard"
+                  [class.text-card]="solution.isTextCard"
+                  (click)="
+                    solution.isImageCard && solution.link
+                      ? openLink(solution.link)
+                      : solution.isTextCard
+                      ? null
+                      : openSolution(solution)
+                  "
+                >
+                  <!-- Card com imagem -->
+                  <ng-container *ngIf="solution.isImageCard && solution.image">
+                    <div class="solution-image-container">
+                      <img [src]="solution.image" [alt]="solution.title" />
+                    </div>
+                    <h4>{{ solution.title }}</h4>
+                  </ng-container>
+
+                  <!-- Card com texto padrão -->
+                  <ng-container *ngIf="solution.isTextCard">
+                    <div class="lojas-virtuais-content">
+                      <p
+                        *ngFor="let text of solution.textContent"
+                        class="lojas-virtuais-text"
+                      >
+                        {{ text }}
+                      </p>
+                    </div>
+                  </ng-container>
+
+                  <!-- Card padrão -->
+                  <ng-container
+                    *ngIf="!solution.isImageCard && !solution.isTextCard"
+                  >
+                    <div class="solution-icon">{{ solution.icon }}</div>
+                    <h4>{{ solution.title }}</h4>
+                    <p>{{ solution.description }}</p>
+                    <span class="solution-link">Saiba mais →</span>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-btn carousel-btn-next"
+            (click)="nextSlide(category)"
+            *ngIf="category.solutions.length > 1"
+            aria-label="Próximo"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="carousel-indicators" *ngIf="category.solutions.length > 1">
+          <button
+            *ngFor="let solution of category.solutions; let i = index"
+            class="carousel-indicator"
+            [class.active]="i === category.currentIndex"
+            (click)="goToSlide(category, i)"
+            [attr.aria-label]="'Ir para slide ' + (i + 1)"
+          ></button>
+        </div>
       </div>
     </div>
   </div>

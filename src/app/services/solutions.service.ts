@@ -15,6 +15,16 @@ export interface Solution {
   description: string;
   content: string;
   saasCards?: SaasCard[];
+  isTextCard?: boolean;
+  isImageCard?: boolean;
+  isCustomCard?: boolean;
+  image?: string;
+  link?: string;
+  textContent?: string[];
+  examples?: SaasCard[];
+  customTitle?: string;
+  customTextLines?: string[];
+  customFooterText?: string;
 }
 
 @Injectable({
@@ -29,8 +39,7 @@ export class SolutionsService {
       description:
         'A estrutura que sua empresa precisa para não apenas operar, mas prosperar',
       content: `
-        <h2>Gestão e Consultoria Empresarial</h2>
-        <p>A estrutura que sua empresa precisa para não apenas operar, mas prosperar.</p>
+        <p>Comunicação ineficaz, falta de planejamento estratégico,desorganização financeira, resistência à tecnologia,</p>
         
         <p>Enquanto as grandes empresas contam com departamentos especializados em gestão estratégica, muitos negócios de pequeno e médio porte navegam sem uma bússola clara. Nossa missão é mudar isso: oferecemos metodologias de gestão aplicáveis e personalizadas para transformar desafios diários em vantagens competitivas.</p>
         
@@ -42,42 +51,30 @@ export class SolutionsService {
       `,
     },
     {
-      id: 'saas',
-      title: 'SaaS',
-      icon: '💻',
-      description: 'Soluções SaaS escaláveis e personalizadas para seu negócio',
+      id: 'ecommerce',
+      title: 'Ecommerce',
+      icon: '🛍️',
+      description: 'Soluções de e-commerce completas para seu negócio',
       content: `
-        <h2>SaaS - Software como Serviço</h2>
-        <p>O Software como Serviço (SaaS) revoluciona a forma como as empresas utilizam tecnologia, oferecendo acesso a aplicações poderosas através da nuvem, sem necessidade de instalação ou manutenção de infraestrutura própria.</p>
-        
-        <h3>Principais Vantagens do SaaS:</h3>
-        <ul>
-          <li><strong>Acessibilidade:</strong> Acesso de qualquer lugar, a qualquer momento, através de qualquer dispositivo conectado à internet</li>
-          <li><strong>Economia de Custos:</strong> Eliminação de investimentos em hardware, licenças e manutenção, com modelos de assinatura flexíveis</li>
-          <li><strong>Atualizações Automáticas:</strong> Sempre com a versão mais recente, sem necessidade de intervenção manual</li>
-          <li><strong>Escalabilidade:</strong> Ajuste rápido de recursos conforme a necessidade do negócio</li>
-          <li><strong>Segurança:</strong> Proteção de dados gerenciada por especialistas, com backups automáticos e conformidade regulatória</li>
-          <li><strong>Colaboração:</strong> Facilita o trabalho em equipe com acesso compartilhado e sincronização em tempo real</li>
-        </ul>
-        
-        <p>Com soluções SaaS da Thiers, sua empresa ganha agilidade, reduz custos e foca no que realmente importa: o crescimento do seu negócio.</p>
+        <h2>Ecommerce</h2>
+        <p>Soluções de e-commerce completas e personalizadas para transformar seu negócio em uma loja virtual de sucesso.</p>
       `,
-      saasCards: [
-        {
-          title: 'Ecommerce',
-          image: 'assets/Ecomerce.jpg',
-          link: 'https://x1-neon.vercel.app/home',
-        },
-        {
-          title: 'Barbearia',
-          image: 'assets/Barbearia.jpg',
-          link: 'https://thiers-barbearia.vercel.app/',
-        },
-        {
-          title: 'Empresarial',
-          image: 'assets/Empresarial.png',
-        },
-      ],
+      image: 'assets/Ecomerce.jpg',
+      link: 'https://x1-neon.vercel.app/home',
+      isImageCard: true,
+    },
+    {
+      id: 'barbearia',
+      title: 'Barbearia',
+      icon: '✂️',
+      description: 'Sistema completo para gestão de barbearias',
+      content: `
+        <h2>Barbearia</h2>
+        <p>Sistema completo para gestão de barbearias, agendamentos e atendimento ao cliente.</p>
+      `,
+      image: 'assets/Barbearia.jpg',
+      link: 'https://thiers-barbearia.vercel.app/',
+      isImageCard: true,
     },
     {
       id: 'transformacao-digital',
@@ -86,7 +83,7 @@ export class SolutionsService {
       description:
         'Acelere a transformação digital da sua empresa com soluções inovadoras',
       content: `
-        <h2>Transformação Digital</h2>
+        <h2>Planilhas x Sistemas de gestão</h2>
         <p>A transformação digital é essencial para empresas que desejam se manter competitivas no mercado atual. Nossa equipe especializada trabalha com você para identificar oportunidades de melhoria e implementar soluções tecnológicas que impulsionam o crescimento do seu negócio.</p>
         
         <h3>Nossos Serviços:</h3>
@@ -102,72 +99,44 @@ export class SolutionsService {
       `,
     },
     {
-      id: 'ciberseguranca',
-      title: 'Cibersegurança',
-      icon: '🔒',
-      description:
-        'Proteja seus dados e sistemas com soluções de segurança de última geração',
+      id: 'portfolio-lais',
+      title: 'Portfólios',
+      icon: '🎨',
+      description: 'Portfólios',
       content: `
-        <h2>Cibersegurança</h2>
-        <p>Em um mundo cada vez mais digital, a segurança da informação é fundamental. A Thiers oferece soluções completas de cibersegurança para proteger seus dados, sistemas e infraestrutura contra ameaças cibernéticas.</p>
-        
-        <h3>Nossas Soluções:</h3>
-        <ul>
-          <li>Análise de vulnerabilidades e pentest</li>
-          <li>Monitoramento 24/7 (SOC)</li>
-          <li>Gestão de identidade e acesso</li>
-          <li>Criptografia de dados</li>
-          <li>Conformidade com LGPD e regulamentações</li>
-          <li>Treinamento em segurança para equipes</li>
-        </ul>
-        
-        <p>Proteja seu negócio com as melhores práticas de segurança da informação e mantenha a confiança dos seus clientes.</p>
+        <h2>Portfólios</h2>
+        <p>Portfólios personalizados e profissionais para destacar seu trabalho.</p>
       `,
+      image: 'assets/Lais.jpg',
+      link: 'https://lais-ayumi.vercel.app/',
+      isImageCard: true,
     },
     {
-      id: 'ia',
-      title: 'IA',
-      icon: '🤖',
-      description:
-        'Inteligência Artificial para otimizar processos e tomar decisões mais inteligentes',
+      id: 'sites-institucionais',
+      title: 'Sites Institucionais',
+      icon: '🏢',
+      description: 'Sites Institucionais',
       content: `
-        <h2>Inteligência Artificial</h2>
-        <p>A Inteligência Artificial está revolucionando a forma como as empresas operam. Nossas soluções de IA são desenvolvidas para resolver problemas reais do seu negócio, desde automação de tarefas até análise preditiva avançada.</p>
+        <h2>Sites Institucionais</h2>
+        <p><strong>Quando você precisa </strong>de algum produto ou serviço <strong>onde procura?</strong></p>
+        <p>Se <strong>você não está no Google</strong>, seu cliente não lhe encontrará no <strong>Instagram</strong>, nem no <strong>Facebook</strong>.</p>
+        <p><strong>SuaEmpresa.com, é a solução.</strong></p>
         
-        <h3>O que oferecemos:</h3>
+        <h3>Por que ter um site institucional?</h3>
         <ul>
-          <li>Chatbots e assistentes virtuais inteligentes</li>
-          <li>Análise preditiva e machine learning</li>
-          <li>Processamento de linguagem natural</li>
-          <li>Visão computacional e reconhecimento de imagens</li>
-          <li>Recomendações personalizadas</li>
+          <li><strong>Presença 24/7:</strong> Seu negócio está sempre disponível, mesmo fora do horário comercial</li>
+          <li><strong>Credibilidade:</strong> Empresas com site são vistas como mais confiáveis e profissionais</li>
+          <li><strong>Visibilidade:</strong> Apareça no Google quando clientes procurarem seus produtos ou serviços</li>
+          <li><strong>Informações sempre atualizadas:</strong> Compartilhe novidades, promoções e informações importantes instantaneamente</li>
+          <li><strong>Contato facilitado:</strong> Clientes encontram seus dados de contato, endereço e redes sociais em um só lugar</li>
+          <li><strong>Diferencial competitivo:</strong> Destaque-se da concorrência que ainda não tem presença digital</li>
         </ul>
         
-        <p>Nossas soluções de IA são customizadas para atender às necessidades específicas do seu negócio, garantindo resultados mensuráveis e impacto real.</p>
+        <p>Um site institucional é o primeiro passo para estabelecer sua marca na internet e conquistar novos clientes.</p>
       `,
-    },
-    {
-      id: 'cloud',
-      title: 'Cloud',
-      icon: '☁️',
-      description:
-        'Migração e gestão de infraestrutura em nuvem para escalabilidade e eficiência',
-      content: `
-        <h2>Cloud</h2>
-        <p>A nuvem oferece escalabilidade, flexibilidade e redução de custos. Nossa equipe especializada ajuda você a migrar e gerenciar sua infraestrutura na nuvem com segurança e eficiência.</p>
-        
-        <h3>Serviços Cloud:</h3>
-        <ul>
-          <li>Migração para AWS, Azure ou GCP</li>
-          <li>Arquitetura cloud-native</li>
-          <li>DevOps e CI/CD</li>
-          <li>Monitoramento e otimização de custos</li>
-          <li>Backup e disaster recovery</li>
-          <li>Multi-cloud e hybrid cloud</li>
-        </ul>
-        
-        <p>Maximize os benefícios da nuvem com uma estratégia bem planejada e implementação especializada.</p>
-      `,
+      image: 'assets/Avakian.jpg',
+      link: '',
+      isImageCard: true,
     },
   ];
 
