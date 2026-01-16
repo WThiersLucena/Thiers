@@ -27,7 +27,7 @@ export class SolutionsComponent implements OnInit {
       {
         title: 'Sistemas de gestão e vendas para negócios locais',
         solutions: allSolutions.filter((s) =>
-          ['ecommerce', 'barbearia'].includes(s.id)
+          ['ecommerce', 'barbearia', 'cardapio-digital'].includes(s.id)
         ),
         currentIndex: 0,
       },

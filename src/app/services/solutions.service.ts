@@ -77,6 +77,19 @@ export class SolutionsService {
       isImageCard: true,
     },
     {
+      id: 'cardapio-digital',
+      title: 'Cardápios Digitais',
+      icon: '📱',
+      description: 'Cardápios digitais interativos para restaurantes',
+      content: `
+        <h2>Cardápios Digitais</h2>
+        <p>Cardápios digitais interativos e modernos para restaurantes, bares e estabelecimentos gastronômicos.</p>
+      `,
+      image: 'assets/CardápioDig.png',
+      link: 'https://card-dig.vercel.app/',
+      isImageCard: true,
+    },
+    {
       id: 'transformacao-digital',
       title: 'Transformação Digital',
       icon: '🚀',
