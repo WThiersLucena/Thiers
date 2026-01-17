@@ -21,14 +21,13 @@ export class HeroComponent implements OnInit {
 
   ngOnInit(): void {
     // Texto base do hero
-    const baseText =
-      'Nós ajudamos pequenas e médias empresas de [SUA CIDADE] a vender mais, se organizar melhor e crescer usando tecnologia.';
-    this.heroTitle = baseText;
+    this.heroTitle =
+      'Nós impulsionamos pequenas e médias empresas a crescer, ganhar eficiência e vender mais com tecnologia.';
 
-    // Obtém a cidade do usuário baseada no IP
+    // Obtém a cidade do usuário baseada no IP apenas para log
     this.geolocationService.getCityByIP().subscribe((city) => {
       this.cityName = city;
-      this.heroTitle = baseText.replace('[SUA CIDADE]', city);
+      console.log('Cidade atuação : +', city);
     });
 
     // Mostra o conteúdo com animação

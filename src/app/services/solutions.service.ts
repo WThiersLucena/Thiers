@@ -39,7 +39,7 @@ export class SolutionsService {
       description:
         'A estrutura que sua empresa precisa para não apenas operar, mas prosperar',
       content: `
-        <p>Comunicação ineficaz, falta de planejamento estratégico,desorganização financeira, resistência à tecnologia,</p>
+        <p>Comunicação ineficaz, falta de planejamento estratégico, desorganização financeira, resistência à tecnologia,</p>
         
         <p>Enquanto as grandes empresas contam com departamentos especializados em gestão estratégica, muitos negócios de pequeno e médio porte navegam sem uma bússola clara. Nossa missão é mudar isso: oferecemos metodologias de gestão aplicáveis e personalizadas para transformar desafios diários em vantagens competitivas.</p>
         
@@ -101,11 +101,11 @@ export class SolutionsService {
         
         <h3>Nossos Serviços:</h3>
         <ul>
-          <li>Análise e diagnóstico de processos</li>
-          <li>Implementação de tecnologias modernas</li>
-          <li>Automação de processos</li>
-          <li>Migração para ambientes cloud</li>
-          <li>Treinamento e capacitação de equipes</li>
+          <li>Análise e diagnóstico de processos.</li>
+          <li>Implementação de tecnologias modernas.</li>
+          <li>Automação de processos.</li>
+          <li>Migração para ambientes cloud.</li>
+          <li>Treinamento e capacitação de equipes.</li>
         </ul>
         
         <p>Com a Thiers, sua empresa terá um parceiro tecnológico sempre atualizado e pronto para enfrentar os maiores desafios, sempre com excelência e agilidade.</p>
