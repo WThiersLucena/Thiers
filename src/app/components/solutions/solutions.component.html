@@ -57,6 +57,10 @@
                   class="solution-card-content"
                   [class.image-card]="solution.isImageCard"
                   [class.text-card]="solution.isTextCard"
+                  [class.card-ecommerce]="solution.id === 'ecommerce'"
+                  [class.card-barbearia]="solution.id === 'barbearia'"
+                  [class.card-cardapio-digital]="solution.id === 'cardapio-digital'"
+                  [class.mobile-hovered]="isMobile && isCardHovered(solution.id)"
                   (click)="
                     solution.isImageCard && solution.link
                       ? openLink(solution.link)
@@ -68,9 +72,22 @@
                   <!-- Card com imagem -->
                   <ng-container *ngIf="solution.isImageCard && solution.image">
                     <div class="solution-image-container">
-                      <img [src]="solution.image" [alt]="solution.title" />
+                      <img 
+                        class="solution-image-default" 
+                        [src]="solution.image" 
+                        [alt]="solution.title" 
+                      />
                     </div>
-                    <h4>{{ solution.title }}</h4>
+                    <img 
+                      *ngIf="solution.hoverImage"
+                      class="solution-image-hover" 
+                      [src]="solution.hoverImage" 
+                      [alt]="solution.title + ' - Hover'" 
+                    />
+                    <div class="solution-title-container">
+                      <h4 class="solution-title-default">{{ solution.title }}</h4>
+                      <h4 *ngIf="solution.hoverTitle" class="solution-title-hover">{{ solution.hoverTitle }}</h4>
+                    </div>
                   </ng-container>
 
                   <!-- Card com texto padrão -->

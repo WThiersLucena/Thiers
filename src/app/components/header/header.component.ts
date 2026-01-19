@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, Router } from '@angular/router';
 import { WhatsAppService } from '../../services/whatsapp.service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isHeaderVisible = true;
 
   constructor(
-    private whatsappService: WhatsAppService
+    private whatsappService: WhatsAppService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +57,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   closeMenu(): void {
     this.isMenuOpen = false;
+  }
+
+  navigateToHome(): void {
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']).then(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    this.closeMenu();
   }
 
   openWhatsApp(): void {

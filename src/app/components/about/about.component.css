@@ -2,6 +2,8 @@
   background-color: #000000;
   position: relative;
   overflow: hidden;
+  padding-top: 100px;
+  min-height: 100vh;
 }
 
 .about-background-image {
@@ -131,6 +133,10 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    padding-top: 120px;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);

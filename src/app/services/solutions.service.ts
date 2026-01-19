@@ -19,6 +19,8 @@ export interface Solution {
   isImageCard?: boolean;
   isCustomCard?: boolean;
   image?: string;
+  hoverImage?: string;
+  hoverTitle?: string;
   link?: string;
   textContent?: string[];
   examples?: SaasCard[];
@@ -60,6 +62,8 @@ export class SolutionsService {
         <p>Soluções de e-commerce completas e personalizadas para transformar seu negócio em uma loja virtual de sucesso.</p>
       `,
       image: 'assets/Ecomerce.jpg',
+      hoverImage: 'assets/Sistema-d-Gestao.png',
+      hoverTitle: 'Sistema de Gestão Completo',
       link: 'https://x1-neon.vercel.app/home',
       isImageCard: true,
     },
@@ -73,6 +77,8 @@ export class SolutionsService {
         <p>Sistema completo para gestão de barbearias, agendamentos e atendimento ao cliente.</p>
       `,
       image: 'assets/Barbearia.jpg',
+      hoverImage: 'assets/sistema-de-atendimento_agendamento-online.png',
+      hoverTitle: 'Controle sua Agenda',
       link: 'https://thiers-barbearia.vercel.app/',
       isImageCard: true,
     },

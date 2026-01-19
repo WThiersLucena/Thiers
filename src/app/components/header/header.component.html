@@ -20,8 +20,8 @@
 
       <div class="nav-right">
         <ul class="nav-menu" [class.active]="isMenuOpen">
-          <li><a href="#home" (click)="closeMenu()">Home</a></li>
-          <li><a href="#sobre" (click)="closeMenu()">Sobre</a></li>
+          <li><a (click)="navigateToHome()">Home</a></li>
+          <li><a routerLink="/sobre" (click)="closeMenu()">Sobre</a></li>
           <li><a href="#solucoes" (click)="closeMenu()">Soluções</a></li>
           <li><a href="#depoimentos" (click)="closeMenu()">Depoimentos</a></li>
           <li><a href="#contato" (click)="closeMenu()">Contato</a></li>

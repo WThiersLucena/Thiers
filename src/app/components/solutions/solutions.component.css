@@ -182,6 +182,7 @@
   height: 350px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .solution-image-container {
@@ -190,6 +191,7 @@
   overflow: hidden;
   background-color: var(--bg-light);
   flex-shrink: 0;
+  position: relative;
 }
 
 .solution-image-container img {
@@ -197,21 +199,123 @@
   height: 135%;
   object-fit: contain;
   object-position: center;
-  transition: transform var(--transition-normal);
+  transition: opacity var(--transition-normal);
 }
 
-.solution-card-content.image-card:hover .solution-image-container img {
-  transform: scale(1.05);
+.solution-image-default {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 135%;
+  opacity: 1;
 }
 
-.solution-card-content.image-card h4 {
-  padding: var(--spacing-md);
-  margin: 0;
-  text-align: center;
+.solution-image-hover {
+  position: absolute;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+/* ============================================
+   CARD ECOMMERCE - Hover cobre todo o card
+   ============================================ */
+.solution-card-content.image-card.card-ecommerce .solution-image-hover {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  object-position: center;
+  background-color: transparent;
+  margin-bottom: 0;
+}
+
+.solution-card-content.image-card.card-ecommerce:hover .solution-image-container .solution-image-default {
+  opacity: 0;
+}
+
+.solution-card-content.image-card.card-ecommerce:hover .solution-image-hover {
+  opacity: 1;
+}
+
+.solution-card-content.image-card.card-ecommerce:hover .solution-title-container .solution-title-default {
+  opacity: 0;
+}
+
+.solution-card-content.image-card.card-ecommerce:hover .solution-title-container .solution-title-hover {
+  opacity: 1;
+}
+
+/* ============================================
+   CARD BARBEARIA - Hover no canto direito
+   ============================================ */
+.solution-card-content.image-card.card-barbearia .solution-image-hover {
+  top: 0;
+  right: 15%;
+  width: 62.5%;
+  height: 350px;
+  object-fit: contain;
+  object-position: right center;
+  background-color: transparent;
+  transform: translateX(20px) scale(1);
+}
+
+.solution-card-content.image-card.card-barbearia:hover .solution-image-container .solution-image-default {
+  opacity: 1;
+}
+
+.solution-card-content.image-card.card-barbearia:hover .solution-image-hover {
+  opacity: 1;
+  transform: translateX(0) scale(1.25);
+}
+
+.solution-card-content.image-card.card-barbearia:hover .solution-title-container .solution-title-default {
+  opacity: 0;
+}
+
+.solution-card-content.image-card.card-barbearia:hover .solution-title-container .solution-title-hover {
+  opacity: 1;
+}
+
+/* ============================================
+   CARD CARDÁPIO DIGITAL - Sem hover por enquanto
+   ============================================ */
+.solution-card-content.image-card.card-cardapio-digital .solution-image-hover {
+  display: none;
+}
+
+
+.solution-title-container {
+  position: relative;
+  width: 100%;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--spacing-md);
+  min-height: 60px;
+  z-index: 3;
+}
+
+.solution-card-content.image-card h4 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  transition: opacity var(--transition-normal);
+}
+
+.solution-title-default {
+  position: absolute;
+  width: 100%;
+  opacity: 1;
+}
+
+.solution-title-hover {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
 }
 
 /* Card com texto - Lojas Virtuais - Layout Especial */
@@ -539,8 +643,39 @@
     min-height: 300px;
   }
 
+  .solution-card-content.image-card {
+    height: 300px;
+  }
+
   .solution-image-container {
     height: 200px;
+  }
+
+  /* ============================================
+     AJUSTES DE IMAGENS DE HOVER NO MOBILE
+     ============================================ */
+  
+  /* Card Ecommerce - Ajuste proporcional no mobile */
+  .solution-card-content.image-card.card-ecommerce .solution-image-hover {
+    height: 200px;
+    object-fit: contain;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Card Barbearia - Ajuste proporcional no mobile */
+  .solution-card-content.image-card.card-barbearia .solution-image-hover {
+    top: 0;
+    right: 10%;
+    width: 55%;
+    height: 200px;
+    object-fit: contain;
+    object-position: right center;
+    transform: translateX(10px) scale(1);
+  }
+
+  .solution-card-content.image-card.card-barbearia.mobile-hovered .solution-image-hover {
+    transform: translateX(0) scale(1.15);
   }
 
   .lojas-virtuais-title {
@@ -566,5 +701,44 @@
 
   .solution-card-content h4 {
     font-size: 1.25rem;
+  }
+
+  /* ============================================
+     TRANSIÇÕES AUTOMÁTICAS EM MOBILE
+     ============================================ */
+  
+  /* Card Ecommerce - Mobile */
+  .solution-card-content.image-card.card-ecommerce.mobile-hovered .solution-image-container .solution-image-default {
+    opacity: 0;
+  }
+
+  .solution-card-content.image-card.card-ecommerce.mobile-hovered .solution-image-hover {
+    opacity: 1;
+  }
+
+  .solution-card-content.image-card.card-ecommerce.mobile-hovered .solution-title-container .solution-title-default {
+    opacity: 0;
+  }
+
+  .solution-card-content.image-card.card-ecommerce.mobile-hovered .solution-title-container .solution-title-hover {
+    opacity: 1;
+  }
+
+  /* Card Barbearia - Mobile */
+  .solution-card-content.image-card.card-barbearia.mobile-hovered .solution-image-container .solution-image-default {
+    opacity: 1;
+  }
+
+  .solution-card-content.image-card.card-barbearia.mobile-hovered .solution-image-hover {
+    opacity: 1;
+    transform: translateX(0) scale(1.25);
+  }
+
+  .solution-card-content.image-card.card-barbearia.mobile-hovered .solution-title-container .solution-title-default {
+    opacity: 0;
+  }
+
+  .solution-card-content.image-card.card-barbearia.mobile-hovered .solution-title-container .solution-title-hover {
+    opacity: 1;
   }
 }
