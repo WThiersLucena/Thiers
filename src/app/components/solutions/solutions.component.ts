@@ -19,13 +19,33 @@ export class SolutionsComponent implements OnInit, OnDestroy {
   hoveredCards: Set<string> = new Set();
   isMobile: boolean = false;
   private mobileIntervals: Map<string, ReturnType<typeof setInterval>> = new Map();
+  
+  // Controle de seções ativas
+  activeSection: 'sistemas' | 'presenca' | 'consultoria' | null = null;
+  previousSection: 'sistemas' | 'presenca' | 'consultoria' | null = null;
+  
+  // Controle do modal de plano
+  selectedPlan: string | null = null;
+  
+  // Categorias específicas para cada seção
+  sistemasCategory: SolutionCategory = {
+    title: 'Sistemas de gestão e vendas para negócios locais',
+    solutions: [],
+    currentIndex: 0,
+  };
+  
+  presencaCategory: SolutionCategory = {
+    title: 'Presença digital, Sites Institucionais e Portfólios',
+    solutions: [],
+    currentIndex: 0,
+  };
 
   constructor(private solutionsService: SolutionsService) {}
 
   ngOnInit(): void {
     const allSolutions = this.solutionsService.getSolutions();
 
-    // Organizar soluções por categoria
+    // Organizar soluções por categoria para os carrosséis
     this.categories = [
       {
         title: 'Sistemas de gestão e vendas para negócios locais',
@@ -49,6 +69,23 @@ export class SolutionsComponent implements OnInit, OnDestroy {
         currentIndex: 0,
       },
     ];
+
+    // Configurar categorias específicas para cada seção
+    this.sistemasCategory = {
+      title: 'Sistemas de gestão e vendas para negócios locais',
+      solutions: allSolutions.filter((s) =>
+        ['ecommerce', 'barbearia', 'cardapio-digital'].includes(s.id)
+      ),
+      currentIndex: 0,
+    };
+
+    this.presencaCategory = {
+      title: 'Presença digital, Sites Institucionais e Portfólios',
+      solutions: allSolutions.filter((s) =>
+        ['portfolio-lais', 'sites-institucionais'].includes(s.id)
+      ),
+      currentIndex: 0,
+    };
 
     // Detectar se é mobile e iniciar transições automáticas
     this.checkMobile();
@@ -140,5 +177,28 @@ export class SolutionsComponent implements OnInit, OnDestroy {
 
   openLink(url: string): void {
     window.open(url, '_blank');
+  }
+
+  setActiveSection(section: 'sistemas' | 'presenca' | 'consultoria'): void {
+    if (this.activeSection !== section) {
+      this.previousSection = this.activeSection;
+      this.activeSection = section;
+    }
+  }
+
+  openPlanModal(planName: string): void {
+    this.selectedPlan = planName;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closePlanModal(): void {
+    this.selectedPlan = null;
+    document.body.style.overflow = '';
+  }
+
+  getWhatsAppLink(planName: string): string {
+    const phoneNumber = '5511982539200';
+    const message = encodeURIComponent(`Olha Thiers, gostaria de dar inicio no Plano ${planName}.`);
+    return `https://wa.me/${phoneNumber}?text=${message}`;
   }
 }

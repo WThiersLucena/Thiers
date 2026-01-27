@@ -4,151 +4,556 @@
       O sucesso é a soma de pequenos esforços repetidos dia após dia
     </p>
   </div>
-  <div
-    class="solutions-background-image"
-    [style.background-image]="'url(assets/Seo.jpeg)'"
-  ></div>
   <div class="container">
     <div class="solutions-header">
-      <h2>Conheça Nossas soluções</h2>
-      <p>Veja abaixo o que podemos fazer por sua empresa</p>
+      <h2>Não vendemos tecnologia, entregamos resultados</h2>
+      <p>Escolha o tipo de solução ideal para o seu momento atual.</p>
     </div>
 
-    <div class="solutions-carousels">
-      <div class="solution-category" *ngFor="let category of categories">
-        <h3 class="category-title">{{ category.title }}:</h3>
+    <!-- Botões de Navegação Fixos -->
+    <div 
+      class="solution-buttons-container"
+      [style.background-image]="'url(assets/Seo-2.jpeg)'"
+    >
+      <div class="solution-buttons-row">
+        <button
+          class="solution-nav-btn"
+          [class.active]="activeSection === 'sistemas'"
+          (click)="setActiveSection('sistemas')"
+        >
+          Sistemas de Gestão e Vendas Online
+        </button>
+      </div>
+      <div class="solution-buttons-row">
+        <button
+          class="solution-nav-btn"
+          [class.active]="activeSection === 'presenca'"
+          (click)="setActiveSection('presenca')"
+        >
+          Presença Digital
+        </button>
+        <button
+          class="solution-nav-btn"
+          [class.active]="activeSection === 'consultoria'"
+          (click)="setActiveSection('consultoria')"
+        >
+          Consultoria
+        </button>
+      </div>
+    </div>
 
-        <div class="carousel-wrapper">
-          <button
-            class="carousel-btn carousel-btn-prev"
-            (click)="prevSlide(category)"
-            *ngIf="category.solutions.length > 1"
-            aria-label="Anterior"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 18L9 12L15 6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
+    <!-- Conteúdo Dinâmico -->
+    <div class="solution-content-wrapper">
+      <!-- Seção: Sistemas de Gestão e Vendas Online -->
+      <div
+        class="solution-content-section"
+        [class.active]="activeSection === 'sistemas'"
+        [class.slide-out]="activeSection !== 'sistemas' && previousSection === 'sistemas'"
+      >
+        <div class="solution-content-inner">
+          <h3 class="solution-section-title">Seu negócio não vende online?</h3>
+          <p class="solution-section-text">
+            A realidade é que hoje o cliente pesquisa TUDO na internet. Se sua empresa não aparece quando ele precisa comprar, você é invisível. As redes sociais sozinhas não são suficientes para vender.
+          </p>
+          <p class="solution-section-solution">
+            <strong>Solução:</strong> Venda online agora. Conheça a SuaEmpresa.com
+          </p>
 
-          <div class="carousel-container">
-            <div
-              class="carousel-track"
-              [style.transform]="
-                'translateX(-' + category.currentIndex * 100 + '%)'
-              "
-            >
-              <div
-                class="solution-card-carousel"
-                *ngFor="let solution of category.solutions"
-              >
-                <div
-                  class="solution-card-content"
-                  [class.image-card]="solution.isImageCard"
-                  [class.text-card]="solution.isTextCard"
-                  [class.card-ecommerce]="solution.id === 'ecommerce'"
-                  [class.card-barbearia]="solution.id === 'barbearia'"
-                  [class.card-cardapio-digital]="solution.id === 'cardapio-digital'"
-                  [class.mobile-hovered]="isMobile && isCardHovered(solution.id)"
-                  (click)="
-                    solution.isImageCard && solution.link
-                      ? openLink(solution.link)
-                      : solution.isTextCard
-                      ? null
-                      : openSolution(solution)
-                  "
-                >
-                  <!-- Card com imagem -->
-                  <ng-container *ngIf="solution.isImageCard && solution.image">
-                    <div class="solution-image-container">
-                      <img 
-                        class="solution-image-default" 
-                        [src]="solution.image" 
-                        [alt]="solution.title" 
-                      />
-                    </div>
-                    <img 
-                      *ngIf="solution.hoverImage"
-                      class="solution-image-hover" 
-                      [src]="solution.hoverImage" 
-                      [alt]="solution.title + ' - Hover'" 
-                    />
-                    <div class="solution-title-container">
-                      <h4 class="solution-title-default">{{ solution.title }}</h4>
-                      <h4 *ngIf="solution.hoverTitle" class="solution-title-hover">{{ solution.hoverTitle }}</h4>
-                    </div>
-                  </ng-container>
-
-                  <!-- Card com texto padrão -->
-                  <ng-container *ngIf="solution.isTextCard">
-                    <div class="lojas-virtuais-content">
-                      <p
-                        *ngFor="let text of solution.textContent"
-                        class="lojas-virtuais-text"
-                      >
-                        {{ text }}
-                      </p>
-                    </div>
-                  </ng-container>
-
-                  <!-- Card padrão -->
-                  <ng-container
-                    *ngIf="!solution.isImageCard && !solution.isTextCard"
-                  >
-                    <div class="solution-icon">{{ solution.icon }}</div>
-                    <h4>{{ solution.title }}</h4>
-                    <p>{{ solution.description }}</p>
-                    <span class="solution-link">Saiba mais →</span>
-                  </ng-container>
-                </div>
-              </div>
+          <!-- Cards placeholder -->
+          <div class="solution-cards-grid">
+            <div class="solution-card-placeholder">
+              <p>Conteúdo a ser inserido</p>
+            </div>
+            <div class="solution-card-placeholder">
+              <p>Conteúdo a ser inserido</p>
+            </div>
+            <div class="solution-card-placeholder">
+              <p>Conteúdo a ser inserido</p>
             </div>
           </div>
 
-          <button
-            class="carousel-btn carousel-btn-next"
-            (click)="nextSlide(category)"
-            *ngIf="category.solutions.length > 1"
-            aria-label="Próximo"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 18L15 12L9 6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
+          <!-- Carrossel: Sistemas de gestão e vendas para negócios locais -->
+          <div class="solution-carousel-section">
+            <h3 class="category-title">Sistemas de gestão e vendas para negócios locais:</h3>
+            <div class="carousel-wrapper">
+              <button
+                class="carousel-btn carousel-btn-prev"
+                (click)="prevSlide(sistemasCategory)"
+                *ngIf="sistemasCategory.solutions.length > 1"
+                aria-label="Anterior"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
 
-        <div class="carousel-indicators" *ngIf="category.solutions.length > 1">
-          <button
-            *ngFor="let solution of category.solutions; let i = index"
-            class="carousel-indicator"
-            [class.active]="i === category.currentIndex"
-            (click)="goToSlide(category, i)"
-            [attr.aria-label]="'Ir para slide ' + (i + 1)"
-          ></button>
+              <div class="carousel-container">
+                <div
+                  class="carousel-track"
+                  [style.transform]="
+                    'translateX(-' + sistemasCategory.currentIndex * 100 + '%)'
+                  "
+                >
+                  <div
+                    class="solution-card-carousel"
+                    *ngFor="let solution of sistemasCategory.solutions"
+                  >
+                    <div
+                      class="solution-card-content"
+                      [class.image-card]="solution.isImageCard"
+                      [class.text-card]="solution.isTextCard"
+                      [class.card-ecommerce]="solution.id === 'ecommerce'"
+                      [class.card-barbearia]="solution.id === 'barbearia'"
+                      [class.card-cardapio-digital]="solution.id === 'cardapio-digital'"
+                      [class.mobile-hovered]="isMobile && isCardHovered(solution.id)"
+                      (click)="
+                        solution.isImageCard && solution.link
+                          ? openLink(solution.link)
+                          : solution.isTextCard
+                          ? null
+                          : openSolution(solution)
+                      "
+                    >
+                      <ng-container *ngIf="solution.isImageCard && solution.image">
+                        <div class="solution-image-container">
+                          <img 
+                            class="solution-image-default" 
+                            [src]="solution.image" 
+                            [alt]="solution.title" 
+                          />
+                        </div>
+                        <img 
+                          *ngIf="solution.hoverImage"
+                          class="solution-image-hover" 
+                          [src]="solution.hoverImage" 
+                          [alt]="solution.title + ' - Hover'" 
+                        />
+                        <div class="solution-title-container">
+                          <h4 class="solution-title-default">{{ solution.title }}</h4>
+                          <h4 *ngIf="solution.hoverTitle" class="solution-title-hover">{{ solution.hoverTitle }}</h4>
+                        </div>
+                      </ng-container>
+
+                      <ng-container *ngIf="solution.isTextCard">
+                        <div class="lojas-virtuais-content">
+                          <p
+                            *ngFor="let text of solution.textContent"
+                            class="lojas-virtuais-text"
+                          >
+                            {{ text }}
+                          </p>
+                        </div>
+                      </ng-container>
+
+                      <ng-container
+                        *ngIf="!solution.isImageCard && !solution.isTextCard"
+                      >
+                        <div class="solution-icon">{{ solution.icon }}</div>
+                        <h4>{{ solution.title }}</h4>
+                        <p>{{ solution.description }}</p>
+                        <span class="solution-link">Saiba mais →</span>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-btn carousel-btn-next"
+                (click)="nextSlide(sistemasCategory)"
+                *ngIf="sistemasCategory.solutions.length > 1"
+                aria-label="Próximo"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 18L15 12L9 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="carousel-indicators" *ngIf="sistemasCategory.solutions.length > 1">
+              <button
+                *ngFor="let solution of sistemasCategory.solutions; let i = index"
+                class="carousel-indicator"
+                [class.active]="i === sistemasCategory.currentIndex"
+                (click)="goToSlide(sistemasCategory, i)"
+                [attr.aria-label]="'Ir para slide ' + (i + 1)"
+              ></button>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Seção: Presença Digital -->
+      <div
+        class="solution-content-section"
+        [class.active]="activeSection === 'presenca'"
+        [class.slide-out]="activeSection !== 'presenca' && previousSection === 'presenca'"
+      >
+        <div class="solution-content-inner">
+          <h3 class="solution-section-title">Como você se apresenta diz muito sobre você!</h3>
+          <div class="solution-section-text">
+            <p>Presença Digital eficiente vai muito além de estar online. É sobre ter os ativos certos para alcançar seus objetivos:</p>
+            <p>Para empresas que precisam de autoridade e confiança, o Site Institucional é o ativo não negociável. Ele é a base que sustenta toda a sua reputação online.</p>
+            <p>Para profissionais que vendem talento e expertise, o Portfólio online é a ferramenta de venda mais poderosa. Ele não mostra, ele demonstra.</p>
+            <p>Construímos mais do que páginas na web. Desenvolvemos Sites Institucionais que estabelecem autoridade e Portfólios que exibem excelência. Juntos, eles formam a presença digital completa que atrai oportunidades e fecha negócios.</p>
+            <p><strong>Sua presença online precisa trabalhar por você. Nós fazemos isso acontecer.</strong></p>
+          </div>
+
+          <!-- Cards de Pacotes -->
+          <div class="hostinger-pricing-grid">
+            <!-- Pacote Start -->
+            <div class="hostinger-pricing-card">
+              <div class="pricing-badge pricing-badge-popular">Mais popular</div>
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Start</h3>
+                <div class="pricing-price">
+                  <span class="pricing-currency">R$</span>
+                  <span class="pricing-amount">120</span>
+                  <span class="pricing-period">/mês</span>
+                </div>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Desenvolvimento:</p>
+                  <ul class="pricing-feature-list">
+                    <li>1 página (Landing Page)</li>
+                    <li>Redirecionamento para WhatsApp</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Hospedagem + domínio</li>
+                    <li>Manutenção: R$ 130,00, por atendimento</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Manutenção contempla:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Atendimento em horário comercial</li>
+                    <li>Pequenas alterações de texto</li>
+                    <li>Troca de imagens (limitadas até 10 por atendimento)</li>
+                    <li>Atualização de informações</li>
+                    <li>Correções simples</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section pricing-excluded">
+                  <p class="pricing-feature-title">❌ Não incluso:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Criação de novas páginas</li>
+                    <li>Redesign</li>
+                    <li>Funcionalidades adicionais</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Start')">
+                Escolher plano
+              </button>
+            </div>
+
+            <!-- Pacote Profissional -->
+            <div class="hostinger-pricing-card hostinger-pricing-card-featured">
+              <div class="pricing-badge pricing-badge-recommended">RECOMENDADO</div>
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Profissional</h3>
+                <div class="pricing-price">
+                  <span class="pricing-currency">R$</span>
+                  <span class="pricing-amount">150</span>
+                  <span class="pricing-period">/mês</span>
+                </div>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Desenvolvimento:</p>
+                  <ul class="pricing-feature-list">
+                    <li>1 Página (Landing Page)</li>
+                    <li>Menu de ancoragem</li>
+                    <li>1 vídeo</li>
+                    <li>Redirecionamento para WhatsApp</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Hospedagem + domínio</li>
+                    <li>* Manutenção inclusa no plano</li>
+                    <li>* Prioridade no suporte</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Manutenção do Plano Profissional inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Até 4 atendimentos prioritários por mês</li>
+                    <li>Alterações de texto e conteúdo já existente no site</li>
+                    <li>Troca de imagens (até 30 /mês)</li>
+                    <li>Atualizações de conteúdo</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section pricing-excluded">
+                  <p class="pricing-feature-title">❌ Não incluso:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Criação de novas páginas</li>
+                    <li>Redesign</li>
+                    <li>Novas funcionalidades</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Profissional')">
+                Escolher plano
+              </button>
+            </div>
+
+            <!-- Pacote Empresarial -->
+            <div class="hostinger-pricing-card">
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Empresarial</h3>
+                <div class="pricing-price">
+                  <span class="pricing-currency">R$</span>
+                  <span class="pricing-amount">350</span>
+                  <span class="pricing-period">/mês</span>
+                </div>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Desenvolvimento:</p>
+                  <ul class="pricing-feature-list">
+                    <li>4 páginas</li>
+                    <li>menu full</li>
+                    <li>3 videos</li>
+                    <li>Redirecionamento para WhatsApp</li>
+                    <li>3 caixas de e-mail</li>
+                    <li>Redirecionamento para caixas de e-mail</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Hospedagem + domínio</li>
+                    <li>Manutenção inclusa no plano</li>
+                    <li>Prioridade no suporte</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Manutenção do Plano Empresarial inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Até 12 atendimentos prioritários por mês</li>
+                    <li>SLA 3 horas</li>
+                    <li>Alterações de texto</li>
+                    <li>Troca de imagens (até 80 /mês)</li>
+                    <li>Atualizações de conteúdo</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section pricing-excluded">
+                  <p class="pricing-feature-title">❌ Não incluso:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Criação de novas páginas</li>
+                    <li>Redesign</li>
+                    <li>Novas funcionalidades</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Empresarial')">
+                Escolher plano
+              </button>
+            </div>
+          </div>
+
+          <!-- Carrossel: Presença digital, Sites Institucionais e Portfólios -->
+          <div class="solution-carousel-section">
+            <h3 class="category-title">Presença digital, Sites Institucionais e Portfólios:</h3>
+            <div class="carousel-wrapper">
+              <button
+                class="carousel-btn carousel-btn-prev"
+                (click)="prevSlide(presencaCategory)"
+                *ngIf="presencaCategory.solutions.length > 1"
+                aria-label="Anterior"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <div class="carousel-container">
+                <div
+                  class="carousel-track"
+                  [style.transform]="
+                    'translateX(-' + presencaCategory.currentIndex * 100 + '%)'
+                  "
+                >
+                  <div
+                    class="solution-card-carousel"
+                    *ngFor="let solution of presencaCategory.solutions"
+                  >
+                    <div
+                      class="solution-card-content"
+                      [class.image-card]="solution.isImageCard"
+                      [class.text-card]="solution.isTextCard"
+                      [class.card-ecommerce]="solution.id === 'ecommerce'"
+                      [class.card-barbearia]="solution.id === 'barbearia'"
+                      [class.card-cardapio-digital]="solution.id === 'cardapio-digital'"
+                      [class.mobile-hovered]="isMobile && isCardHovered(solution.id)"
+                      (click)="
+                        solution.isImageCard && solution.link
+                          ? openLink(solution.link)
+                          : solution.isTextCard
+                          ? null
+                          : openSolution(solution)
+                      "
+                    >
+                      <ng-container *ngIf="solution.isImageCard && solution.image">
+                        <div class="solution-image-container">
+                          <img 
+                            class="solution-image-default" 
+                            [src]="solution.image" 
+                            [alt]="solution.title" 
+                          />
+                        </div>
+                        <img 
+                          *ngIf="solution.hoverImage"
+                          class="solution-image-hover" 
+                          [src]="solution.hoverImage" 
+                          [alt]="solution.title + ' - Hover'" 
+                        />
+                        <div class="solution-title-container">
+                          <h4 class="solution-title-default">{{ solution.title }}</h4>
+                          <h4 *ngIf="solution.hoverTitle" class="solution-title-hover">{{ solution.hoverTitle }}</h4>
+                        </div>
+                      </ng-container>
+
+                      <ng-container *ngIf="solution.isTextCard">
+                        <div class="lojas-virtuais-content">
+                          <p
+                            *ngFor="let text of solution.textContent"
+                            class="lojas-virtuais-text"
+                          >
+                            {{ text }}
+                          </p>
+                        </div>
+                      </ng-container>
+
+                      <ng-container
+                        *ngIf="!solution.isImageCard && !solution.isTextCard"
+                      >
+                        <div class="solution-icon">{{ solution.icon }}</div>
+                        <h4>{{ solution.title }}</h4>
+                        <p>{{ solution.description }}</p>
+                        <span class="solution-link">Saiba mais →</span>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-btn carousel-btn-next"
+                (click)="nextSlide(presencaCategory)"
+                *ngIf="presencaCategory.solutions.length > 1"
+                aria-label="Próximo"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 18L15 12L9 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="carousel-indicators" *ngIf="presencaCategory.solutions.length > 1">
+              <button
+                *ngFor="let solution of presencaCategory.solutions; let i = index"
+                class="carousel-indicator"
+                [class.active]="i === presencaCategory.currentIndex"
+                (click)="goToSlide(presencaCategory, i)"
+                [attr.aria-label]="'Ir para slide ' + (i + 1)"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção: Consultoria -->
+      <div
+        class="solution-content-section"
+        [class.active]="activeSection === 'consultoria'"
+        [class.slide-out]="activeSection !== 'consultoria' && previousSection === 'consultoria'"
+      >
+        <div class="solution-content-inner">
+          <p class="solution-section-text">Conteúdo a ser inserido posteriormente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Escolha de Plano -->
+  <div class="plan-modal-overlay" *ngIf="selectedPlan" (click)="closePlanModal()">
+    <div class="plan-modal-content" (click)="$event.stopPropagation()">
+      <button class="plan-modal-close" (click)="closePlanModal()" aria-label="Fechar modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="plan-modal-body">
+        <h2 class="plan-modal-title">Ótima escolha!</h2>
+        <p class="plan-modal-message">
+          O plano <strong>{{ selectedPlan }}</strong> será o início de sua presença digital.
+        </p>
+        <p class="plan-modal-message">Vamos dar sequência em sua escolha.</p>
+        <a 
+          [href]="getWhatsAppLink(selectedPlan)" 
+          target="_blank" 
+          class="plan-modal-whatsapp-btn"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+          </svg>
+          Chamar no WhatsApp
+        </a>
       </div>
     </div>
   </div>

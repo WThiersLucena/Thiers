@@ -1,5 +1,5 @@
 .solutions {
-  background-color: transparent;
+  background-color: #000000;
   position: relative;
   overflow: hidden;
 }
@@ -36,9 +36,15 @@
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
   background-repeat: no-repeat;
+  background-color: #000000;
   z-index: 0;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .solutions-header {
@@ -740,5 +746,634 @@
 
   .solution-card-content.image-card.card-barbearia.mobile-hovered .solution-title-container .solution-title-hover {
     opacity: 1;
+  }
+}
+
+/* ============================================
+   BOTÕES DE NAVEGAÇÃO FIXOS
+   ============================================ */
+.solution-buttons-container {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  background-color: #000000;
+  padding: var(--spacing-md) 0;
+  margin: var(--spacing-xl) 0;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.solution-buttons-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.solution-buttons-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.solution-buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.solution-buttons-row:last-child {
+  margin-bottom: 0;
+  gap: 168px;
+  justify-content: center;
+  align-items: center;
+}
+
+.solution-nav-btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 3px solid #000000;
+  border-radius: 12px;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.solution-nav-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.solution-nav-btn.active {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   CONTEÚDO DINÂMICO COM TRANSIÇÕES
+   ============================================ */
+.solution-content-wrapper {
+  position: relative;
+  min-height: 500px;
+  margin-top: var(--spacing-xl);
+  overflow: hidden;
+}
+
+.solution-content-section {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.solution-content-section.active {
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.solution-content-section.slide-out {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.solution-content-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.solution-section-title {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.solution-section-text {
+  color: #ffffff;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.solution-section-text p {
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
+}
+
+.solution-section-text p strong {
+  color: #ffffff;
+}
+
+.solution-section-text p:last-child {
+  margin-bottom: 0;
+}
+
+.solution-section-solution {
+  color: #ffffff;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   GRID DE CARDS
+   ============================================ */
+.solution-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.solution-card-placeholder {
+  background-color: var(--bg-white);
+  border: 3px solid #000000;
+  border-radius: 16px;
+  padding: var(--spacing-xl);
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.solution-card-placeholder p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ============================================
+   CARDS DE PACOTES (PRESENÇA DIGITAL) - ESTILO HOSTINGER
+   ============================================ */
+.hostinger-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: stretch;
+}
+
+.hostinger-pricing-card {
+  background-color: var(--bg-white);
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: var(--spacing-xl);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+
+.hostinger-pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.hostinger-pricing-card-featured {
+  border: 3px solid var(--primary-color);
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hostinger-pricing-card-featured:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+.pricing-badge-popular {
+  background-color: #4CAF50;
+  color: #ffffff;
+}
+
+.pricing-badge-recommended {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+}
+
+.pricing-plan-name {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.pricing-currency {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pricing-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.pricing-period {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.pricing-features {
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  align-items: start;
+}
+
+.hostinger-pricing-card-featured .pricing-features {
+  min-height: 450px;
+}
+
+.pricing-feature-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Garantir que cada seção correspondente tenha a mesma altura mínima em todos os cards */
+/* Seção 1: Desenvolvimento - altura baseada no card com mais itens (Empresarial tem 6 itens) */
+.pricing-feature-section:nth-child(1) {
+  min-height: 140px;
+}
+
+/* Seção 2: Inclui - altura baseada no card com mais itens (Profissional e Empresarial têm 3 itens) */
+.pricing-feature-section:nth-child(2) {
+  min-height: 100px;
+}
+
+/* Seção 3: Manutenção - altura baseada no card com mais itens (Empresarial tem 5 itens) */
+.pricing-feature-section:nth-child(3) {
+  min-height: 200px;
+}
+
+/* Seção 4: Não incluso - todos têm 3 itens */
+.pricing-feature-section:nth-child(4) {
+  min-height: 110px;
+}
+
+/* Garantir que o conteúdo dentro das seções fique alinhado no topo */
+.pricing-feature-title {
+  flex-shrink: 0;
+  margin-bottom: var(--spacing-xs);
+  min-height: 24px;
+}
+
+.pricing-feature-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+.pricing-feature-title {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+.pricing-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-feature-list li {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.pricing-feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.pricing-feature-section.pricing-excluded .pricing-feature-list li::before {
+  content: "✗";
+  color: #ff4444;
+}
+
+.pricing-feature-section.pricing-excluded .pricing-feature-list li {
+  color: #999999;
+}
+
+.pricing-choose-btn {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  margin-top: auto;
+}
+
+.pricing-choose-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hostinger-pricing-card-featured .pricing-choose-btn {
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   MODAL DE ESCOLHA DE PLANO
+   ============================================ */
+.plan-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.plan-modal-content {
+  background-color: var(--bg-white);
+  border-radius: 16px;
+  padding: var(--spacing-xl);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.plan-modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+}
+
+.plan-modal-close:hover {
+  background-color: #f5f5f5;
+  color: var(--text-primary);
+}
+
+.plan-modal-body {
+  text-align: center;
+  padding: var(--spacing-md) 0;
+}
+
+.plan-modal-title {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.plan-modal-message {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.plan-modal-message strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.plan-modal-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: #25D366;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  margin-top: var(--spacing-lg);
+}
+
+.plan-modal-whatsapp-btn:hover {
+  background-color: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.plan-modal-whatsapp-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   SEÇÃO DE CARROSSEL DENTRO DO CONTEÚDO
+   ============================================ */
+.solution-carousel-section {
+  margin-top: var(--spacing-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.solution-carousel-section .category-title {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 768px) {
+  .solution-buttons-container {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .solution-buttons-row {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .solution-buttons-row:last-child {
+    gap: var(--spacing-sm);
+  }
+
+  .solution-nav-btn {
+    width: 90%;
+    max-width: 300px;
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .solution-section-title {
+    font-size: 1.5rem;
+  }
+
+  .solution-section-text {
+    font-size: 1rem;
+    padding: 0 var(--spacing-md);
+  }
+
+  .solution-section-solution {
+    font-size: 1.125rem;
+    padding: 0 var(--spacing-md);
+  }
+
+  .solution-cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-md);
+  }
+
+  .hostinger-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+  }
+
+  .hostinger-pricing-card-featured {
+    transform: scale(1);
+  }
+
+  .hostinger-pricing-card-featured:hover {
+    transform: translateY(-5px);
+  }
+
+  .pricing-plan-name {
+    font-size: 1.25rem;
+  }
+
+  .pricing-amount {
+    font-size: 2rem;
+  }
+
+  .pricing-features {
+    min-height: auto;
+  }
+
+  .plan-modal-content {
+    width: 95%;
+    padding: var(--spacing-lg);
+  }
+
+  .plan-modal-title {
+    font-size: 1.5rem;
+  }
+
+  .solution-content-wrapper {
+    min-height: 400px;
   }
 }
