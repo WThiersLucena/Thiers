@@ -947,7 +947,30 @@
         [class.slide-out]="activeSection !== 'consultoria' && previousSection === 'consultoria'"
       >
         <div class="solution-content-inner">
-          <p class="solution-section-text">Conteúdo a ser inserido posteriormente.</p>
+          <!-- Card Consultoria -->
+          <div class="hostinger-pricing-grid hostinger-pricing-grid-single">
+            <div class="hostinger-pricing-card">
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Consultoria</h3>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Reestruturação organizacional</li>
+                    <li>Planejamento estratégico</li>
+                    <li>Melhoria de processos operacionais</li>
+                    <li>Implementação de sistemas de gestão</li>
+                    <li>Análise de viabilidade financeira</li>
+                    <li>Consultoria em transformação digital</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Consultoria')">
+                Escolher plano
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
