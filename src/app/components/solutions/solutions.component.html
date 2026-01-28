@@ -21,16 +21,23 @@
           [class.active]="activeSection === 'sistemas'"
           (click)="setActiveSection('sistemas')"
         >
-          Sistemas de Gestão e Vendas Online
+          Vendas Online
         </button>
-      </div>
-      <div class="solution-buttons-row">
         <button
           class="solution-nav-btn"
           [class.active]="activeSection === 'presenca'"
           (click)="setActiveSection('presenca')"
         >
           Presença Digital
+        </button>
+      </div>
+      <div class="solution-buttons-row">
+        <button
+          class="solution-nav-btn"
+          [class.active]="activeSection === 'gestao'"
+          (click)="setActiveSection('gestao')"
+        >
+          Gestão Empresarial
         </button>
         <button
           class="solution-nav-btn"
@@ -59,16 +66,193 @@
             <strong>Solução:</strong> Venda online agora. Conheça a SuaEmpresa.com
           </p>
 
-          <!-- Cards placeholder -->
-          <div class="solution-cards-grid">
-            <div class="solution-card-placeholder">
-              <p>Conteúdo a ser inserido</p>
+          <!-- Cards de Pacotes Vendas Online -->
+          <div class="hostinger-pricing-grid">
+            <!-- Pacote Start -->
+            <div class="hostinger-pricing-card">
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Start</h3>
+                <div class="pricing-price">
+                  <span class="pricing-currency">R$</span>
+                  <span class="pricing-amount">89</span>
+                  <span class="pricing-period">,99/mês</span>
+                </div>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Ideal para quem quer começar a vender online sem complexidade.</p>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Loja online</li>
+                    <li>Controle simples de produtos</li>
+                    <li>Atualização de preços</li>
+                    <li>Painel administrativo básico</li>
+                    <li>Suporte básico (e-mail)</li>
+                    <li>Limite de produtos (até 50 produtos)</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section pricing-excluded">
+                  <p 
+                    class="pricing-feature-title pricing-setup-toggle"
+                    (click)="toggleSetupAccordion('start-vendas')"
+                  >
+                    <svg class="warning-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#FFB800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 8V8.01" stroke="#FFB800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Valor de setup não incluso*</span>
+                    <svg 
+                      class="accordion-arrow" 
+                      [class.open]="isSetupAccordionOpen('start-vendas')"
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </p>
+                  <div 
+                    class="pricing-setup-content"
+                    [class.open]="isSetupAccordionOpen('start-vendas')"
+                  >
+                    <p class="pricing-setup-text">Setup: configuração inicial do sistema, personalização visual básica e treinamento.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Start - Vendas Online')">
+                Escolher plano
+              </button>
             </div>
-            <div class="solution-card-placeholder">
-              <p>Conteúdo a ser inserido</p>
+
+            <!-- Pacote Profissional -->
+            <div class="hostinger-pricing-card hostinger-pricing-card-featured">
+              <div class="pricing-badge pricing-badge-popular">Mais popular ⭐</div>
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Profissional</h3>
+                <div class="pricing-price">
+                  <span class="pricing-currency">R$</span>
+                  <span class="pricing-amount">190</span>
+                  <span class="pricing-period">,00/mês</span>
+                </div>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Para empresas que precisam de controle, gestão e visão do negócio.</p>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Loja online completa</li>
+                    <li>Painel administrativo completo</li>
+                    <li>Fornecedor</li>
+                    <li>Produto</li>
+                    <li>Estoque</li>
+                    <li>Carrossel de produtos</li>
+                    <li>Dashboard completo</li>
+                    <li>Suporte (e-mail e WhatsApp)</li>
+                    <li>Limite de produtos (até 100 produtos)</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section pricing-excluded">
+                  <p 
+                    class="pricing-feature-title pricing-setup-toggle"
+                    (click)="toggleSetupAccordion('profissional-vendas')"
+                  >
+                    <svg class="warning-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#FFB800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 8V8.01" stroke="#FFB800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Valor de setup não incluso*</span>
+                    <svg 
+                      class="accordion-arrow" 
+                      [class.open]="isSetupAccordionOpen('profissional-vendas')"
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </p>
+                  <div 
+                    class="pricing-setup-content"
+                    [class.open]="isSetupAccordionOpen('profissional-vendas')"
+                  >
+                    <p class="pricing-setup-text">Setup: configuração inicial do sistema, personalização visual básica e treinamento.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Profissional - Vendas Online')">
+                Escolher plano
+              </button>
             </div>
-            <div class="solution-card-placeholder">
-              <p>Conteúdo a ser inserido</p>
+
+            <!-- Pacote Empresarial -->
+            <div class="hostinger-pricing-card">
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Empresarial</h3>
+                <div class="pricing-price">
+                  <span class="pricing-currency">R$</span>
+                  <span class="pricing-amount">280</span>
+                  <span class="pricing-period">,00/mês</span>
+                </div>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Ideal para empresas que buscam escala, automação e decisões rápidas.</p>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Tudo do Profissional</li>
+                    <li>Alertas personalizados</li>
+                    <li>Alerta de estoque baixo</li>
+                    <li>Alerta de vendas acima/abaixo da média</li>
+                    <li>Notificações automáticas (e-mail / WhatsApp)</li>
+                    <li>Limite de produtos (até 500 produtos)</li>
+                    <li>Automação</li>
+                    <li>Produto esgotado → ocultar da loja</li>
+                    <li>Bloqueio de venda sem estoque</li>
+                  </ul>
+                </div>
+                <div class="pricing-feature-section pricing-excluded">
+                  <p 
+                    class="pricing-feature-title pricing-setup-toggle"
+                    (click)="toggleSetupAccordion('empresarial-vendas')"
+                  >
+                    <svg class="warning-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#FFB800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 8V8.01" stroke="#FFB800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Valor de setup não incluso*</span>
+                    <svg 
+                      class="accordion-arrow" 
+                      [class.open]="isSetupAccordionOpen('empresarial-vendas')"
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </p>
+                  <div 
+                    class="pricing-setup-content"
+                    [class.open]="isSetupAccordionOpen('empresarial-vendas')"
+                  >
+                    <p class="pricing-setup-text">Setup: configuração inicial do sistema, personalização visual básica e treinamento.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Empresarial - Vendas Online')">
+                Escolher plano
+              </button>
             </div>
           </div>
 
@@ -262,12 +446,34 @@
                   </ul>
                 </div>
                 <div class="pricing-feature-section pricing-excluded">
-                  <p class="pricing-feature-title">❌ Não incluso:</p>
-                  <ul class="pricing-feature-list">
-                    <li>Criação de novas páginas</li>
-                    <li>Redesign</li>
-                    <li>Funcionalidades adicionais</li>
-                  </ul>
+                  <p 
+                    class="pricing-feature-title pricing-setup-toggle"
+                    (click)="toggleSetupAccordion('start-presenca')"
+                  >
+                    <span class="exclamation-emoji">⚠️</span>
+                    <span>Não incluso:</span>
+                    <svg 
+                      class="accordion-arrow" 
+                      [class.open]="isSetupAccordionOpen('start-presenca')"
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </p>
+                  <div 
+                    class="pricing-setup-content"
+                    [class.open]="isSetupAccordionOpen('start-presenca')"
+                  >
+                    <ul class="pricing-feature-list">
+                      <li>Criação de novas páginas</li>
+                      <li>Redesign</li>
+                      <li>Funcionalidades adicionais</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <button class="pricing-choose-btn" (click)="openPlanModal('Start')">
@@ -314,12 +520,34 @@
                   </ul>
                 </div>
                 <div class="pricing-feature-section pricing-excluded">
-                  <p class="pricing-feature-title">❌ Não incluso:</p>
-                  <ul class="pricing-feature-list">
-                    <li>Criação de novas páginas</li>
-                    <li>Redesign</li>
-                    <li>Novas funcionalidades</li>
-                  </ul>
+                  <p 
+                    class="pricing-feature-title pricing-setup-toggle"
+                    (click)="toggleSetupAccordion('profissional-presenca')"
+                  >
+                    <span class="exclamation-emoji">⚠️</span>
+                    <span>Não incluso:</span>
+                    <svg 
+                      class="accordion-arrow" 
+                      [class.open]="isSetupAccordionOpen('profissional-presenca')"
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </p>
+                  <div 
+                    class="pricing-setup-content"
+                    [class.open]="isSetupAccordionOpen('profissional-presenca')"
+                  >
+                    <ul class="pricing-feature-list">
+                      <li>Criação de novas páginas</li>
+                      <li>Redesign</li>
+                      <li>Novas funcionalidades</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <button class="pricing-choose-btn" (click)="openPlanModal('Profissional')">
@@ -368,12 +596,34 @@
                   </ul>
                 </div>
                 <div class="pricing-feature-section pricing-excluded">
-                  <p class="pricing-feature-title">❌ Não incluso:</p>
-                  <ul class="pricing-feature-list">
-                    <li>Criação de novas páginas</li>
-                    <li>Redesign</li>
-                    <li>Novas funcionalidades</li>
-                  </ul>
+                  <p 
+                    class="pricing-feature-title pricing-setup-toggle"
+                    (click)="toggleSetupAccordion('empresarial-presenca')"
+                  >
+                    <span class="exclamation-emoji">⚠️</span>
+                    <span>Não incluso:</span>
+                    <svg 
+                      class="accordion-arrow" 
+                      [class.open]="isSetupAccordionOpen('empresarial-presenca')"
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </p>
+                  <div 
+                    class="pricing-setup-content"
+                    [class.open]="isSetupAccordionOpen('empresarial-presenca')"
+                  >
+                    <ul class="pricing-feature-list">
+                      <li>Criação de novas páginas</li>
+                      <li>Redesign</li>
+                      <li>Novas funcionalidades</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <button class="pricing-choose-btn" (click)="openPlanModal('Empresarial')">
@@ -510,6 +760,179 @@
                 class="carousel-indicator"
                 [class.active]="i === presencaCategory.currentIndex"
                 (click)="goToSlide(presencaCategory, i)"
+                [attr.aria-label]="'Ir para slide ' + (i + 1)"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção: Gestão Empresarial -->
+      <div
+        class="solution-content-section"
+        [class.active]="activeSection === 'gestao'"
+        [class.slide-out]="activeSection !== 'gestao' && previousSection === 'gestao'"
+      >
+        <div class="solution-content-inner">
+          <!-- Card Corporativo -->
+          <div class="hostinger-pricing-grid hostinger-pricing-grid-single">
+            <div class="hostinger-pricing-card">
+              <div class="pricing-header">
+                <h3 class="pricing-plan-name">Corporativo</h3>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Para empresas que precisam de soluções exclusivas e processos personalizados.</p>
+                </div>
+                <div class="pricing-feature-section">
+                  <p class="pricing-feature-title">Inclui:</p>
+                  <ul class="pricing-feature-list">
+                    <li>Sistemas personalizados</li>
+                    <li>Voltado para empresas e indústrias</li>
+                    <li>Desenvolvimento conforme necessidade real</li>
+                    <li>Regras de negócio específicas</li>
+                    <li>Levantamento de requisitos</li>
+                    <li>Arquitetura personalizada</li>
+                    <li>Integrações com sistemas legados</li>
+                    <li>Escalabilidade e performance</li>
+                    <li>SLA, suporte dedicado e contratos específicos</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="pricing-choose-btn" (click)="openPlanModal('Corporativo - Gestão Empresarial')">
+                Escolher plano
+              </button>
+            </div>
+          </div>
+
+          <!-- Carrossel: Gestão Empresarial -->
+          <div class="solution-carousel-section">
+            <h3 class="category-title">Consultoria Prática para Organização e Crescimento do Negócio:</h3>
+            <div class="carousel-wrapper">
+              <button
+                class="carousel-btn carousel-btn-prev"
+                (click)="prevSlide(gestaoCategory)"
+                *ngIf="gestaoCategory.solutions.length > 1"
+                aria-label="Anterior"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <div class="carousel-container">
+                <div
+                  class="carousel-track"
+                  [style.transform]="
+                    'translateX(-' + gestaoCategory.currentIndex * 100 + '%)'
+                  "
+                >
+                  <div
+                    class="solution-card-carousel"
+                    *ngFor="let solution of gestaoCategory.solutions"
+                  >
+                    <div
+                      class="solution-card-content"
+                      [class.image-card]="solution.isImageCard"
+                      [class.text-card]="solution.isTextCard"
+                      [class.card-ecommerce]="solution.id === 'ecommerce'"
+                      [class.card-barbearia]="solution.id === 'barbearia'"
+                      [class.card-cardapio-digital]="solution.id === 'cardapio-digital'"
+                      [class.mobile-hovered]="isMobile && isCardHovered(solution.id)"
+                      (click)="
+                        solution.isImageCard && solution.link
+                          ? openLink(solution.link)
+                          : solution.isTextCard
+                          ? null
+                          : openSolution(solution)
+                      "
+                    >
+                      <ng-container *ngIf="solution.isImageCard && solution.image">
+                        <div class="solution-image-container">
+                          <img 
+                            class="solution-image-default" 
+                            [src]="solution.image" 
+                            [alt]="solution.title" 
+                          />
+                        </div>
+                        <img 
+                          *ngIf="solution.hoverImage"
+                          class="solution-image-hover" 
+                          [src]="solution.hoverImage" 
+                          [alt]="solution.title + ' - Hover'" 
+                        />
+                        <div class="solution-title-container">
+                          <h4 class="solution-title-default">{{ solution.title }}</h4>
+                          <h4 *ngIf="solution.hoverTitle" class="solution-title-hover">{{ solution.hoverTitle }}</h4>
+                        </div>
+                      </ng-container>
+
+                      <ng-container *ngIf="solution.isTextCard">
+                        <div class="lojas-virtuais-content">
+                          <p
+                            *ngFor="let text of solution.textContent"
+                            class="lojas-virtuais-text"
+                          >
+                            {{ text }}
+                          </p>
+                        </div>
+                      </ng-container>
+
+                      <ng-container
+                        *ngIf="!solution.isImageCard && !solution.isTextCard"
+                      >
+                        <div class="solution-icon">{{ solution.icon }}</div>
+                        <h4>{{ solution.title }}</h4>
+                        <p>{{ solution.description }}</p>
+                        <span class="solution-link">Saiba mais →</span>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-btn carousel-btn-next"
+                (click)="nextSlide(gestaoCategory)"
+                *ngIf="gestaoCategory.solutions.length > 1"
+                aria-label="Próximo"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 18L15 12L9 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="carousel-indicators" *ngIf="gestaoCategory.solutions.length > 1">
+              <button
+                *ngFor="let solution of gestaoCategory.solutions; let i = index"
+                class="carousel-indicator"
+                [class.active]="i === gestaoCategory.currentIndex"
+                (click)="goToSlide(gestaoCategory, i)"
                 [attr.aria-label]="'Ir para slide ' + (i + 1)"
               ></button>
             </div>

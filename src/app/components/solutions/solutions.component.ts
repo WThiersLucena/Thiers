@@ -21,11 +21,14 @@ export class SolutionsComponent implements OnInit, OnDestroy {
   private mobileIntervals: Map<string, ReturnType<typeof setInterval>> = new Map();
   
   // Controle de seções ativas
-  activeSection: 'sistemas' | 'presenca' | 'consultoria' | null = null;
-  previousSection: 'sistemas' | 'presenca' | 'consultoria' | null = null;
+  activeSection: 'sistemas' | 'gestao' | 'presenca' | 'consultoria' | null = null;
+  previousSection: 'sistemas' | 'gestao' | 'presenca' | 'consultoria' | null = null;
   
   // Controle do modal de plano
   selectedPlan: string | null = null;
+  
+  // Controle dos accordions de setup
+  setupAccordions: Set<string> = new Set();
   
   // Categorias específicas para cada seção
   sistemasCategory: SolutionCategory = {
@@ -36,6 +39,12 @@ export class SolutionsComponent implements OnInit, OnDestroy {
   
   presencaCategory: SolutionCategory = {
     title: 'Presença digital, Sites Institucionais e Portfólios',
+    solutions: [],
+    currentIndex: 0,
+  };
+  
+  gestaoCategory: SolutionCategory = {
+    title: 'Gestão Empresarial',
     solutions: [],
     currentIndex: 0,
   };
@@ -83,6 +92,14 @@ export class SolutionsComponent implements OnInit, OnDestroy {
       title: 'Presença digital, Sites Institucionais e Portfólios',
       solutions: allSolutions.filter((s) =>
         ['portfolio-lais', 'sites-institucionais'].includes(s.id)
+      ),
+      currentIndex: 0,
+    };
+
+    this.gestaoCategory = {
+      title: 'Gestão Empresarial',
+      solutions: allSolutions.filter((s) =>
+        ['gestao-consultoria', 'transformacao-digital'].includes(s.id)
       ),
       currentIndex: 0,
     };
@@ -179,7 +196,7 @@ export class SolutionsComponent implements OnInit, OnDestroy {
     window.open(url, '_blank');
   }
 
-  setActiveSection(section: 'sistemas' | 'presenca' | 'consultoria'): void {
+  setActiveSection(section: 'sistemas' | 'gestao' | 'presenca' | 'consultoria'): void {
     if (this.activeSection !== section) {
       this.previousSection = this.activeSection;
       this.activeSection = section;
@@ -200,5 +217,17 @@ export class SolutionsComponent implements OnInit, OnDestroy {
     const phoneNumber = '5511982539200';
     const message = encodeURIComponent(`Olha Thiers, gostaria de dar inicio no Plano ${planName}.`);
     return `https://wa.me/${phoneNumber}?text=${message}`;
+  }
+
+  toggleSetupAccordion(planId: string): void {
+    if (this.setupAccordions.has(planId)) {
+      this.setupAccordions.delete(planId);
+    } else {
+      this.setupAccordions.add(planId);
+    }
+  }
+
+  isSetupAccordionOpen(planId: string): boolean {
+    return this.setupAccordions.has(planId);
   }
 }

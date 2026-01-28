@@ -743,7 +743,7 @@
   background-position: center 50%;
   background-repeat: no-repeat;
   background-color: #000000;
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-md) var(--spacing-xl);
   margin: var(--spacing-xl) 0;
   border-radius: 12px;
   overflow: hidden;
@@ -751,6 +751,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .solution-buttons-container::before {
@@ -774,14 +776,28 @@
   display: flex;
   justify-content: center;
   gap: var(--spacing-md);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.solution-buttons-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 168px;
+  margin-bottom: var(--spacing-md);
+}
+
+.solution-buttons-row:first-child {
+  justify-content: center;
+  gap: 168px;
 }
 
 .solution-buttons-row:last-child {
   margin-bottom: 0;
-  gap: 168px;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 0 var(--spacing-xl);
+  max-width: 100%;
 }
 
 .solution-nav-btn {
@@ -795,6 +811,8 @@
   cursor: pointer;
   transition: all var(--transition-normal);
   min-width: 200px;
+  max-width: 200px;
+  width: 200px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -937,6 +955,11 @@
   align-items: stretch;
 }
 
+.hostinger-pricing-grid-single {
+  grid-template-columns: 1fr;
+  max-width: 600px;
+}
+
 .hostinger-pricing-card {
   background-color: var(--bg-white);
   border: 2px solid #e0e0e0;
@@ -1036,7 +1059,7 @@
   display: grid;
   grid-template-rows: auto auto auto auto;
   gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
   align-items: start;
 }
 
@@ -1047,24 +1070,24 @@
 }
 
 /* Garantir que cada seção correspondente tenha a mesma altura mínima em todos os cards */
-/* Seção 1: Desenvolvimento - altura baseada no card com mais itens (Empresarial tem 6 itens) */
+/* Seção 1: Descrição/Desenvolvimento */
 .pricing-feature-section:nth-child(1) {
-  min-height: 140px;
+  min-height: 60px;
 }
 
-/* Seção 2: Inclui - altura baseada no card com mais itens (Profissional e Empresarial têm 3 itens) */
+/* Seção 2: Inclui/Desenvolvimento */
 .pricing-feature-section:nth-child(2) {
   min-height: 100px;
 }
 
-/* Seção 3: Manutenção - altura baseada no card com mais itens (Empresarial tem 5 itens) */
+/* Seção 3: Manutenção/Inclui adicional */
 .pricing-feature-section:nth-child(3) {
   min-height: 200px;
 }
 
-/* Seção 4: Não incluso - todos têm 3 itens */
+/* Seção 4: Não incluso/Setup */
 .pricing-feature-section:nth-child(4) {
-  min-height: 110px;
+  min-height: 80px;
 }
 
 /* Garantir que o conteúdo dentro das seções fique alinhado no topo */
@@ -1082,12 +1105,79 @@
   min-height: 0;
 }
 
+/* ============================================
+   ACCORDION DE SETUP
+   ============================================ */
+.pricing-setup-toggle {
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+}
+
+.pricing-setup-toggle:hover {
+  opacity: 0.8;
+}
+
+.pricing-setup-toggle span {
+  flex: 1;
+}
+
+.accordion-arrow {
+  transition: transform var(--transition-normal);
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.accordion-arrow.open {
+  transform: rotate(180deg);
+}
+
+.pricing-setup-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal), opacity var(--transition-normal);
+  opacity: 0;
+  margin-top: 0;
+}
+
+.pricing-setup-content.open {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: var(--spacing-sm);
+}
+
+.pricing-setup-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: var(--spacing-sm);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 3px solid #FFB800;
+}
+
+.exclamation-emoji {
+  font-size: 1.2rem;
+  line-height: 1;
+  filter: grayscale(0);
+}
+
 .pricing-feature-title {
   color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: var(--spacing-xs);
   line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.warning-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
 }
 
 .pricing-feature-list {
@@ -1285,10 +1375,25 @@
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    justify-content: center;
+    padding: 0;
+  }
+
+  .solution-buttons-row:first-child {
+    justify-content: center;
+    gap: var(--spacing-sm);
   }
 
   .solution-buttons-row:last-child {
+    margin-bottom: 0;
+    justify-content: center;
     gap: var(--spacing-sm);
+    padding: 0;
+  }
+
+  .hostinger-pricing-grid-single {
+    max-width: 100%;
   }
 
   .solution-nav-btn {
