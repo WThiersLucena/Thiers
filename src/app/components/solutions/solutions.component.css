@@ -1015,8 +1015,17 @@
 
 .pricing-header {
   text-align: center;
-  margin-bottom: var(--spacing-lg);
-  padding-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  padding-top: calc(var(--spacing-md) * 0.1);
+}
+
+.pricing-hosting-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-top: var(--spacing-xs);
+  margin-bottom: 0;
+  font-style: italic;
 }
 
 .pricing-plan-name {
@@ -1058,9 +1067,10 @@
   flex: 1;
   display: grid;
   grid-template-rows: auto auto auto auto;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
   align-items: start;
+  margin-top: var(--spacing-xs);
 }
 
 
@@ -1097,6 +1107,12 @@
   min-height: 24px;
 }
 
+/* Ajuste específico para cards de Vendas Online - subir 25% */
+.vendas-online-section.active .pricing-feature-title {
+  margin-top: calc(var(--spacing-xs) * -2.55);
+  margin-bottom: calc(var(--spacing-xs) * 0.75);
+}
+
 .pricing-feature-list {
   flex: 1;
   display: flex;
@@ -1112,6 +1128,8 @@
   cursor: pointer;
   user-select: none;
   transition: all var(--transition-fast);
+  justify-content: center;
+  text-align: center;
 }
 
 .pricing-setup-toggle:hover {
@@ -1119,7 +1137,7 @@
 }
 
 .pricing-setup-toggle span {
-  flex: 1;
+  flex: 0 0 auto;
 }
 
 .accordion-arrow {
@@ -1172,6 +1190,21 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.pricing-feature-title.pricing-setup-toggle {
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  align-items: center;
+}
+
+.pricing-feature-title.pricing-setup-toggle .exclamation-emoji {
+  margin-right: 2px;
+}
+
+.pricing-feature-title.pricing-setup-toggle span:not(.exclamation-emoji) {
+  margin-right: 4px;
 }
 
 .warning-icon {
