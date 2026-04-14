@@ -1,0 +1,520 @@
+<app-header></app-header>
+
+<main class="salon-page">
+  <!-- Barra secundária: voltar + CTA rápido -->
+  <div class="salon-page__subnav">
+    <div class="salon-page__container salon-page__subnav-inner">
+      <a routerLink="/solucoes" class="salon-page__back"
+        >← Voltar para soluções</a
+      >
+      <button
+        type="button"
+        class="salon-page__btn salon-page__btn--ghost"
+        (click)="openDemoInterest()"
+      >
+        Ver demonstração
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="salon-hero" aria-labelledby="salon-hero-title">
+    <div class="salon-page__container salon-hero__grid">
+      <div class="salon-hero__copy">
+        <p class="salon-hero__eyebrow">
+          Sistema de gestão para salão de beleza e estúdio
+        </p>
+        <h1 id="salon-hero-title" class="salon-hero__title">
+          Sua agenda cheia,
+          <span class="salon-hero__accent">sem depender do improviso</span>
+        </h1>
+        <p class="salon-hero__tagline">
+          Estúdio de alta performance. Agenda inteligente. Gestão que acompanha
+          o seu crescimento.
+        </p>
+        <p class="salon-hero__lead">
+          Enquanto você atende, o sistema trabalha por você: agendamento online,
+          vitrine de serviços e visão financeira em um só lugar para você parar
+          de perder tempo (e clientes) no WhatsApp.
+        </p>
+        <div class="salon-hero__actions">
+          <button
+            type="button"
+            class="salon-page__btn salon-page__btn--primary"
+            (click)="openDemoInterest()"
+          >
+            Acessar demonstração grátis
+          </button>
+          <a
+            routerLink="/"
+            fragment="contato"
+            class="salon-page__link-secondary"
+            >Falar por contato</a
+          >
+        </div>
+      </div>
+      <aside class="salon-hero__aside" aria-label="Credibilidade">
+        <p class="salon-hero__aside-label">Solução Thiers</p>
+        <p class="salon-hero__aside-text">
+          Pensada por quem desenvolve software com foco em
+          <strong>resultado operacional</strong> não só em telas bonitas.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Métricas / prova social (qualitativa evita números fictícios) -->
+  <section class="salon-strip" aria-label="Benefícios resumidos">
+    <div class="salon-page__container salon-strip__grid">
+      <div class="salon-strip__item">
+        <span class="salon-strip__label">Adotado por negócios que</span>
+        <strong class="salon-strip__value">priorizam organização</strong>
+        <span class="salon-strip__hint">e experiência da cliente</span>
+      </div>
+      <div class="salon-strip__item">
+        <span class="salon-strip__label">Foco em reduzir</span>
+        <strong class="salon-strip__value">faltas e retrabalho</strong>
+        <span class="salon-strip__hint">com confirmações e rotina clara</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valor agregado -->
+  <section class="salon-section" aria-labelledby="salon-value-title">
+    <div class="salon-page__container">
+      <figure class="salon-section__figure">
+        <img
+          src="assets/Thiers-Beauty-Studio-Full.png"
+          width="1600"
+          height="900"
+          loading="lazy"
+          alt="Thiers-Bs em múltiplos dispositivos: painel administrativo, landing de agendamento, fluxo no tablet e vitrine de serviços no celular."
+        />
+      </figure>
+      <div class="salon-section__narrow">
+        <h2 id="salon-value-title" class="salon-section__title">
+          Transmita profissionalismo antes mesmo do primeiro atendimento
+        </h2>
+        <p class="salon-section__text">
+          A primeira impressão não é mais só o salão é o jeito que a cliente
+          agenda, vê seus serviços e confia no seu processo. Uma vitrine e uma
+          agenda integradas mostram que você leva o negócio a sério e isso,
+          inconscientemente, justifica preço e fidelização.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilares / features -->
+  <section class="salon-features" aria-labelledby="salon-features-title">
+    <div class="salon-page__container">
+      <h2
+        id="salon-features-title"
+        class="salon-section__title salon-section__title--center"
+      >
+        O que o ecossistema reúne para você
+      </h2>
+      <div class="salon-features__grid">
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">⚙️</span>
+          <h3 class="salon-feature-card__title">Gestão de horários</h3>
+          <p class="salon-feature-card__text">
+            Almoço, intervalos, duração por serviço e bloqueios inteligentes a
+            agenda se ajusta à sua rotina real, não o contrário.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">📱</span>
+          <h3 class="salon-feature-card__title">Experiência da cliente</h3>
+          <p class="salon-feature-card__text">
+            Ela escolhe o serviço e o melhor horário em poucos cliques pelo link
+            da bio ou WhatsApp sem fila de mensagens para você responder.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">📊</span>
+          <h3 class="salon-feature-card__title">Financeiro e comissões</h3>
+          <p class="salon-feature-card__text">
+            Visão do faturamento, serviços que mais vendem e comissões por
+            profissional menos planilha à noite, mais clareza para decidir.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">💬</span>
+          <h3 class="salon-feature-card__title">Presença digital coerente</h3>
+          <p class="salon-feature-card__text">
+            Catálogo alinhado à sua marca: preços e descrições profissionais,
+            sem PDFs perdidos no chat.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco “vídeo / demonstração” -->
+  <section class="salon-demo" aria-labelledby="salon-demo-title">
+    <div class="salon-page__container salon-demo__inner">
+      <h2 id="salon-demo-title" class="salon-section__title">
+        Casos reais: veja o fluxo em ação
+      </h2>
+      <p class="salon-section__text salon-demo__intro">
+        Em uma conversa guiada mostramos como a cliente agenda, como você
+        confirma presença e como o painel traduz o dia em números em minutos
+        você entende se faz sentido para o seu estúdio.
+      </p>
+      <div
+        class="salon-demo__placeholder"
+        role="img"
+        aria-label="Área reservada para vídeo ou tour guiado"
+      >
+        <span class="salon-demo__play" aria-hidden="true">▶</span>
+        <p class="salon-demo__placeholder-text">
+          Demonstração sob agendamento sem compromisso
+        </p>
+        <button
+          type="button"
+          class="salon-page__btn salon-page__btn--primary"
+          (click)="openDemoInterest()"
+        >
+          Quero ver na prática
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativo -->
+  <section class="salon-compare" aria-labelledby="salon-compare-title">
+    <div class="salon-page__container">
+      <h2
+        id="salon-compare-title"
+        class="salon-section__title salon-section__title--center"
+      >
+        Agenda de papel &amp; WhatsApp × Solução Thiers
+      </h2>
+      <div class="salon-compare__grid">
+        <div class="salon-compare__col salon-compare__col--muted">
+          <h3 class="salon-compare__subtitle">
+            Caderno / WhatsApp no improviso
+          </h3>
+          <ul class="salon-compare__list salon-compare__list--negative">
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--bad"
+                aria-hidden="true"
+                >×</span
+              >
+              <span>Cliente desiste quando a resposta demora.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--bad"
+                aria-hidden="true"
+                >×</span
+              >
+              <span
+                >Furos na agenda por esquecimento e falta de confirmação.</span
+              >
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--bad"
+                aria-hidden="true"
+                >×</span
+              >
+              <span>Tabelas de preço espalhadas em fotos e PDFs.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--bad"
+                aria-hidden="true"
+                >×</span
+              >
+              <span
+                >Mensagens fora do expediente gerando culpa e estresse.</span
+              >
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--bad"
+                aria-hidden="true"
+                >×</span
+              >
+              <span>Faturamento “na cabeça” sem clareza de lucro real.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="salon-compare__col salon-compare__col--highlight">
+          <h3 class="salon-compare__subtitle">Thiers salão &amp; estúdio</h3>
+          <ul class="salon-compare__list salon-compare__list--positive">
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--good"
+                aria-hidden="true"
+                >✓</span
+              >
+              <span
+                >Agendamento online disponível quando a cliente quiser.</span
+              >
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--good"
+                aria-hidden="true"
+                >✓</span
+              >
+              <span
+                >Rotina de confirmação alinhada ao seu fluxo (ex.:
+                WhatsApp).</span
+              >
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--good"
+                aria-hidden="true"
+                >✓</span
+              >
+              <span>Vitrine de serviços clara e alinhada à sua marca.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--good"
+                aria-hidden="true"
+                >✓</span
+              >
+              <span
+                >Regras de horário, almoço e feriados respeitadas
+                automaticamente.</span
+              >
+            </li>
+            <li class="salon-compare__row">
+              <span
+                class="salon-compare__mark salon-compare__mark--good"
+                aria-hidden="true"
+                >✓</span
+              >
+              <span
+                >Painel com histórico e visão financeira para decidir com
+                dados.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA intermediário -->
+  <section class="salon-mid-cta" aria-labelledby="salon-mid-cta-title">
+    <div class="salon-page__container salon-mid-cta__inner">
+      <h2 id="salon-mid-cta-title" class="salon-mid-cta__title">
+        Beleza e organização no mesmo lugar
+      </h2>
+      <p class="salon-mid-cta__text">
+        Menos faltas injustificadas, menos planilha manual e mais tempo para o
+        que só você faz de melhor: atender com excelência.
+      </p>
+    </div>
+  </section>
+
+  <!-- Preço / plano -->
+  <section class="salon-pricing" aria-labelledby="salon-pricing-title">
+    <div class="salon-page__container salon-pricing__inner">
+      <h2
+        id="salon-pricing-title"
+        class="salon-section__title salon-section__title--center"
+      >
+        Plano sob medida para o seu tamanho de operação
+      </h2>
+      <p class="salon-pricing__note">
+        Valores e escopo são alinhados na conversa você não paga por recursos
+        que não vai usar.
+      </p>
+      <div class="salon-pricing__card">
+        <p class="salon-pricing__plan-name">
+          Salão &amp; estúdio licença completa
+        </p>
+        <p class="salon-pricing__price">Sob consulta</p>
+        <p class="salon-pricing__sub">
+          Cancele quando fizer sentido para o seu negócio. Sem letras miúdas
+          escondidas.
+        </p>
+        <ul class="salon-pricing__bullets">
+          <li>Vitrine digital e agenda online</li>
+          <li>Cadastro de profissionais e serviços</li>
+          <li>Apoio à gestão de comissões</li>
+          <li>Fluxo de confirmação alinhado ao WhatsApp</li>
+        </ul>
+        <button
+          type="button"
+          class="salon-page__btn salon-page__btn--primary salon-pricing__btn"
+          (click)="openPlanInterest()"
+        >
+          Quero este plano
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="salon-faq" aria-labelledby="salon-faq-title">
+    <div class="salon-page__container salon-faq__inner">
+      <h2
+        id="salon-faq-title"
+        class="salon-section__title salon-section__title--center"
+      >
+        Dúvidas frequentes
+      </h2>
+      <div class="salon-faq__list">
+        <details class="salon-faq__item">
+          <summary>A cliente precisa instalar aplicativo para agendar?</summary>
+          <p>
+            Não. Ela pode usar o fluxo pelo navegador a partir do link que você
+            divulga no Instagram ou WhatsApp rápido e sem fricção.
+          </p>
+        </details>
+        <details class="salon-faq__item">
+          <summary>O sistema ajuda a reduzir faltas?</summary>
+          <p>
+            Sim. A combinação de agendamento claro + rotina de confirmação
+            (incluindo integração com WhatsApp quando faz parte do escopo)
+            mantém a agenda mais previsível.
+          </p>
+        </details>
+        <details class="salon-faq__item">
+          <summary>Consigo configurar comissões por profissional?</summary>
+          <p>
+            Sim. Você cadastra a equipe e as regras por serviço; o painel apoia
+            o acompanhamento para fechar o período com segurança.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="salon-final-cta" aria-labelledby="salon-final-title">
+    <div class="salon-page__container salon-final-cta__inner">
+      <h2 id="salon-final-title" class="salon-final-cta__title">
+        Profissionalize sua agenda hoje
+      </h2>
+      <p class="salon-final-cta__text">
+        Posicione seus serviços no nível das grandes marcas e pare de perder
+        oportunidades na fila do WhatsApp.
+      </p>
+      <div class="salon-final-cta__actions">
+        <button
+          type="button"
+          class="salon-page__btn salon-page__btn--primary"
+          (click)="openFinalCta()"
+        >
+          Acessar atendimento agora
+        </button>
+        <a routerLink="/solucoes" class="salon-page__link-secondary"
+          >Voltar para soluções</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Outras soluções -->
+  <section class="salon-related" aria-labelledby="salon-related-title">
+    <div class="salon-page__container salon-related__panel">
+      <header class="salon-related__header">
+        <h2 id="salon-related-title" class="salon-related__heading">
+          Explore outras soluções
+        </h2>
+        <p class="salon-related__lede">
+          Continue navegando outras linhas da Thiers complementam o que você viu
+          aqui.
+        </p>
+      </header>
+      <div class="salon-related__grid">
+        <a
+          routerLink="/solucoes"
+          class="salon-related__card salon-related__card--solutions"
+        >
+          <span class="salon-related__icon-wrap" aria-hidden="true">
+            <svg
+              class="salon-related__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1.5" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            </svg>
+          </span>
+          <div class="salon-related__card-body">
+            <h3 class="salon-related__card-title">Catálogo completo</h3>
+            <p class="salon-related__card-text">
+              PDV, agendamento, sites e mais tudo em um só lugar.
+            </p>
+          </div>
+          <span class="salon-related__card-action">
+            Ver soluções
+            <svg
+              class="salon-related__arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+        <a
+          routerLink="/sobre"
+          class="salon-related__card salon-related__card--about"
+        >
+          <span class="salon-related__icon-wrap" aria-hidden="true">
+            <svg
+              class="salon-related__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </span>
+          <div class="salon-related__card-body">
+            <h3 class="salon-related__card-title">Quem é a Thiers</h3>
+            <p class="salon-related__card-text">
+              Conheça nossa forma de entregar software com propósito e método.
+            </p>
+          </div>
+          <span class="salon-related__card-action">
+            Conhecer a empresa
+            <svg
+              class="salon-related__arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

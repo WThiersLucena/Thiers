@@ -1,0 +1,62 @@
+/* Reutiliza layout do salão; tema teal alinhado à identidade Thiers Pet */
+@import '../salon-beauty-solution-page/salon-beauty-solution-page.component.css';
+
+.pet-page.salon-page .salon-page__btn--primary {
+  background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.38);
+}
+
+.pet-page.salon-page .salon-page__btn--primary:hover {
+  box-shadow: 0 8px 22px rgba(13, 148, 136, 0.45);
+}
+
+.pet-page.salon-page .salon-hero__accent {
+  color: #0f766e;
+}
+
+.pet-page.salon-page .salon-demo__play {
+  background: rgba(13, 148, 136, 0.95);
+}
+
+.pet-page.salon-page .salon-compare__col--highlight {
+  background: linear-gradient(180deg, #f0fdfa 0%, #fff 100%);
+  border: 2px solid #5eead4;
+}
+
+.pet-page.salon-page .salon-pricing__price {
+  color: #0f766e;
+}
+
+.pet-page.salon-page .salon-final-cta {
+  background: linear-gradient(180deg, rgba(240, 253, 250, 0.75) 0%, transparent 100%);
+}
+
+.pet-page.salon-page .salon-related__panel {
+  background: linear-gradient(165deg, #ffffff 0%, #f8fafc 45%, #f0fdfa 100%);
+}
+
+.pet-page.salon-page .salon-related__card--about::before {
+  background: linear-gradient(90deg, #14b8a6, #2dd4bf);
+}
+
+.pet-page.salon-page .salon-related__card--about .salon-related__icon-wrap {
+  background: linear-gradient(145deg, #ccfbf1 0%, #f0fdfa 100%);
+  color: #0f766e;
+  border: 1px solid rgba(45, 212, 191, 0.55);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.12);
+}
+
+.pet-page.salon-page .salon-related__card--about:hover {
+  border-color: rgba(45, 212, 191, 0.55);
+  box-shadow:
+    0 12px 32px rgba(15, 23, 42, 0.1),
+    0 4px 12px rgba(13, 148, 136, 0.14);
+}
+
+.pet-page.salon-page .salon-related__card--about .salon-related__card-action {
+  color: #0f766e;
+}
+
+.pet-page.salon-page .salon-related__card--about:focus-visible {
+  outline-color: #14b8a6;
+}

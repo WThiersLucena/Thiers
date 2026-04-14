@@ -1,0 +1,406 @@
+<app-header></app-header>
+
+<main class="salon-page pet-page">
+  <!-- Barra secundária: voltar + CTA rápido -->
+  <div class="salon-page__subnav">
+    <div class="salon-page__container salon-page__subnav-inner">
+      <a routerLink="/solucoes" class="salon-page__back">← Voltar para soluções</a>
+      <button
+        type="button"
+        class="salon-page__btn salon-page__btn--ghost"
+        (click)="openDemoInterest()"
+      >
+        Ver demonstração
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="salon-hero" aria-labelledby="pet-hero-title">
+    <div class="salon-page__container salon-hero__grid">
+      <div class="salon-hero__copy">
+        <p class="salon-hero__eyebrow">Sistema para clínicas, pet shops e banho &amp; tosa</p>
+        <h1 id="pet-hero-title" class="salon-hero__title">
+          Agenda cheia e tutores fiéis,
+          <span class="salon-hero__accent">sem bagunça no WhatsApp</span>
+        </h1>
+        <p class="salon-hero__tagline">
+          Fidelize quem ama o pet. Organize horários, serviços e histórico em um fluxo simples.
+        </p>
+        <p class="salon-hero__lead">
+          Enquanto você cuida dos bichinhos, o sistema organiza agendamentos, lembretes e visão do dia
+          para você ganhar previsibilidade, reduzir faltas e mostrar profissionalismo que justifica
+          preço e recorrência.
+        </p>
+        <div class="salon-hero__actions">
+          <button
+            type="button"
+            class="salon-page__btn salon-page__btn--primary"
+            (click)="openDemoInterest()"
+          >
+            Acessar demonstração grátis
+          </button>
+          <a routerLink="/" fragment="contato" class="salon-page__link-secondary">Falar por contato</a>
+        </div>
+      </div>
+      <aside class="salon-hero__aside" aria-label="Credibilidade">
+        <p class="salon-hero__aside-label">Solução Thiers Pet</p>
+        <p class="salon-hero__aside-text">
+          Pensada para quem precisa de
+          <strong>agenda eficaz e relacionamento com o tutor</strong>, não só de uma tela bonita.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Métricas / prova social -->
+  <section class="salon-strip" aria-label="Benefícios resumidos">
+    <div class="salon-page__container salon-strip__grid">
+      <div class="salon-strip__item">
+        <span class="salon-strip__label">Para negócios que querem</span>
+        <strong class="salon-strip__value">recorrência e confiança</strong>
+        <span class="salon-strip__hint">com comunicação clara com o tutor</span>
+      </div>
+      <div class="salon-strip__item">
+        <span class="salon-strip__label">Foco em</span>
+        <strong class="salon-strip__value">agenda previsível</strong>
+        <span class="salon-strip__hint">menos buracos e menos retrabalho na recepção</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valor agregado -->
+  <section class="salon-section" aria-labelledby="pet-value-title">
+    <div class="salon-page__container">
+      <figure class="salon-section__figure">
+        <img
+          src="assets/Thiers-Pet-Full.png"
+          width="1600"
+          height="900"
+          loading="lazy"
+          alt="Thiers Pet em múltiplos dispositivos: painel, landing de agendamento e experiência do tutor no celular."
+        />
+      </figure>
+      <div class="salon-section__narrow">
+        <h2 id="pet-value-title" class="salon-section__title">
+          Agregue valor ao seu serviço de forma simples e clara
+        </h2>
+        <p class="salon-section__text">
+          O tutor decide em segundos: agendar tem que ser fácil, o histórico do pet tem que estar à
+          mão e a comunicação tem que passar segurança. Quando agenda, serviços e acompanhamento
+          conversam no mesmo lugar, você eleva a percepção do negócio e abre espaço para planos,
+          pacotes e indicações.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilares / features -->
+  <section class="salon-features" aria-labelledby="pet-features-title">
+    <div class="salon-page__container">
+      <h2 id="pet-features-title" class="salon-section__title salon-section__title--center">
+        O que o ecossistema reúne para você
+      </h2>
+      <div class="salon-features__grid">
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">📅</span>
+          <h3 class="salon-feature-card__title">Agenda que acompanha o ritmo</h3>
+          <p class="salon-feature-card__text">
+            Banho, tosa, consulta, hotel ou daycare: durações, profissionais e salas com regras que
+            batem com a sua operação real.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">🐾</span>
+          <h3 class="salon-feature-card__title">Experiência do tutor</h3>
+          <p class="salon-feature-card__text">
+            Agendamento pelo link ou WhatsApp sem fila interminável de mensagens; confirmações
+            alinhadas ao seu fluxo.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">📊</span>
+          <h3 class="salon-feature-card__title">Gestão e fidelização</h3>
+          <p class="salon-feature-card__text">
+            Visão de serviços, retorno de clientes e o que mais move a receita menos achismo, mais
+            decisão.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">💬</span>
+          <h3 class="salon-feature-card__title">Marca consistente</h3>
+          <p class="salon-feature-card__text">
+            Catálogo e preços alinhados à sua identidade: o tutor vê profissionalismo antes mesmo de
+            chegar na loja.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demonstração -->
+  <section class="salon-demo" aria-labelledby="pet-demo-title">
+    <div class="salon-page__container salon-demo__inner">
+      <h2 id="pet-demo-title" class="salon-section__title">Casos reais: veja o fluxo em ação</h2>
+      <p class="salon-section__text salon-demo__intro">
+        Em uma conversa guiada mostramos como o tutor agenda, como você confirma e como o painel
+        traduz o dia em clareza em poucos minutos você vê se faz sentido para a sua operação.
+      </p>
+      <div
+        class="salon-demo__placeholder"
+        role="img"
+        aria-label="Área reservada para vídeo ou tour guiado"
+      >
+        <span class="salon-demo__play" aria-hidden="true">▶</span>
+        <p class="salon-demo__placeholder-text">Demonstração sob agendamento sem compromisso</p>
+        <button
+          type="button"
+          class="salon-page__btn salon-page__btn--primary"
+          (click)="openDemoInterest()"
+        >
+          Quero ver na prática
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativo -->
+  <section class="salon-compare" aria-labelledby="pet-compare-title">
+    <div class="salon-page__container">
+      <h2 id="pet-compare-title" class="salon-section__title salon-section__title--center">
+        Planilha e WhatsApp no improviso × Solução Thiers Pet
+      </h2>
+      <div class="salon-compare__grid">
+        <div class="salon-compare__col salon-compare__col--muted">
+          <h3 class="salon-compare__subtitle">Controle no improviso</h3>
+          <ul class="salon-compare__list salon-compare__list--negative">
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Tutor desiste quando a resposta demora ou falta clareza de horário.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Buracos na agenda por esquecimento e falta de confirmação.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Preços e pacotes espalhados em prints e conversas antigas.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Histórico do pet difícil de achar na hora do atendimento.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Sem visão única do que gera recorrência e lucro.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="salon-compare__col salon-compare__col--highlight">
+          <h3 class="salon-compare__subtitle">Thiers Pet</h3>
+          <ul class="salon-compare__list salon-compare__list--positive">
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Agendamento online quando o tutor quiser.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Rotina de confirmação alinhada ao seu fluxo (ex.: WhatsApp).</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Serviços e valores claros, alinhados à sua marca.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Regras de horário, feriados e capacidade respeitadas na agenda.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Painel com histórico e visão do dia para decidir com dados.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA intermediário -->
+  <section class="salon-mid-cta" aria-labelledby="pet-mid-cta-title">
+    <div class="salon-page__container salon-mid-cta__inner">
+      <h2 id="pet-mid-cta-title" class="salon-mid-cta__title">Cuidado e organização no mesmo lugar</h2>
+      <p class="salon-mid-cta__text">
+        Menos faltas, menos retrabalho na recepção e mais tempo para o que importa: o bem-estar do
+        pet e a confiança do tutor.
+      </p>
+    </div>
+  </section>
+
+  <!-- Preço / plano -->
+  <section class="salon-pricing" aria-labelledby="pet-pricing-title">
+    <div class="salon-page__container salon-pricing__inner">
+      <h2 id="pet-pricing-title" class="salon-section__title salon-section__title--center">
+        Plano sob medida para o seu tamanho de operação
+      </h2>
+      <p class="salon-pricing__note">
+        Valores e escopo são alinhados na conversa você não paga por recursos que não vai usar.
+      </p>
+      <div class="salon-pricing__card">
+        <p class="salon-pricing__plan-name">Thiers Pet licença completa</p>
+        <p class="salon-pricing__price">Sob consulta</p>
+        <p class="salon-pricing__sub">
+          Cancele quando fizer sentido para o seu negócio. Transparência no que está incluído.
+        </p>
+        <ul class="salon-pricing__bullets">
+          <li>Agenda online e vitrine de serviços</li>
+          <li>Cadastro de equipe, serviços e pacotes quando aplicável</li>
+          <li>Apoio à rotina de confirmação e fidelização</li>
+          <li>Fluxo integrado ao WhatsApp quando fizer parte do escopo</li>
+        </ul>
+        <button
+          type="button"
+          class="salon-page__btn salon-page__btn--primary salon-pricing__btn"
+          (click)="openPlanInterest()"
+        >
+          Quero este plano
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="salon-faq" aria-labelledby="pet-faq-title">
+    <div class="salon-page__container salon-faq__inner">
+      <h2 id="pet-faq-title" class="salon-section__title salon-section__title--center">Dúvidas frequentes</h2>
+      <div class="salon-faq__list">
+        <details class="salon-faq__item">
+          <summary>O tutor precisa instalar aplicativo para agendar?</summary>
+          <p>
+            Não. Ele pode usar o fluxo pelo navegador a partir do link que você divulga no Instagram
+            ou WhatsApp rápido e sem fricção.
+          </p>
+        </details>
+        <details class="salon-faq__item">
+          <summary>O sistema ajuda a reduzir faltas e ocupar a agenda?</summary>
+          <p>
+            Sim. Agendamento claro mais rotina de confirmação (incluindo WhatsApp quando faz parte do
+            escopo) deixa o dia mais previsível e a agenda mais cheia com menos esforço manual.
+          </p>
+        </details>
+        <details class="salon-faq__item">
+          <summary>Serve para clínica e também para pet shop com banho e tosa?</summary>
+          <p>
+            Sim. O desenho acompanha desde consultas e procedimentos até serviços recorrentes como
+            banho e tosa, com regras próprias por tipo de serviço.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="salon-final-cta" aria-labelledby="pet-final-title">
+    <div class="salon-page__container salon-final-cta__inner">
+      <h2 id="pet-final-title" class="salon-final-cta__title">Profissionalize sua agenda hoje</h2>
+      <p class="salon-final-cta__text">
+        Fidelize tutores com uma experiência clara e aumente sua agenda de forma eficaz sem depender
+        só do improviso.
+      </p>
+      <div class="salon-final-cta__actions">
+        <button type="button" class="salon-page__btn salon-page__btn--primary" (click)="openFinalCta()">
+          Acessar atendimento agora
+        </button>
+        <a routerLink="/solucoes" class="salon-page__link-secondary">Voltar para soluções</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outras soluções -->
+  <section class="salon-related" aria-labelledby="pet-related-title">
+    <div class="salon-page__container salon-related__panel">
+      <header class="salon-related__header">
+        <h2 id="pet-related-title" class="salon-related__heading">Explore outras soluções</h2>
+        <p class="salon-related__lede">
+          Continue navegando outras linhas da Thiers complementam o que você viu aqui.
+        </p>
+      </header>
+      <div class="salon-related__grid">
+        <a routerLink="/solucoes" class="salon-related__card salon-related__card--solutions">
+          <span class="salon-related__icon-wrap" aria-hidden="true">
+            <svg
+              class="salon-related__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1.5" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            </svg>
+          </span>
+          <div class="salon-related__card-body">
+            <h3 class="salon-related__card-title">Catálogo completo</h3>
+            <p class="salon-related__card-text">PDV, agendamento, sites e mais tudo em um só lugar.</p>
+          </div>
+          <span class="salon-related__card-action">
+            Ver soluções
+            <svg
+              class="salon-related__arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+        <a routerLink="/sobre" class="salon-related__card salon-related__card--about">
+          <span class="salon-related__icon-wrap" aria-hidden="true">
+            <svg
+              class="salon-related__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </span>
+          <div class="salon-related__card-body">
+            <h3 class="salon-related__card-title">Quem é a Thiers</h3>
+            <p class="salon-related__card-text">Conheça nossa forma de entregar software com propósito e método.</p>
+          </div>
+          <span class="salon-related__card-action">
+            Conhecer a empresa
+            <svg
+              class="salon-related__arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

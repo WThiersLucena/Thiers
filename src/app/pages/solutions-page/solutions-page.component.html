@@ -1,0 +1,130 @@
+<app-header></app-header>
+
+<main class="solutions-page">
+  <section class="solutions-hero">
+    <div class="solutions-page__container">
+      <p class="solutions-hero__eyebrow">Soluções</p>
+      <h1 class="solutions-hero__title">Software sob medida para o seu negócio</h1>
+      <p class="solutions-hero__lead">
+        Explore nossas linhas de produto em um layout claro e direto. Cada card resume um tipo de
+        solução; ao avançar, alinhamos escopo, prazo e investimento com transparência.
+      </p>
+      <a routerLink="/" fragment="contato" class="solutions-hero__cta">Ir para contato na home</a>
+    </div>
+  </section>
+
+  <div class="solutions-page__container solutions-page__sections">
+    <!-- Alimentação & PDV -->
+    <section class="solutions-section" aria-labelledby="sec-alimentacao">
+      <h2 id="sec-alimentacao" class="solutions-section__title">Alimentação &amp; PDV</h2>
+      <p class="solutions-section__intro">
+        PDV, cardápio digital e operação integrada para quem vende comida, bebida e delivery.
+      </p>
+      <div class="solutions-grid">
+        @for (card of alimentacaoPdv; track card.title) {
+          <article class="solution-card" [class.solution-card--has-thumb]="!!card.imageUrl">
+            @if (card.imageUrl) {
+              <div class="solution-card__thumb">
+                <img
+                  [src]="card.imageUrl"
+                  [alt]="'Referência visual: ' + card.title"
+                  loading="lazy"
+                  width="800"
+                  height="450"
+                />
+              </div>
+            }
+            <div class="solution-card__body">
+              @if (card.badge) {
+                <span class="solution-card__badge">{{ card.badge }}</span>
+              }
+              <h3 class="solution-card__title">{{ card.title }}</h3>
+              <p class="solution-card__desc">{{ card.description }}</p>
+              @if (card.ctaRouterLink) {
+                <a [routerLink]="card.ctaRouterLink" class="solution-card__cta">{{ card.ctaLabel }}</a>
+              } @else {
+                <a routerLink="/" fragment="contato" class="solution-card__cta">{{ card.ctaLabel }}</a>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- Agendamento & Gestão -->
+    <section class="solutions-section" aria-labelledby="sec-agendamento">
+      <h2 id="sec-agendamento" class="solutions-section__title">Agendamento online &amp; gestão</h2>
+      <p class="solutions-section__intro">
+        Agendas, financeiro e portais para serviços que precisam organizar tempo, equipe e cliente.
+      </p>
+      <div class="solutions-grid">
+        @for (card of agendamentoGestao; track card.title) {
+          <article class="solution-card" [class.solution-card--has-thumb]="!!card.imageUrl">
+            @if (card.imageUrl) {
+              <div class="solution-card__thumb">
+                <img
+                  [src]="card.imageUrl"
+                  [alt]="'Referência visual: ' + card.title"
+                  loading="lazy"
+                  width="800"
+                  height="450"
+                />
+              </div>
+            }
+            <div class="solution-card__body">
+              @if (card.badge) {
+                <span class="solution-card__badge">{{ card.badge }}</span>
+              }
+              <h3 class="solution-card__title">{{ card.title }}</h3>
+              <p class="solution-card__desc">{{ card.description }}</p>
+              @if (card.ctaRouterLink) {
+                <a [routerLink]="card.ctaRouterLink" class="solution-card__cta">{{ card.ctaLabel }}</a>
+              } @else {
+                <a routerLink="/" fragment="contato" class="solution-card__cta">{{ card.ctaLabel }}</a>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- Sites & Landing -->
+    <section class="solutions-section" aria-labelledby="sec-sites">
+      <h2 id="sec-sites" class="solutions-section__title">Sites &amp; landing pages</h2>
+      <p class="solutions-section__intro">
+        Presença na web rápida e focada em conversão, alinhada à sua marca e ao seu funil de vendas.
+      </p>
+      <div class="solutions-grid solutions-grid--two">
+        @for (card of sitesLanding; track card.title) {
+          <article class="solution-card" [class.solution-card--has-thumb]="!!card.imageUrl">
+            @if (card.imageUrl) {
+              <div class="solution-card__thumb">
+                <img
+                  [src]="card.imageUrl"
+                  [alt]="'Referência visual: ' + card.title"
+                  loading="lazy"
+                  width="800"
+                  height="450"
+                />
+              </div>
+            }
+            <div class="solution-card__body">
+              @if (card.badge) {
+                <span class="solution-card__badge">{{ card.badge }}</span>
+              }
+              <h3 class="solution-card__title">{{ card.title }}</h3>
+              <p class="solution-card__desc">{{ card.description }}</p>
+              @if (card.ctaRouterLink) {
+                <a [routerLink]="card.ctaRouterLink" class="solution-card__cta">{{ card.ctaLabel }}</a>
+              } @else {
+                <a routerLink="/" fragment="contato" class="solution-card__cta">{{ card.ctaLabel }}</a>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  </div>
+</main>
+
+<app-footer></app-footer>

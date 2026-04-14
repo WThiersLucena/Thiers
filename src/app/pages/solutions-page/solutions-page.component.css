@@ -1,0 +1,220 @@
+/* Página Soluções tema claro e layout limpo */
+
+/* Espaço superior para o header fixo não sobrepor o conteúdo (alinhado à página Sobre / hero). */
+.solutions-page {
+  min-height: 60vh;
+  padding-top: 110px;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 50%, #f8fafc 100%);
+  color: #1e293b;
+}
+
+.solutions-page__container {
+  width: 100%;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Hero */
+.solutions-hero {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+.solutions-hero__eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.solutions-hero__title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  max-width: 36ch;
+}
+
+.solutions-hero__lead {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 62ch;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.solutions-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0369a1;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.solutions-hero__cta:hover {
+  color: #0c4a6e;
+  border-bottom-color: #7dd3fc;
+}
+
+/* Seções */
+.solutions-page__sections {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.solutions-section {
+  margin-bottom: 3.5rem;
+}
+
+.solutions-section:last-child {
+  margin-bottom: 0;
+}
+
+.solutions-section__title {
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.solutions-section__intro {
+  font-size: 0.98rem;
+  color: #64748b;
+  max-width: 56ch;
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+
+/* Grid de cards */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .solutions-grid--two {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+  }
+}
+
+.solution-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.solution-card__body {
+  padding: 1.35rem 1.35rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Miniatura no topo (ex.: Barbearias e estética) */
+.solution-card__thumb {
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.solution-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.solution-card:hover {
+  border-color: rgba(125, 211, 252, 0.65);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.solution-card__badge {
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0369a1;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+  border: 1px solid rgba(186, 230, 253, 0.9);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.solution-card__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.solution-card__desc {
+  font-size: 0.9375rem;
+  color: #64748b;
+  line-height: 1.55;
+  flex: 1;
+  margin-bottom: 1.1rem;
+}
+
+.solution-card__cta {
+  align-self: flex-start;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0c4a6e;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #bae6fd;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.solution-card__cta:hover {
+  color: #0369a1;
+  border-bottom-color: #38bdf8;
+}

@@ -1,0 +1,391 @@
+<app-header></app-header>
+
+<main class="salon-page landing-solution-page">
+  <div class="salon-page__subnav">
+    <div class="salon-page__container salon-page__subnav-inner">
+      <a routerLink="/solucoes" class="salon-page__back">← Voltar para soluções</a>
+      <button
+        type="button"
+        class="salon-page__btn salon-page__btn--ghost"
+        (click)="openDemoInterest()"
+      >
+        Ver demonstração
+      </button>
+    </div>
+  </div>
+
+  <section class="salon-hero" aria-labelledby="landing-hero-title">
+    <div class="salon-page__container salon-hero__grid">
+      <div class="salon-hero__copy">
+        <p class="salon-hero__eyebrow">Landing pages sob medida</p>
+        <h1 id="landing-hero-title" class="salon-hero__title">
+          Visitantes viram contatos,
+          <span class="salon-hero__accent">com mensagem e design no ponto</span>
+        </h1>
+        <p class="salon-hero__tagline">
+          Páginas rápidas e exclusivas pensadas para o seu funil não é template genérico é conversão com a
+          sua marca.
+        </p>
+        <p class="salon-hero__lead">
+          Você define o objetivo (lead, venda, agendamento) e entregamos uma landing clara: hierarquia
+          visual forte, CTAs evidentes e performance para não perder gente no carregamento.
+        </p>
+        <div class="salon-hero__actions">
+          <button
+            type="button"
+            class="salon-page__btn salon-page__btn--primary"
+            (click)="openDemoInterest()"
+          >
+            Acessar demonstração grátis
+          </button>
+          <a routerLink="/" fragment="contato" class="salon-page__link-secondary">Falar por contato</a>
+        </div>
+      </div>
+      <aside class="salon-hero__aside" aria-label="Credibilidade">
+        <p class="salon-hero__aside-label">Solução Thiers</p>
+        <p class="salon-hero__aside-text">
+          Foco em <strong>clareza e velocidade</strong>: o visitante entende em segundos o que você
+          oferece e o que fazer em seguida.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="salon-strip" aria-label="Benefícios resumidos">
+    <div class="salon-page__container salon-strip__grid">
+      <div class="salon-strip__item">
+        <span class="salon-strip__label">Para quem precisa</span>
+        <strong class="salon-strip__value">campanhas e ofertas</strong>
+        <span class="salon-strip__hint">com página dedicada e mensagem única</span>
+      </div>
+      <div class="salon-strip__item">
+        <span class="salon-strip__label">Valor direto</span>
+        <strong class="salon-strip__value">menos distração</strong>
+        <span class="salon-strip__hint">mais foco no próximo passo do visitante</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-section" aria-labelledby="landing-value-title">
+    <div class="salon-page__container">
+      <figure class="salon-section__figure">
+        <img
+          src="assets/Landing-Full.png"
+          width="1600"
+          height="900"
+          loading="lazy"
+          alt="Landing page Thiers em desktop e mobile: hierarquia clara, destaque para oferta e chamada para ação."
+        />
+      </figure>
+      <div class="salon-section__narrow">
+        <h2 id="landing-value-title" class="salon-section__title">
+          Agregue valor ao seu produto de forma simples e clara
+        </h2>
+        <p class="salon-section__text">
+          Uma landing bem feita reduz atrito: o visitante não se perde no menu do site institucional
+          ele cai numa página com uma promessa, prova e um botão óbvio. Isso melhora qualidade do
+          lead, campanhas pagas e mensagens no WhatsApp porque a expectativa já veio alinhada.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-features" aria-labelledby="landing-features-title">
+    <div class="salon-page__container">
+      <h2 id="landing-features-title" class="salon-section__title salon-section__title--center">
+        O que você leva na entrega
+      </h2>
+      <div class="salon-features__grid">
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">⚡</span>
+          <h3 class="salon-feature-card__title">Performance e leitura</h3>
+          <p class="salon-feature-card__text">
+            Estrutura enxuta para carregar rápido e ler bem no celular onde a maior parte do tráfego
+            chega.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">🎯</span>
+          <h3 class="salon-feature-card__title">Uma ação principal</h3>
+          <p class="salon-feature-card__text">
+            CTAs evidentes e repetidos no fluxo natural da página sem poluir nem confundir.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">🎨</span>
+          <h3 class="salon-feature-card__title">Marca alinhada</h3>
+          <p class="salon-feature-card__text">
+            Tipografia, cores e tom de voz coerentes com o que você já usa em anúncios e redes.
+          </p>
+        </article>
+        <article class="salon-feature-card">
+          <span class="salon-feature-card__icon" aria-hidden="true">📈</span>
+          <h3 class="salon-feature-card__title">Pronto para medir</h3>
+          <p class="salon-feature-card__text">
+            Base preparada para pixel, tags e testes quando fizer parte do escopo combinado.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-demo" aria-labelledby="landing-demo-title">
+    <div class="salon-page__container salon-demo__inner">
+      <h2 id="landing-demo-title" class="salon-section__title">Veja o fluxo e exemplos</h2>
+      <p class="salon-section__text salon-demo__intro">
+        Em uma conversa rápida mostramos referências, como estruturamos headline, prova social e
+        formulário ou WhatsApp para você validar se o ritmo conversa com o seu público.
+      </p>
+      <div
+        class="salon-demo__placeholder"
+        role="img"
+        aria-label="Área reservada para vídeo ou tour guiado"
+      >
+        <span class="salon-demo__play" aria-hidden="true">▶</span>
+        <p class="salon-demo__placeholder-text">Demonstração sob agendamento sem compromisso</p>
+        <button
+          type="button"
+          class="salon-page__btn salon-page__btn--primary"
+          (click)="openDemoInterest()"
+        >
+          Quero ver na prática
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-compare" aria-labelledby="landing-compare-title">
+    <div class="salon-page__container">
+      <h2 id="landing-compare-title" class="salon-section__title salon-section__title--center">
+        Página genérica × Landing Thiers sob medida
+      </h2>
+      <div class="salon-compare__grid">
+        <div class="salon-compare__col salon-compare__col--muted">
+          <h3 class="salon-compare__subtitle">Template sem estratégia</h3>
+          <ul class="salon-compare__list salon-compare__list--negative">
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Muitos links e distrações o visitante não sabe o que clicar.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Texto longo sem hierarquia quem escaneia desiste.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Peso alto e LCP ruim em mobile campanha paga sangra budget.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Visual igual a dezenas de concorrentes pouca confiança.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--bad" aria-hidden="true">×</span>
+              <span>Difícil medir o que funcionou sem eventos bem definidos.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="salon-compare__col salon-compare__col--highlight">
+          <h3 class="salon-compare__subtitle">Landing Thiers</h3>
+          <ul class="salon-compare__list salon-compare__list--positive">
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Uma proposta central e um próximo passo óbvio.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Seções curtas: headline, benefício, prova, CTA.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Entrega pensada para carregar rápido e converter no celular.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Visual alinhado à sua marca e à campanha.</span>
+            </li>
+            <li class="salon-compare__row">
+              <span class="salon-compare__mark salon-compare__mark--good" aria-hidden="true">✓</span>
+              <span>Estrutura pronta para rastrear conversões quando combinado.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-mid-cta" aria-labelledby="landing-mid-cta-title">
+    <div class="salon-page__container salon-mid-cta__inner">
+      <h2 id="landing-mid-cta-title" class="salon-mid-cta__title">Clareza que vende o próximo passo</h2>
+      <p class="salon-mid-cta__text">
+        Menos ruído, mais conversas qualificadas. Sua oferta merece uma página que faça jus ao
+        investimento em mídia e tempo da equipe.
+      </p>
+    </div>
+  </section>
+
+  <section class="salon-pricing" aria-labelledby="landing-pricing-title">
+    <div class="salon-page__container salon-pricing__inner">
+      <h2 id="landing-pricing-title" class="salon-section__title salon-section__title--center">
+        Projeto sob medida para o seu objetivo
+      </h2>
+      <p class="salon-pricing__note">
+        Escopo, prazo e investimento alinhados na conversa você paga pelo que precisa, não por pacote
+        fechado cheio de itens inúteis.
+      </p>
+      <div class="salon-pricing__card">
+        <p class="salon-pricing__plan-name">Landing page sob medida</p>
+        <p class="salon-pricing__price">Sob consulta</p>
+        <p class="salon-pricing__sub">
+          Inclui alinhamento de copy e layout com sua marca. Ajustes e integrações conforme combinado.
+        </p>
+        <ul class="salon-pricing__bullets">
+          <li>Wireframe e hierarquia de conteúdo focada em conversão</li>
+          <li>Design responsivo e entrega otimizada para performance</li>
+          <li>Integração com formulário, WhatsApp ou ferramenta acordada</li>
+          <li>Suporte à publicação e boas práticas de medição quando aplicável</li>
+        </ul>
+        <button
+          type="button"
+          class="salon-page__btn salon-page__btn--primary salon-pricing__btn"
+          (click)="openPlanInterest()"
+        >
+          Quero este projeto
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-faq" aria-labelledby="landing-faq-title">
+    <div class="salon-page__container salon-faq__inner">
+      <h2 id="landing-faq-title" class="salon-section__title salon-section__title--center">Dúvidas frequentes</h2>
+      <div class="salon-faq__list">
+        <details class="salon-faq__item">
+          <summary>Preciso já ter domínio e hospedagem?</summary>
+          <p>
+            Podemos orientar na compra e configuração ou integrar ao que você já usa o importante é
+            combinarmos na proposta.
+          </p>
+        </details>
+        <details class="salon-faq__item">
+          <summary>Dá para usar a mesma landing em várias campanhas?</summary>
+          <p>
+            Sim, com ajustes de headline e UTMs quando fizer sentido. Também podemos clonar variações
+            para testes A/B conforme escopo.
+          </p>
+        </details>
+        <details class="salon-faq__item">
+          <summary>Vocês escrevem os textos?</summary>
+          <p>
+            O pacote pode incluir copy com base no seu briefing ou revisão do seu material o combinamos
+            antes de fechar.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-final-cta" aria-labelledby="landing-final-title">
+    <div class="salon-page__container salon-final-cta__inner">
+      <h2 id="landing-final-title" class="salon-final-cta__title">Coloque sua oferta na vitrine certa</h2>
+      <p class="salon-final-cta__text">
+        Transforme visitantes em contatos com uma landing rápida, exclusiva e alinhada ao seu funil de
+        vendas.
+      </p>
+      <div class="salon-final-cta__actions">
+        <button type="button" class="salon-page__btn salon-page__btn--primary" (click)="openFinalCta()">
+          Acessar atendimento agora
+        </button>
+        <a routerLink="/solucoes" class="salon-page__link-secondary">Voltar para soluções</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="salon-related" aria-labelledby="landing-related-title">
+    <div class="salon-page__container salon-related__panel">
+      <header class="salon-related__header">
+        <h2 id="landing-related-title" class="salon-related__heading">Explore outras soluções</h2>
+        <p class="salon-related__lede">
+          Continue navegando outras linhas da Thiers complementam o que você viu aqui.
+        </p>
+      </header>
+      <div class="salon-related__grid">
+        <a routerLink="/solucoes" class="salon-related__card salon-related__card--solutions">
+          <span class="salon-related__icon-wrap" aria-hidden="true">
+            <svg
+              class="salon-related__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1.5" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            </svg>
+          </span>
+          <div class="salon-related__card-body">
+            <h3 class="salon-related__card-title">Catálogo completo</h3>
+            <p class="salon-related__card-text">PDV, agendamento, sites e mais tudo em um só lugar.</p>
+          </div>
+          <span class="salon-related__card-action">
+            Ver soluções
+            <svg
+              class="salon-related__arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+        <a routerLink="/sobre" class="salon-related__card salon-related__card--about">
+          <span class="salon-related__icon-wrap" aria-hidden="true">
+            <svg
+              class="salon-related__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </span>
+          <div class="salon-related__card-body">
+            <h3 class="salon-related__card-title">Quem é a Thiers</h3>
+            <p class="salon-related__card-text">Conheça nossa forma de entregar software com propósito e método.</p>
+          </div>
+          <span class="salon-related__card-action">
+            Conhecer a empresa
+            <svg
+              class="salon-related__arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
