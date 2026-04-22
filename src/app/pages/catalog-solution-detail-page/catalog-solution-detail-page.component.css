@@ -1,0 +1,40 @@
+@import '../salon-beauty-solution-page/salon-beauty-solution-page.component.css';
+
+/* Clínica / odonto — azul */
+.catalog-detail-page.catalog-detail--clinic .salon-page__btn--primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+  box-shadow: 0 4px 14px rgba(3, 105, 161, 0.35);
+}
+
+.catalog-detail-page.catalog-detail--clinic .salon-page__btn--primary:hover {
+  box-shadow: 0 8px 22px rgba(3, 105, 161, 0.45);
+}
+
+.catalog-detail-page.catalog-detail--clinic .salon-hero__accent {
+  color: #0284c7;
+}
+
+/* Institucional — dourado escuro */
+.catalog-detail-page.catalog-detail--institutional .salon-page__btn--primary {
+  background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+  box-shadow: 0 4px 14px rgba(146, 64, 14, 0.35);
+}
+
+.catalog-detail-page.catalog-detail--institutional .salon-hero__accent {
+  color: #d97706;
+}
+
+/* Barbearia / autônomos — neutro quente */
+.catalog-detail-page.catalog-detail--barber .salon-hero__accent {
+  color: #ca8a04;
+}
+
+/* Restaurante — terracota */
+.catalog-detail-page.catalog-detail--restaurant .salon-page__btn--primary {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+}
+
+.catalog-detail-page.catalog-detail--restaurant .salon-hero__accent {
+  color: #ea580c;
+}

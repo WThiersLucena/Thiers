@@ -1,0 +1,68 @@
+<section class="portfolio section" aria-labelledby="portfolio-heading">
+  <div class="container">
+    <header class="portfolio__header">
+      <p class="portfolio__eyebrow">Portfólio</p>
+      <h2 id="portfolio-heading" class="portfolio__title">Confira alguns de nossos trabalhos</h2>
+    </header>
+    <div class="portfolio__grid">
+      @for (tile of topTiles; track tile.src) {
+        <a
+          class="portfolio__tile"
+          [attr.data-area]="tile.area"
+          [routerLink]="solucoesPath"
+          [attr.aria-label]="'Ver soluções — ' + tile.alt"
+        >
+          <span class="portfolio__thumb">
+            <img
+              [src]="tile.src"
+              [alt]="tile.alt"
+              style="object-fit: cover"
+              [style.object-position]="tile.objectPosition ?? 'center center'"
+              loading="lazy"
+              decoding="async"
+            />
+          </span>
+        </a>
+      }
+
+      <div
+        class="portfolio__strip"
+        data-area="strip"
+        role="group"
+        aria-label="Projetos: portfólio Lais Ayumi e landing page, um card acima do outro"
+      >
+        @for (item of stripItems; track item.src) {
+          <a
+            class="portfolio__strip-cell"
+            [routerLink]="solucoesPath"
+            [attr.aria-label]="'Ver soluções — ' + item.alt"
+          >
+            <span class="portfolio__strip-frame">
+              <img [src]="item.src" [alt]="item.alt" loading="lazy" decoding="async" />
+            </span>
+          </a>
+        }
+      </div>
+
+      @for (tile of rightTiles; track tile.src) {
+        <a
+          class="portfolio__tile"
+          [attr.data-area]="tile.area"
+          [routerLink]="solucoesPath"
+          [attr.aria-label]="'Ver soluções — ' + tile.alt"
+        >
+          <span class="portfolio__thumb">
+            <img
+              [src]="tile.src"
+              [alt]="tile.alt"
+              style="object-fit: cover"
+              [style.object-position]="tile.objectPosition ?? 'center center'"
+              loading="lazy"
+              decoding="async"
+            />
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

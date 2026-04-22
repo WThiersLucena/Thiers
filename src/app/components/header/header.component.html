@@ -6,32 +6,54 @@
   <div class="container">
     <nav class="navbar">
       <div class="logo-container">
-        <div class="logo">
-          <img
-            src="assets/Logo-Sem-Fundo.png"
-            alt="Thiers Logo"
-            class="logo-img"
-          />
-        </div>
-        <div class="logo-text-container">
-          <span class="logo-text-blue">Soluções em Tecnologia</span>
-        </div>
+        <a
+          routerLink="/"
+          class="logo-link"
+          (click)="closeMenu()"
+          aria-label="Thiers — página inicial"
+        >
+          <div class="logo">
+            <img
+              src="assets/Logo-Sem-Fundo.png"
+              alt="Thiers"
+              class="logo-img"
+            />
+          </div>
+          <div class="logo-text-container">
+            <span class="logo-text-blue">Soluções em Tecnologia</span>
+          </div>
+        </a>
       </div>
 
-      <div class="nav-right">
-        <ul class="nav-menu" [class.active]="isMenuOpen">
-          <li><a (click)="navigateToHome()">Home</a></li>
-          <li><a routerLink="/sobre" (click)="closeMenu()">Sobre</a></li>
-          <li><a routerLink="/solucoes" (click)="closeMenu()">Soluções</a></li>
-          <li><a href="#depoimentos" (click)="closeMenu()">Depoimentos</a></li>
-          <li><a href="#contato" (click)="closeMenu()">Contato</a></li>
-        </ul>
+      <ul id="primary-navigation" class="nav-menu" [class.active]="isMenuOpen">
+        <li><a routerLink="/sobre" (click)="closeMenu()">Sobre</a></li>
+        <li><a routerLink="/solucoes" (click)="closeMenu()">Soluções</a></li>
+        <li>
+          <a routerLink="/" fragment="depoimentos" (click)="closeMenu()">Depoimentos</a>
+        </li>
+        <li class="nav-menu__cta-mobile">
+          <button type="button" class="btn-header-contact" (click)="openWhatsApp()">
+            Contato
+          </button>
+        </li>
+      </ul>
 
+      <div class="nav-right">
+        <button
+          type="button"
+          class="btn-header-contact btn-header-contact--desktop"
+          (click)="openWhatsApp()"
+        >
+          Contato
+        </button>
         <div class="header-actions">
           <button
+            type="button"
             class="menu-toggle"
             (click)="toggleMenu()"
-            aria-label="Toggle menu"
+            [attr.aria-expanded]="isMenuOpen"
+            aria-controls="primary-navigation"
+            aria-label="Abrir menu"
           >
             <span [class.active]="isMenuOpen"></span>
             <span [class.active]="isMenuOpen"></span>

@@ -1,0 +1,195 @@
+@if (data) {
+  <app-header></app-header>
+  <main [class]="'salon-page catalog-detail-page ' + data.themeModifier">
+    <div class="salon-page__subnav">
+      <div class="salon-page__container salon-page__subnav-inner">
+        <a routerLink="/solucoes" class="salon-page__back">← Voltar para soluções</a>
+        <button type="button" class="salon-page__btn salon-page__btn--ghost" (click)="openDemoInterest()">
+          Ver demonstração
+        </button>
+      </div>
+    </div>
+
+    <section class="salon-hero" aria-labelledby="catalog-hero-title">
+      <div class="salon-page__container salon-hero__grid">
+        <div class="salon-hero__copy">
+          <p class="salon-hero__eyebrow">{{ data.eyebrow }}</p>
+          <h1 id="catalog-hero-title" class="salon-hero__title">
+            {{ data.titleLine1 }}
+            @if (data.titleAccent) {
+              <span class="salon-hero__accent">{{ data.titleAccent }}</span>
+            }
+            @if (data.titleLine2) {
+              {{ data.titleLine2 }}
+            }
+          </h1>
+          <p class="salon-hero__tagline">{{ data.tagline }}</p>
+          <p class="salon-hero__lead">{{ data.lead }}</p>
+          <div class="salon-hero__actions">
+            <button type="button" class="salon-page__btn salon-page__btn--primary" (click)="openDemoInterest()">
+              Acessar demonstração grátis
+            </button>
+            <button type="button" class="salon-page__btn salon-page__btn--ghost" (click)="openPlanInterest()">
+              Quero este projeto
+            </button>
+            <a routerLink="/" fragment="contato" class="salon-page__link-secondary">Falar por contato</a>
+          </div>
+        </div>
+        <aside class="salon-hero__aside" aria-label="Credibilidade">
+          <p class="salon-hero__aside-label">Solução Thiers</p>
+          <p class="salon-hero__aside-text">
+            Software pensado para <strong>rotina real</strong> do seu negócio, com entrega alinhada a prazo e
+            investimento.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="salon-strip" aria-label="Benefícios resumidos">
+      <div class="salon-page__container salon-strip__grid">
+        @for (row of data.strip; track row.value) {
+          <div class="salon-strip__item">
+            <span class="salon-strip__label">{{ row.label }}</span>
+            <strong class="salon-strip__value">{{ row.value }}</strong>
+            <span class="salon-strip__hint">{{ row.hint }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="salon-section" aria-labelledby="catalog-value-title">
+      <div class="salon-page__container">
+        <figure class="salon-section__figure">
+          <img
+            [src]="data.showcaseImage"
+            width="1600"
+            height="900"
+            loading="lazy"
+            [alt]="data.showcaseAlt"
+          />
+        </figure>
+        <div class="salon-section__narrow">
+          <h2 id="catalog-value-title" class="salon-section__title">{{ data.valueTitle }}</h2>
+          <p class="salon-section__text">{{ data.valueText }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="salon-features" aria-labelledby="catalog-features-title">
+      <div class="salon-page__container">
+        <h2 id="catalog-features-title" class="salon-section__title salon-section__title--center">
+          O que você leva na solução
+        </h2>
+        <div class="salon-features__grid">
+          @for (f of data.features; track f.title) {
+            <article class="salon-feature-card">
+              <span class="salon-feature-card__icon" aria-hidden="true">{{ f.icon }}</span>
+              <h3 class="salon-feature-card__title">{{ f.title }}</h3>
+              <p class="salon-feature-card__text">{{ f.text }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="salon-final-cta" aria-labelledby="catalog-final-title">
+      <div class="salon-page__container salon-final-cta__inner">
+        <h2 id="catalog-final-title" class="salon-final-cta__title">{{ data.finalTitle }}</h2>
+        <p class="salon-final-cta__text">{{ data.finalText }}</p>
+        <div class="salon-final-cta__actions">
+          <button type="button" class="salon-page__btn salon-page__btn--primary" (click)="openFinalCta()">
+            Acessar atendimento agora
+          </button>
+          <a routerLink="/solucoes" class="salon-page__link-secondary">Voltar para soluções</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="salon-related" aria-labelledby="catalog-related-title">
+      <div class="salon-page__container salon-related__panel">
+        <header class="salon-related__header">
+          <h2 id="catalog-related-title" class="salon-related__heading">Explore outras soluções</h2>
+          <p class="salon-related__lede">
+            Continue navegando outras linhas da Thiers complementam o que você viu aqui.
+          </p>
+        </header>
+        <div class="salon-related__grid">
+          <a routerLink="/solucoes" class="salon-related__card salon-related__card--solutions">
+            <span class="salon-related__icon-wrap" aria-hidden="true">
+              <svg
+                class="salon-related__icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+              </svg>
+            </span>
+            <div class="salon-related__card-body">
+              <h3 class="salon-related__card-title">Catálogo completo</h3>
+              <p class="salon-related__card-text">PDV, agendamento, sites e mais tudo em um só lugar.</p>
+            </div>
+            <span class="salon-related__card-action">
+              Ver soluções
+              <svg
+                class="salon-related__arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+          <a routerLink="/sobre" class="salon-related__card salon-related__card--about">
+            <span class="salon-related__icon-wrap" aria-hidden="true">
+              <svg
+                class="salon-related__icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            <div class="salon-related__card-body">
+              <h3 class="salon-related__card-title">Quem é a Thiers</h3>
+              <p class="salon-related__card-text">Conheça nossa forma de entregar software com propósito e método.</p>
+            </div>
+            <span class="salon-related__card-action">
+              Conhecer a empresa
+              <svg
+                class="salon-related__arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <app-footer></app-footer>
+}

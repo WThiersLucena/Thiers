@@ -30,6 +30,18 @@
   position: relative;
 }
 
+.logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link:hover .logo-text-blue {
+  color: #fff;
+}
+
 .logo-container {
   display: flex;
   flex-direction: column;
@@ -93,9 +105,57 @@
   display: flex;
   list-style: none;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: clamp(1rem, 2vw, 1.75rem);
   margin: 0;
   padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-header-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff !important;
+  background: #e31e24;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(227, 30, 36, 0.35);
+}
+
+.btn-header-contact:hover {
+  background: #c41920 !important;
+  transform: translateY(-1px);
+}
+
+.btn-header-contact:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.nav-menu__cta-mobile {
+  display: none;
+  width: 100%;
+  list-style: none;
+}
+
+.nav-menu__cta-mobile .btn-header-contact {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.btn-header-contact--desktop {
+  display: inline-flex;
 }
 
 .nav-menu li a {
@@ -179,6 +239,17 @@
 }
 
 @media (max-width: 768px) {
+  .btn-header-contact--desktop {
+    display: none;
+  }
+
+  .nav-menu__cta-mobile {
+    display: block;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
   .menu-toggle {
     display: flex;
   }
@@ -248,16 +319,12 @@
     width: 100%;
   }
 
-  .nav-menu li a {
+  .nav-menu > li:not(.nav-menu__cta-mobile) > a {
     display: block;
     padding: var(--spacing-sm);
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--bg-white);
-  }
-
-  .nav-menu li:last-child a {
-    border-bottom: none;
   }
 
   .nav-menu .btn-primary {

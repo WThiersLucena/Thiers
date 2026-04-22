@@ -17,12 +17,36 @@
   padding-right: 1.25rem;
 }
 
-/* Hero */
+/* Hero — fundo Seo-2.jpeg (veil claro por cima; caminho absoluto /assets para o browser resolver) */
 .solutions-hero {
+  position: relative;
+  overflow: hidden;
   padding: 3rem 0 2.5rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
+  background-color: #f1f5f9;
+}
+
+.solutions-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(
+      105deg,
+      rgba(248, 250, 252, 0.82) 0%,
+      rgba(241, 245, 249, 0.72) 42%,
+      rgba(248, 250, 252, 0.8) 100%
+    ),
+    url('/assets/Seo-2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e2e8f0;
+}
+
+.solutions-hero .solutions-page__container {
+  position: relative;
+  z-index: 1;
 }
 
 .solutions-hero__eyebrow {
@@ -43,17 +67,47 @@
   max-width: 36ch;
 }
 
-.solutions-hero__lead {
+.solutions-hero__body {
   font-size: 1rem;
   color: #475569;
-  max-width: 62ch;
+  max-width: 68ch;
+  line-height: 1.7;
+  margin-bottom: 1.35rem;
+}
+
+.solutions-hero__body p {
+  margin: 0 0 1rem;
+  color: #475569;
+}
+
+.solutions-hero__question {
+  font-size: 1.05rem;
+  margin-bottom: 1.1rem !important;
+}
+
+.solutions-hero__bullets {
+  margin: 0 0 1.15rem 0;
+  padding: 0;
+  list-style: none;
+  color: #475569;
   line-height: 1.65;
-  margin-bottom: 1.25rem;
+}
+
+.solutions-hero__bullets li {
+  margin-bottom: 0.45rem;
+  padding-left: 0;
+}
+
+.solutions-hero__closing {
+  margin-bottom: 0 !important;
+  font-weight: 500;
+  color: #334155 !important;
 }
 
 .solutions-hero__cta {
   display: inline-flex;
   align-items: center;
+  margin-top: 0.25rem;
   font-size: 0.9375rem;
   font-weight: 600;
   color: #0369a1;

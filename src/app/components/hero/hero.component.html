@@ -1,25 +1,21 @@
 <section class="hero" id="home">
   <div
-    class="hero-background-image"
-    [style.background-image]="'url(assets/banner-1.jpeg)'"
+    class="hero__bg"
+    [style.background-image]="'url(assets/Img-Fundo-1.png)'"
+    aria-hidden="true"
   ></div>
-  <div class="hero-overlay"></div>
-  <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-title" [class.fade-in]="showContent">
-        "{{ heroTitle }}"
-      </h1>
-      <p class="hero-description" [class.fade-in-delayed]="showContent">
-        Especialista no desenvolvimento de soluções digitais, a Thiers é uma
-        empresa focada em ajudar sua empresa a vender mais e se organizar usando
-        tecnologia simples e acessível.
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="container hero__layout">
+    <div class="hero__copy" [class.hero__copy--visible]="showContent">
+      <p class="hero__eyebrow">Personalizados</p>
+      <h1 class="hero__title">Sistemas</h1>
+      <p class="hero__lead">
+        <span class="hero__lead-strong">Impulsione seu negócio</span>
+        marcando presença online
       </p>
-      <a
-        class="btn btn-primary"
-        [class.fade-in-delayed]="showContent"
-        (click)="openWhatsApp()"
-        >Fale conosco</a
-      >
+      <button type="button" class="hero__cta" (click)="openSiteLead()">
+        Crie seu site agora →
+      </button>
     </div>
   </div>
 </section>

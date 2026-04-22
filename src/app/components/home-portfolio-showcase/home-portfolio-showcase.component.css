@@ -1,0 +1,233 @@
+.portfolio {
+  --home-red: #e31e24;
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  background: #fafafa;
+}
+
+.portfolio__header {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.portfolio__eyebrow {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--home-red);
+  margin: 0 0 0.35rem;
+}
+
+.portfolio__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  max-width: 40ch;
+  margin-inline: auto;
+  line-height: 1.35;
+}
+
+.portfolio__grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Mobile: linha 1 = Beauty | Pet; linha 2 = faixa full; linha 3 = Avakian | Odonto */
+.portfolio__tile[data-area='a'] {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.portfolio__tile[data-area='b'] {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.portfolio__strip {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  min-height: clamp(280px, 72vw, 420px);
+}
+
+.portfolio__tile[data-area='e'] {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.portfolio__tile[data-area='f'] {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.portfolio__tile {
+  min-height: clamp(150px, 28vw, 220px);
+}
+
+@media (min-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .portfolio__tile[data-area='a'] {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    min-height: 0;
+  }
+
+  .portfolio__tile[data-area='b'] {
+    grid-column: 3 / 5;
+    grid-row: 1 / 3;
+    min-height: 0;
+  }
+
+  .portfolio__strip {
+    grid-column: 1 / 3;
+    grid-row: 3 / 5;
+    min-height: 0;
+  }
+
+  .portfolio__tile[data-area='e'] {
+    grid-column: 3 / 5;
+    grid-row: 3 / 4;
+    min-height: 0;
+  }
+
+  .portfolio__tile[data-area='f'] {
+    grid-column: 3 / 5;
+    grid-row: 4 / 5;
+    min-height: 0;
+  }
+}
+
+/*
+ * Faixa Lais + Landing: dois cards empilhados (coluna), como o exemplo em anexo.
+ * O wrapper não é um “cartão único”; cada link é um card branco com sombra.
+ */
+.portfolio__strip {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: clamp(0.75rem, 2vw, 1.15rem);
+  padding: 0;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.portfolio__strip-cell {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  outline-offset: 3px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.portfolio__strip-cell:focus-visible {
+  outline: 2px solid var(--home-red);
+  z-index: 1;
+}
+
+@media (hover: hover) {
+  .portfolio__strip-cell:hover {
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .portfolio__strip-cell:hover .portfolio__strip-frame img {
+    transform: scale(1.02);
+  }
+}
+
+.portfolio__strip-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1;
+  background: #fff;
+}
+
+.portfolio__strip-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.portfolio__tile {
+  position: relative;
+  display: block;
+  min-height: 0;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1a1a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+  outline-offset: 3px;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.portfolio__tile:focus-visible {
+  outline: 3px solid var(--home-red);
+  z-index: 1;
+}
+
+@media (hover: hover) {
+  .portfolio__tile:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+    transform: translateY(-2px);
+  }
+}
+
+.portfolio__thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+}
+
+.portfolio__thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) {
+  .portfolio__tile:hover .portfolio__thumb img {
+    transform: scale(1.05);
+  }
+}

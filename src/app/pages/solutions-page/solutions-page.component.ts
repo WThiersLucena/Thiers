@@ -26,10 +26,12 @@ export class SolutionsPageComponent {
   readonly alimentacaoPdv: SolutionsCatalogCard[] = [
     {
       badge: 'Mais procurado',
-      title: 'Gestão para alimentação',
+      title: 'Restaurante e Gestão',
       description:
         'PDV, controle de caixa, estoque e delivery com painel administrativo para escalar seu negócio.',
-      ctaLabel: 'Falar sobre o projeto',
+      ctaLabel: 'Veja na prática',
+      imageUrl: 'assets/Restaurante.png',
+      ctaRouterLink: '/solucoes/restaurante-gestao',
     },
     {
       badge: 'Premium',
@@ -37,6 +39,7 @@ export class SolutionsPageComponent {
       description:
         'Integração entre cozinha, mesas e cardápio online. Controle de custos e pedidos em um só lugar.',
       ctaLabel: 'Falar sobre o projeto',
+      imageUrl: 'assets/Cardapio.jpg',
     },
     {
       badge: 'Operação',
@@ -61,7 +64,9 @@ export class SolutionsPageComponent {
       title: 'Agenda para clínicas',
       description:
         'Agenda híbrida, prontuário simplificado, financeiro e portal do paciente em uma base única.',
-      ctaLabel: 'Falar sobre o projeto',
+      ctaLabel: 'Veja na prática',
+      imageUrl: 'assets/Odonto.png',
+      ctaRouterLink: '/solucoes/agenda-clinicas',
     },
     {
       badge: 'Agendamento',
@@ -77,7 +82,9 @@ export class SolutionsPageComponent {
       title: 'Profissionais autônomos',
       description:
         'Agenda, serviços e vitrine com visual profissional para converter visitas em reservas.',
-      ctaLabel: 'Falar sobre o projeto',
+      ctaLabel: 'Veja na prática',
+      imageUrl: 'assets/Barbearia.png',
+      ctaRouterLink: '/solucoes/profissionais-autonomos',
     },
     {
       badge: 'Pet care',
@@ -106,7 +113,9 @@ export class SolutionsPageComponent {
       title: 'Site + presença digital',
       description:
         'Identidade online coerente com seu cardápio, portfólio ou catálogo integrado quando fizer sentido.',
-      ctaLabel: 'Falar sobre o projeto',
+      ctaLabel: 'Veja na prática',
+      imageUrl: 'assets/avakian.png',
+      ctaRouterLink: '/solucoes/site-institucional',
     },
   ];
 }

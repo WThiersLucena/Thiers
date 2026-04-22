@@ -1,0 +1,71 @@
+<section class="featured" aria-labelledby="featured-title">
+  <div class="container featured__inner">
+    <div class="featured__content">
+      <h2 id="featured-title" class="featured__title">
+        Sites rápidos, modernos e
+        <span class="featured__title-accent">otimizados</span>
+      </h2>
+      <p class="featured__desc">
+        Performance, SEO técnico e experiência de uso andam juntos. Entregamos páginas leves,
+        acessíveis e preparadas para converter visitas em contatos reais.
+      </p>
+      <ul class="featured__list">
+        @for (item of highlights; track item.id) {
+          <li class="featured__item">
+            @switch (item.id) {
+              @case ('bolt') {
+                <span class="featured__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path
+                      d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              }
+              @case ('mobile') {
+                <span class="featured__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <rect
+                      x="7"
+                      y="3"
+                      width="10"
+                      height="18"
+                      rx="2"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                    />
+                    <path d="M10 18h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                  </svg>
+                </span>
+              }
+              @default {
+                <span class="featured__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M4 19V5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                    <path d="M4 19h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                    <path d="M8 15v-4M12 15V9M16 15v-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                  </svg>
+                </span>
+              }
+            }
+            <span class="featured__label">{{ item.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+    <div class="featured__visual">
+      <img
+        src="assets/Img-Fundo-2.png"
+        alt=""
+        width="640"
+        height="480"
+        loading="lazy"
+        decoding="async"
+        class="featured__img"
+      />
+    </div>
+  </div>
+</section>

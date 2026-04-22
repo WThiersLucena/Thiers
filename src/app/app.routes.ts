@@ -6,6 +6,7 @@ import { SolutionsShellComponent } from './pages/solutions-shell/solutions-shell
 import { SalonBeautySolutionPageComponent } from './pages/salon-beauty-solution-page/salon-beauty-solution-page.component';
 import { PetSolutionPageComponent } from './pages/pet-solution-page/pet-solution-page.component';
 import { LandingSolutionPageComponent } from './pages/landing-solution-page/landing-solution-page.component';
+import { CatalogSolutionDetailPageComponent } from './pages/catalog-solution-detail-page/catalog-solution-detail-page.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,26 @@ export const routes: Routes = [
       {
         path: 'landing-pages-sob-medida',
         component: LandingSolutionPageComponent,
+      },
+      {
+        path: 'agenda-clinicas',
+        component: CatalogSolutionDetailPageComponent,
+        data: { catalogKey: 'clinicas' },
+      },
+      {
+        path: 'site-institucional',
+        component: CatalogSolutionDetailPageComponent,
+        data: { catalogKey: 'site-institucional' },
+      },
+      {
+        path: 'profissionais-autonomos',
+        component: CatalogSolutionDetailPageComponent,
+        data: { catalogKey: 'profissionais-autonomos' },
+      },
+      {
+        path: 'restaurante-gestao',
+        component: CatalogSolutionDetailPageComponent,
+        data: { catalogKey: 'restaurante-gestao' },
       },
     ],
   },
