@@ -2,18 +2,26 @@
   <div class="container featured__inner">
     <div class="featured__content">
       <h2 id="featured-title" class="featured__title">
-        Sites rápidos, modernos e
-        <span class="featured__title-accent">otimizados</span>
+        Soluções rápidas, modernas e
+        <span class="featured__title-accent">personalizadas</span>
       </h2>
       <p class="featured__desc">
-        Performance, SEO técnico e experiência de uso andam juntos. Entregamos páginas leves,
-        acessíveis e preparadas para converter visitas em contatos reais.
+        Controle operacional, padronização e experiência do cliente andam
+        juntos. Entregamos gestão leve, livre de retrabalho e preparada para
+        converter eficiência em faturamento real.
       </p>
+      <p>✅ Gestão em tempo real. ❌ Processos cegos e decisões atrasadas.</p>
+      <p>✅ Redução de retrabalho. ⚠️ Mesmo erro resolvido várias vezes.</p>
+      <p>
+        ✅ Experiência do cliente fluida. ❌ Atendimento confuso e insatisfação.
+      </p>
+      <p>✅ Padronização profissional. ⚠️ Cada funcionário faz de um jeito.</p>
+
       <ul class="featured__list">
         @for (item of highlights; track item.id) {
           <li class="featured__item">
             @switch (item.id) {
-              @case ('bolt') {
+              @case ("bolt") {
                 <span class="featured__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
                     <path
@@ -25,7 +33,7 @@
                   </svg>
                 </span>
               }
-              @case ('mobile') {
+              @case ("mobile") {
                 <span class="featured__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
                     <rect
@@ -37,16 +45,36 @@
                       stroke="currentColor"
                       stroke-width="1.75"
                     />
-                    <path d="M10 18h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                    <path
+                      d="M10 18h4"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
                   </svg>
                 </span>
               }
               @default {
                 <span class="featured__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                    <path d="M4 19V5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
-                    <path d="M4 19h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
-                    <path d="M8 15v-4M12 15V9M16 15v-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                    <path
+                      d="M4 19V5"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M4 19h16"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M8 15v-4M12 15V9M16 15v-6"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
                   </svg>
                 </span>
               }

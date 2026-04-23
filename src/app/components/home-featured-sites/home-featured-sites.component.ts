@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class HomeFeaturedSitesComponent {
   readonly highlights: { id: string; label: string }[] = [
-    { id: 'bolt', label: 'Carregamento ultra-rápido' },
-    { id: 'mobile', label: 'Design adaptável para todas as telas' },
-    { id: 'chart', label: 'Otimizado para resultados' },
+    // { id: 'bolt', label: 'Carregamento ultra-rápido' },
+    // { id: 'mobile', label: 'Design adaptável para todas as telas' },
+    { id: 'chart', label: 'Quem controla o processo, controla o resultado.' },
   ];
 }
