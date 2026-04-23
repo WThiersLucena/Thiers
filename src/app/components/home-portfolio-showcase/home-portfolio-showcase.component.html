@@ -12,8 +12,19 @@
           class="portfolio__tile"
           [attr.data-area]="tile.area"
           [routerLink]="solucoesPath"
-          [attr.aria-label]="'Ver soluções — ' + tile.alt"
+          [attr.aria-label]="
+            'Ver soluções — ' +
+            tile.alt +
+            (tile.badge ? ' — ' + tile.badge : '')
+          "
         >
+          @if (tile.badge) {
+            <span
+              class="pricing-badge"
+              [class.pricing-badge-popular]="tile.badgeVariant !== 'recommended'"
+              [class.pricing-badge-recommended]="tile.badgeVariant === 'recommended'"
+              >{{ tile.badge }}</span>
+          }
           <span class="portfolio__thumb">
             <img
               [src]="tile.src"
@@ -37,8 +48,19 @@
           <a
             class="portfolio__strip-cell"
             [routerLink]="solucoesPath"
-            [attr.aria-label]="'Ver soluções — ' + item.alt"
+            [attr.aria-label]="
+              'Ver soluções — ' +
+              item.alt +
+              (item.badge ? ' — ' + item.badge : '')
+            "
           >
+            @if (item.badge) {
+              <span
+                class="pricing-badge"
+                [class.pricing-badge-popular]="item.badgeVariant !== 'recommended'"
+                [class.pricing-badge-recommended]="item.badgeVariant === 'recommended'"
+                >{{ item.badge }}</span>
+            }
             <span class="portfolio__strip-frame">
               <img
                 [src]="item.src"
@@ -56,8 +78,19 @@
           class="portfolio__tile"
           [attr.data-area]="tile.area"
           [routerLink]="solucoesPath"
-          [attr.aria-label]="'Ver soluções — ' + tile.alt"
+          [attr.aria-label]="
+            'Ver soluções — ' +
+            tile.alt +
+            (tile.badge ? ' — ' + tile.badge : '')
+          "
         >
+          @if (tile.badge) {
+            <span
+              class="pricing-badge"
+              [class.pricing-badge-popular]="tile.badgeVariant !== 'recommended'"
+              [class.pricing-badge-recommended]="tile.badgeVariant === 'recommended'"
+              >{{ tile.badge }}</span>
+          }
           <span class="portfolio__thumb">
             <img
               [src]="tile.src"
