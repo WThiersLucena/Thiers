@@ -26,30 +26,31 @@ export class SolutionsPageComponent {
   readonly alimentacaoPdv: SolutionsCatalogCard[] = [
     {
       badge: 'Mais procurado',
-      title: 'Restaurante e Gestão',
+      title: 'Operações para restaurante, do salão à cozinha.',
       description:
-        'PDV, controle de caixa, estoque e delivery com painel administrativo para escalar seu negócio.',
+        'Controle: Salão, Pedidos, Cozinha, Mesas, Cardapios, Estoque. De forma agil e itegrada. Controle processos, encante seu cliente.',
       ctaLabel: 'Veja na prática',
       imageUrl: 'assets/Restaurante.png',
       ctaRouterLink: '/solucoes/restaurante-gestao',
     },
     {
-      badge: 'Premium',
-      title: 'PDV + cardápio digital',
+      badge: 'Maior comodidade',
+      title: 'Cardápio digital',
       description:
-        'Integração entre cozinha, mesas e cardápio online. Controle de custos e pedidos em um só lugar.',
+        'Cardápio impresso? Desatualizdo? Improvisado? Cardápios digitais , acessiveis na palma da mao do seu cliente, atualizados e modernos. Nao espere o garçon entregar o cardapio, leia nosso Qrcode e faça seu pedido',
       ctaLabel: 'Falar sobre o projeto',
       imageUrl: 'assets/Cardapio.jpg',
     },
+
+    // {
+    //   badge: 'Operação',
+    //   title: 'PDV bares e distribuidoras',
+    //   description:
+    //     'Gestão de estoque, fiado e múltiplas mesas ou comandas com fluxo rápido em horários de pico.',
+    //   ctaLabel: 'Falar sobre o projeto',
+    // },
     {
-      badge: 'Operação',
-      title: 'PDV bares e distribuidoras',
-      description:
-        'Gestão de estoque, fiado e múltiplas mesas ou comandas com fluxo rápido em horários de pico.',
-      ctaLabel: 'Falar sobre o projeto',
-    },
-    {
-      badge: 'SaaS',
+      badge: 'Automatize seu WhatsApp',
       title: 'Cardápio pelo WhatsApp',
       description:
         'Seu cliente monta o pedido no navegador e você recebe organizado para produção e entrega.',
@@ -60,37 +61,37 @@ export class SolutionsPageComponent {
   /** Agendamento online & gestão */
   readonly agendamentoGestao: SolutionsCatalogCard[] = [
     {
-      badge: 'Novo',
-      title: 'Agenda para clínicas',
+      badge: 'Clínicas',
+      title: 'Gestão para clínicas',
       description:
-        'Agenda híbrida, prontuário simplificado, financeiro e portal do paciente em uma base única.',
-      ctaLabel: 'Veja na prática',
+        'Agendamento on-line, Gestao de multiplas agendas, prontuário simplificado, financeiro e portal do paciente em uma base única. Aumente a percepção de valor a seu cliente',
+      ctaLabel: 'Reflita o seu profissionalismo',
       imageUrl: 'assets/Odonto.png',
       ctaRouterLink: '/solucoes/agenda-clinicas',
     },
     {
-      badge: 'Agendamento',
-      title: 'Salão de beleza e estúdio',
+      badge: 'Gestão e Estetica',
+      title: 'Salão de Beleza e Estúdio',
       description:
-        'Transforme a primeira impressão em fidelização: agenda e vitrine integradas para quem quer agenda cheia, menos faltas e clareza financeira sem vender barato por parecer improviso.',
+        'Transforme a primeira impressão em fidelização: agenda e vitrine integradas para quem quer agenda cheia, menos faltas e clareza financeira, sai do improviso.',
       ctaLabel: 'Veja na prática',
       imageUrl: 'assets/Thiers-Beauty-Studio.png',
       ctaRouterLink: '/solucoes/sistema-salao-beleza',
     },
     {
-      badge: 'Beleza',
-      title: 'Profissionais autônomos',
+      badge: 'Profissionais autônomos',
+      title: 'Personal trainer, Nutricionista, Massoterapeuta e etc',
       description:
-        'Agenda, serviços e vitrine com visual profissional para converter visitas em reservas.',
+        'Sua agenda, seus serviços e sua vitrine com padrão de empresa grande. Autônomo com padrão de empresa: mais cliente, menos confusão, zero retrabalho.',
       ctaLabel: 'Veja na prática',
       imageUrl: 'assets/Barbearia.png',
       ctaRouterLink: '/solucoes/profissionais-autonomos',
     },
     {
-      badge: 'Pet care',
-      title: 'Thiers Pet',
+      badge: 'Pet care Promovendo bem-estar',
+      title: 'Especialista em cuidados Pet',
       description:
-        'Para clínicas, pet shops e banho & tosa: fidelize seus clientes e aumente sua agenda de forma eficaz. Valor claro ao seu serviço, sem complicar a operação.',
+        'Para clínicas, pet shops e banho e tosa: fidelize seus clientes e aumente sua agenda de forma eficaz. Valor claro ao seu serviço, sem complicar a operação mais reservas, menos furo, zero retrabalho.',
       ctaLabel: 'Veja na prática',
       imageUrl: 'assets/Thiers-Pet.png',
       ctaRouterLink: '/solucoes/sistema-pet',
@@ -104,16 +105,16 @@ export class SolutionsPageComponent {
       title: 'Landing pages sob medida',
       description:
         'Páginas rápidas e exclusivas para transformar visitantes em contatos e vendas: mensagem direta, marca forte e foco no próximo passo.',
-      ctaLabel: 'Veja na prática',
+      ctaLabel: 'Adiquira o seu',
       imageUrl: 'assets/Landing.png',
       ctaRouterLink: '/solucoes/landing-pages-sob-medida',
     },
     {
-      badge: 'Institucional',
+      badge: 'Institucional/Empresarial',
       title: 'Site + presença digital',
       description:
-        'Identidade online coerente com seu cardápio, portfólio ou catálogo integrado quando fizer sentido.',
-      ctaLabel: 'Veja na prática',
+        'Identidade online coerente com seu perfil, portfólio ou catálogo integrado quando fizer sentido.',
+      ctaLabel: 'Saiba Mais',
       imageUrl: 'assets/avakian.png',
       ctaRouterLink: '/solucoes/site-institucional',
     },

@@ -1,6 +1,9 @@
 import type { CatalogSolutionDetailData } from './catalog-solution-detail.types';
 
-export const CATALOG_SOLUTION_PRESETS: Record<string, CatalogSolutionDetailData> = {
+export const CATALOG_SOLUTION_PRESETS: Record<
+  string,
+  CatalogSolutionDetailData
+> = {
   clinicas: {
     themeModifier: 'catalog-detail--clinic',
     eyebrow: 'Agenda para clínicas e consultórios',
@@ -9,11 +12,18 @@ export const CATALOG_SOLUTION_PRESETS: Record<string, CatalogSolutionDetailData>
     titleLine2: '',
     tagline:
       'Agenda híbrida, prontuário enxuto, portal do paciente e visão de caixa integrada para você parar de remendar planilhas.',
-    lead:
-      'Enquanto a equipe atende, o sistema organiza confirmações, fila de espera e informações essenciais em um só lugar para reduzir faltas, retrabalho e ruído operacional.',
+    lead: 'Enquanto a equipe atende, o sistema organiza confirmações, fila de espera e informações essenciais em um só lugar para reduzir faltas, retrabalho e ruído operacional.',
     strip: [
-      { label: 'Foco em', value: 'confirmações e fila', hint: 'menos mesa vazia e menos stress na recepção' },
-      { label: 'Visão', value: 'financeira clara', hint: 'sem perder o cuidado com o paciente' },
+      {
+        label: 'Foco em',
+        value: 'confirmações e fila',
+        hint: 'menos mesa vazia e menos stress na recepção',
+      },
+      {
+        label: 'Visão',
+        value: 'financeira clara',
+        hint: 'sem perder o cuidado com o paciente',
+      },
     ],
     showcaseImage: 'assets/Odonto.png',
     showcaseAlt:
@@ -57,11 +67,18 @@ export const CATALOG_SOLUTION_PRESETS: Record<string, CatalogSolutionDetailData>
     titleLine2: '',
     tagline:
       'Site institucional coerente com seu posicionamento: hierarquia clara, performance e integração com canais quando fizer sentido.',
-    lead:
-      'Quando alguém pesquisa o seu negócio, o site é a âncora de credibilidade. Entregamos estrutura, conteúdo orientado a resultado e base técnica para evoluir sem refazer tudo a cada campanha.',
+    lead: 'Quando alguém pesquisa o seu negócio, o site é a âncora de credibilidade. Entregamos estrutura, conteúdo orientado a resultado e base técnica para evoluir sem refazer tudo a cada campanha.',
     strip: [
-      { label: 'Foco em', value: 'credibilidade', hint: 'mensagem clara e navegação objetiva' },
-      { label: 'Entrega', value: 'performance', hint: 'carregamento rápido e boas práticas de SEO técnico' },
+      {
+        label: 'Foco em',
+        value: 'credibilidade',
+        hint: 'mensagem clara e navegação objetiva',
+      },
+      {
+        label: 'Entrega',
+        value: 'performance',
+        hint: 'carregamento rápido e boas práticas de SEO técnico',
+      },
     ],
     showcaseImage: 'assets/avakian.png',
     showcaseAlt:
@@ -105,11 +122,18 @@ export const CATALOG_SOLUTION_PRESETS: Record<string, CatalogSolutionDetailData>
     titleLine2: '',
     tagline:
       'Mostre portfólio, organize horários e converta visitas em reservas com um fluxo simples para quem trabalha solo ou em equipe pequena.',
-    lead:
-      'Você não precisa parecer improvisado para ser acessível. Um painel enxuto com agenda, serviços e comunicação clara ajuda a precificar melhor e reduzir faltas.',
+    lead: 'Você não precisa parecer improvisado para ser acessível. Um painel enxuto com agenda, serviços e comunicação clara ajuda a precificar melhor e reduzir faltas.',
     strip: [
-      { label: 'Para quem', value: 'quer agenda cheia', hint: 'com menos troca de mensagem repetida' },
-      { label: 'Resultado', value: 'imagem profissional', hint: 'sem complicar o dia a dia' },
+      {
+        label: 'Para quem',
+        value: 'quer agenda cheia',
+        hint: 'com menos troca de mensagem repetida',
+      },
+      {
+        label: 'Resultado',
+        value: 'imagem profissional',
+        hint: 'sem complicar o dia a dia',
+      },
     ],
     showcaseImage: 'assets/Barbearia.png',
     showcaseAlt:
@@ -153,11 +177,18 @@ export const CATALOG_SOLUTION_PRESETS: Record<string, CatalogSolutionDetailData>
     titleLine2: '',
     tagline:
       'PDV, controle de caixa, estoque e delivery com painel administrativo para escalar sem perder o controle do rush.',
-    lead:
-      'Horário de pico pede velocidade e clareza. Centralize pedidos, mesas e produção para reduzir erro, desperdício e estresse na equipe.',
+    lead: 'Horário de pico pede velocidade e clareza. Centralize pedidos, mesas e produção para reduzir erro, desperdício e estresse na equipe.',
     strip: [
-      { label: 'Foco em', value: 'fluxo no rush', hint: 'comandas e cozinha alinhadas' },
-      { label: 'Gestão', value: 'estoque e custo', hint: 'para saber onde está o dinheiro' },
+      {
+        label: 'Foco em',
+        value: 'fluxo no rush',
+        hint: 'comandas e cozinha alinhadas',
+      },
+      {
+        label: 'Gestão',
+        value: 'estoque e custo',
+        hint: 'para saber onde está o dinheiro',
+      },
     ],
     showcaseImage: 'assets/Restaurante.png',
     showcaseAlt:

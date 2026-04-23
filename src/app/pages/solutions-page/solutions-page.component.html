@@ -4,16 +4,22 @@
   <section class="solutions-hero">
     <div class="solutions-page__container">
       <p class="solutions-hero__eyebrow">Soluções</p>
-      <h1 class="solutions-hero__title">Soluções feitas sob medida para o seu negócio</h1>
+      <h1 class="solutions-hero__title">
+        Soluções feitas sob medida para o seu negócio
+      </h1>
       <div class="solutions-hero__body">
         <p>
-          Hoje, clientes querem agilidade, qualidade e velocidade. Um site profissional, um cardápio
-          digital, respostas rápidas no WhatsApp… Isso já não é diferencial. É o mínimo que eles
-          esperam.
+          Hoje, clientes querem agilidade, qualidade e velocidade. Um site
+          profissional, um cardápio digital, respostas rápidas no WhatsApp… Isso
+          já não é diferencial. É o mínimo que eles esperam.
         </p>
-        <p class="solutions-hero__question"><strong>E você?</strong> Está pronto para entregar esse mínimo… e ir além?</p>
+        <p class="solutions-hero__question">
+          <strong>E você?</strong> Está pronto para entregar esse mínimo… e ir
+          além?
+        </p>
         <p>
-          Nossas soluções foram criadas para encaixar perfeitamente na sua rotina. Elas ajudam você a:
+          Nossas soluções foram criadas para encaixar perfeitamente na sua
+          rotina. Elas ajudam você a:
         </p>
         <ul class="solutions-hero__bullets">
           <li>✅ Satisfazer seus clientes com experiências fluidas</li>
@@ -22,24 +28,32 @@
           <li>✅ Acabar com microgestões desnecessárias</li>
         </ul>
         <p class="solutions-hero__closing">
-          E o melhor: não temos surpresas no orçamento ou no prazo. Cada projeto é alinhado com
-          transparência, cronograma e investimento. Somos facilitadores.
+          E o melhor: não temos surpresas no orçamento ou no prazo. Cada projeto
+          é alinhado com transparência, cronograma e investimento. Somos
+          facilitadores.
         </p>
       </div>
-      <a routerLink="/" fragment="contato" class="solutions-hero__cta">Ir para contato na home</a>
+      <!-- <a routerLink="/" fragment="contato" class="solutions-hero__cta">Ir para contato na home</a> -->
     </div>
   </section>
 
   <div class="solutions-page__container solutions-page__sections">
     <!-- Alimentação & PDV -->
     <section class="solutions-section" aria-labelledby="sec-alimentacao">
-      <h2 id="sec-alimentacao" class="solutions-section__title">Alimentação &amp; PDV</h2>
-      <p class="solutions-section__intro">
-        PDV, cardápio digital e operação integrada para quem vende comida, bebida e delivery.
+      <h2 id="sec-alimentacao" class="solutions-section__title">
+        Alimentação &amp; PDV
+      </h2>
+
+      <!-- <p class="solutions-section__intro">
+        Operação de restaurante, do salão à cozinha.
       </p>
+       -->
       <div class="solutions-grid">
         @for (card of alimentacaoPdv; track card.title) {
-          <article class="solution-card" [class.solution-card--has-thumb]="!!card.imageUrl">
+          <article
+            class="solution-card"
+            [class.solution-card--has-thumb]="!!card.imageUrl"
+          >
             @if (card.imageUrl) {
               <div class="solution-card__thumb">
                 <img
@@ -58,9 +72,18 @@
               <h3 class="solution-card__title">{{ card.title }}</h3>
               <p class="solution-card__desc">{{ card.description }}</p>
               @if (card.ctaRouterLink) {
-                <a [routerLink]="card.ctaRouterLink" class="solution-card__cta">{{ card.ctaLabel }}</a>
+                <a
+                  [routerLink]="card.ctaRouterLink"
+                  class="solution-card__cta"
+                  >{{ card.ctaLabel }}</a
+                >
               } @else {
-                <a routerLink="/" fragment="contato" class="solution-card__cta">{{ card.ctaLabel }}</a>
+                <a
+                  routerLink="/"
+                  fragment="contato"
+                  class="solution-card__cta"
+                  >{{ card.ctaLabel }}</a
+                >
               }
             </div>
           </article>
@@ -70,13 +93,20 @@
 
     <!-- Agendamento & Gestão -->
     <section class="solutions-section" aria-labelledby="sec-agendamento">
-      <h2 id="sec-agendamento" class="solutions-section__title">Agendamento online &amp; gestão</h2>
+      <h2 id="sec-agendamento" class="solutions-section__title">
+        Agendamento online e Gestão
+      </h2>
       <p class="solutions-section__intro">
-        Agendas, financeiro e portais para serviços que precisam organizar tempo, equipe e cliente.
+        Como seu cliente agenda serviços com você? Como sua empresa faz a gestão
+        de agenda ?
       </p>
+
       <div class="solutions-grid">
         @for (card of agendamentoGestao; track card.title) {
-          <article class="solution-card" [class.solution-card--has-thumb]="!!card.imageUrl">
+          <article
+            class="solution-card"
+            [class.solution-card--has-thumb]="!!card.imageUrl"
+          >
             @if (card.imageUrl) {
               <div class="solution-card__thumb">
                 <img
@@ -95,9 +125,18 @@
               <h3 class="solution-card__title">{{ card.title }}</h3>
               <p class="solution-card__desc">{{ card.description }}</p>
               @if (card.ctaRouterLink) {
-                <a [routerLink]="card.ctaRouterLink" class="solution-card__cta">{{ card.ctaLabel }}</a>
+                <a
+                  [routerLink]="card.ctaRouterLink"
+                  class="solution-card__cta"
+                  >{{ card.ctaLabel }}</a
+                >
               } @else {
-                <a routerLink="/" fragment="contato" class="solution-card__cta">{{ card.ctaLabel }}</a>
+                <a
+                  routerLink="/"
+                  fragment="contato"
+                  class="solution-card__cta"
+                  >{{ card.ctaLabel }}</a
+                >
               }
             </div>
           </article>
@@ -107,13 +146,19 @@
 
     <!-- Sites & Landing -->
     <section class="solutions-section" aria-labelledby="sec-sites">
-      <h2 id="sec-sites" class="solutions-section__title">Sites &amp; landing pages</h2>
+      <h2 id="sec-sites" class="solutions-section__title">
+        Site (Institucional/Empresarial) e Landing Page
+      </h2>
       <p class="solutions-section__intro">
-        Presença na web rápida e focada em conversão, alinhada à sua marca e ao seu funil de vendas.
+        Presença na web rápida e focada em conversão, alinhada à sua marca e ao
+        seu funil de vendas.
       </p>
       <div class="solutions-grid solutions-grid--two">
         @for (card of sitesLanding; track card.title) {
-          <article class="solution-card" [class.solution-card--has-thumb]="!!card.imageUrl">
+          <article
+            class="solution-card"
+            [class.solution-card--has-thumb]="!!card.imageUrl"
+          >
             @if (card.imageUrl) {
               <div class="solution-card__thumb">
                 <img
@@ -132,9 +177,18 @@
               <h3 class="solution-card__title">{{ card.title }}</h3>
               <p class="solution-card__desc">{{ card.description }}</p>
               @if (card.ctaRouterLink) {
-                <a [routerLink]="card.ctaRouterLink" class="solution-card__cta">{{ card.ctaLabel }}</a>
+                <a
+                  [routerLink]="card.ctaRouterLink"
+                  class="solution-card__cta"
+                  >{{ card.ctaLabel }}</a
+                >
               } @else {
-                <a routerLink="/" fragment="contato" class="solution-card__cta">{{ card.ctaLabel }}</a>
+                <a
+                  routerLink="/"
+                  fragment="contato"
+                  class="solution-card__cta"
+                  >{{ card.ctaLabel }}</a
+                >
               }
             </div>
           </article>

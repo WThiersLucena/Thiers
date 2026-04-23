@@ -9,10 +9,10 @@ import { CommonModule } from '@angular/common';
 })
 export class AboutComponent {
   stats = [
-    { value: '+100', label: 'Colaboradores' },
-    { value: '+20', label: 'Clientes Ativos' },
-    { value: '+75', label: 'Projetos' },
-    { value: '+5', label: 'Anos no Mercado' },
-    { value: '+10620', label: 'Horas Trabalhadas' },
+    { value: '+20', label: 'Colaboradores' },
+    { value: '+11', label: 'Clientes Ativos' },
+    { value: '+23', label: 'Projetos' },
+    { value: '+6', label: 'Anos no Mercado' },
+    { value: '+9500', label: 'Horas Trabalhadas' },
   ];
 }
