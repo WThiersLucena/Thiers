@@ -191,6 +191,12 @@ export const CATALOG_SOLUTION_PRESETS: Record<
       },
     ],
     showcaseImage: 'assets/Restaurante.png',
+    showcaseSequence: {
+      introVideoSrc: 'assets/videos/restaurante-baguncado.mp4',
+      imageAfterIntroMs: 2000,
+      transitionVideoSrc: 'assets/videos/restaurante-gestao.mp4',
+      imageAfterTransitionMs: 5000,
+    },
     showcaseAlt:
       'Referência visual de solução para restaurante: operação, cardápio e gestão integrados.',
     valueTitle: 'Escala com disciplina, não com caos',

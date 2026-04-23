@@ -60,13 +60,70 @@
     <section class="salon-section" aria-labelledby="catalog-value-title">
       <div class="salon-page__container">
         <figure class="salon-section__figure">
-          <img
-            [src]="data.showcaseImage"
-            width="1600"
-            height="900"
-            loading="lazy"
-            [alt]="data.showcaseAlt"
-          />
+          @if (data.showcaseSequence; as seq) {
+            @switch (showcasePhase()) {
+              @case ('v1') {
+                <video
+                  class="catalog-showcase__media"
+                  [src]="seq.introVideoSrc"
+                  width="1600"
+                  height="900"
+                  muted
+                  defaultMuted
+                  playsinline
+                  autoplay
+                  preload="auto"
+                  (loadedmetadata)="applySilentPlayback($event)"
+                  (canplay)="applySilentPlayback($event)"
+                  (play)="applySilentPlayback($event)"
+                  (ended)="onIntroVideoEnded()"
+                ></video>
+              }
+              @case ('img1') {
+                <img
+                  class="catalog-showcase__media"
+                  [src]="data.showcaseImage"
+                  width="1600"
+                  height="900"
+                  [alt]="data.showcaseAlt"
+                />
+              }
+              @case ('v2') {
+                <video
+                  class="catalog-showcase__media"
+                  [src]="seq.transitionVideoSrc"
+                  width="1600"
+                  height="900"
+                  muted
+                  defaultMuted
+                  playsinline
+                  autoplay
+                  preload="auto"
+                  (loadedmetadata)="applySilentPlayback($event)"
+                  (canplay)="applySilentPlayback($event)"
+                  (play)="applySilentPlayback($event)"
+                  (ended)="onTransitionVideoEnded()"
+                ></video>
+              }
+              @case ('img2') {
+                <img
+                  class="catalog-showcase__media"
+                  [src]="data.showcaseImage"
+                  width="1600"
+                  height="900"
+                  [alt]="data.showcaseAlt"
+                />
+              }
+            }
+          } @else {
+            <img
+              [src]="data.showcaseImage"
+              width="1600"
+              height="900"
+              loading="lazy"
+              [alt]="data.showcaseAlt"
+            />
+          }
         </figure>
         <div class="salon-section__narrow">
           <h2 id="catalog-value-title" class="salon-section__title">{{ data.valueTitle }}</h2>

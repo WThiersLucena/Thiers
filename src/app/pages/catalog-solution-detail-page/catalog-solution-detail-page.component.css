@@ -38,3 +38,11 @@
 .catalog-detail-page.catalog-detail--restaurant .salon-hero__accent {
   color: #ea580c;
 }
+
+/* Vídeo no showcase: mesmo encaixe visual do mockup em imagem */
+.catalog-detail-page .salon-section__figure .catalog-showcase__media {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+}
