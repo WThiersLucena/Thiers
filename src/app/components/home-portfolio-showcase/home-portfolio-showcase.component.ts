@@ -19,6 +19,17 @@ interface StripItem {
   badgeVariant?: 'popular' | 'recommended';
 }
 
+/** Um slide do carrossel mobile (dados derivados de `topTiles`, `stripItems`, `rightTiles`). */
+interface MobileCarouselSlide {
+  id: string;
+  src: string;
+  alt: string;
+  badge?: string;
+  badgeVariant?: 'popular' | 'recommended';
+  objectPosition?: string;
+  imageFit: 'cover' | 'contain';
+}
+
 /** Grade de portfólio na home — cada item leva à página Soluções. */
 @Component({
   selector: 'app-home-portfolio-showcase',
@@ -83,4 +94,38 @@ export class HomePortfolioShowcaseComponent {
       badgeVariant: 'popular',
     },
   ];
+
+  /** Slides do carrossel mobile (mesma ordem e conteúdo da grade desktop). */
+  readonly mobileCarouselSlides: MobileCarouselSlide[];
+
+  constructor() {
+    this.mobileCarouselSlides = [
+      ...this.topTiles.map((t) => ({
+        id: `top-${t.area}`,
+        src: t.src,
+        alt: t.alt,
+        badge: t.badge,
+        badgeVariant: t.badgeVariant,
+        objectPosition: t.objectPosition,
+        imageFit: 'cover' as const,
+      })),
+      ...this.stripItems.map((s, i) => ({
+        id: `strip-${i}-${s.src}`,
+        src: s.src,
+        alt: s.alt,
+        badge: s.badge,
+        badgeVariant: s.badgeVariant,
+        imageFit: 'contain' as const,
+      })),
+      ...this.rightTiles.map((t) => ({
+        id: `right-${t.area}`,
+        src: t.src,
+        alt: t.alt,
+        badge: t.badge,
+        badgeVariant: t.badgeVariant,
+        objectPosition: t.objectPosition,
+        imageFit: 'cover' as const,
+      })),
+    ];
+  }
 }

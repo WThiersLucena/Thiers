@@ -6,7 +6,55 @@
         Confira algumas de nossas soluções, para diversos segmentos.
       </h2>
     </header>
-    <div class="portfolio__grid">
+
+    <!-- Mobile: carrossel horizontal com scroll-snap -->
+    <div
+      class="portfolio__carousel"
+      role="region"
+      aria-roledescription="carrossel"
+      aria-labelledby="portfolio-heading"
+      aria-describedby="portfolio-carousel-hint"
+    >
+      <p id="portfolio-carousel-hint" class="portfolio__carousel-hint">
+        Deslize para o lado para ver mais projetos.
+      </p>
+      <div class="portfolio__carousel-track">
+        @for (slide of mobileCarouselSlides; track slide.id) {
+          <a
+            class="portfolio__carousel-slide"
+            [class.portfolio__carousel-slide--contain]="slide.imageFit === 'contain'"
+            [routerLink]="solucoesPath"
+            [attr.aria-label]="
+              'Ver soluções — ' +
+              slide.alt +
+              (slide.badge ? ' — ' + slide.badge : '')
+            "
+          >
+            @if (slide.badge) {
+              <span class="portfolio__badge" aria-hidden="true">
+                <span
+                  class="pricing-badge"
+                  [class.pricing-badge-popular]="slide.badgeVariant !== 'recommended'"
+                  [class.pricing-badge-recommended]="slide.badgeVariant === 'recommended'"
+                  >{{ slide.badge }}</span>
+              </span>
+            }
+            <span class="portfolio__thumb portfolio__thumb--carousel">
+              <img
+                [src]="slide.src"
+                [alt]="slide.alt"
+                [style.object-fit]="slide.imageFit"
+                [style.object-position]="slide.objectPosition ?? 'center center'"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="portfolio__grid portfolio__grid--desktop">
       @for (tile of topTiles; track tile.src) {
         <a
           class="portfolio__tile"
@@ -19,11 +67,13 @@
           "
         >
           @if (tile.badge) {
-            <span
-              class="pricing-badge"
-              [class.pricing-badge-popular]="tile.badgeVariant !== 'recommended'"
-              [class.pricing-badge-recommended]="tile.badgeVariant === 'recommended'"
-              >{{ tile.badge }}</span>
+            <span class="portfolio__badge" aria-hidden="true">
+              <span
+                class="pricing-badge"
+                [class.pricing-badge-popular]="tile.badgeVariant !== 'recommended'"
+                [class.pricing-badge-recommended]="tile.badgeVariant === 'recommended'"
+                >{{ tile.badge }}</span>
+            </span>
           }
           <span class="portfolio__thumb">
             <img
@@ -55,11 +105,13 @@
             "
           >
             @if (item.badge) {
-              <span
-                class="pricing-badge"
-                [class.pricing-badge-popular]="item.badgeVariant !== 'recommended'"
-                [class.pricing-badge-recommended]="item.badgeVariant === 'recommended'"
-                >{{ item.badge }}</span>
+              <span class="portfolio__badge" aria-hidden="true">
+                <span
+                  class="pricing-badge"
+                  [class.pricing-badge-popular]="item.badgeVariant !== 'recommended'"
+                  [class.pricing-badge-recommended]="item.badgeVariant === 'recommended'"
+                  >{{ item.badge }}</span>
+              </span>
             }
             <span class="portfolio__strip-frame">
               <img
@@ -85,11 +137,13 @@
           "
         >
           @if (tile.badge) {
-            <span
-              class="pricing-badge"
-              [class.pricing-badge-popular]="tile.badgeVariant !== 'recommended'"
-              [class.pricing-badge-recommended]="tile.badgeVariant === 'recommended'"
-              >{{ tile.badge }}</span>
+            <span class="portfolio__badge" aria-hidden="true">
+              <span
+                class="pricing-badge"
+                [class.pricing-badge-popular]="tile.badgeVariant !== 'recommended'"
+                [class.pricing-badge-recommended]="tile.badgeVariant === 'recommended'"
+                >{{ tile.badge }}</span>
+            </span>
           }
           <span class="portfolio__thumb">
             <img
